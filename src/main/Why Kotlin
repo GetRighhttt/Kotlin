@@ -1,0 +1,18 @@
+1. Kotlin has complete null safety:
+    a. Kotlin code won't compile if you want to access a method on a null object.
+    b. Java usually has a ton of null pointer exception errors;
+    c. Kotlin fixes this issue by allowing the ability for object to be declared
+    as nullable;
+    d. You prevent a ton of crashes by switching over to Kotlin.
+
+2. Kotlin has the safe libraries as Java, so you can use the same methods in Kotlin
+that you used in Java.
+
+3. Kotlin has Coroutines, which aren't available for Java.
+    a. Coroutines are lightweight threads that make it easy to delay or suspend your code,
+    and improve your application performance.
+
+4. Kotlin requires less code than Java.
+
+5. Kotlin has data and sealed classes whereas Java does not, which makes it easier for
+us to handle data.
