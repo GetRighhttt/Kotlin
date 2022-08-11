@@ -1,4 +1,4 @@
-package Basics
+package basics
 
 /*
 Each Kotlin file must have a main function just like in Java.
