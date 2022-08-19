@@ -48,4 +48,7 @@ fun main(args: Array<String>) {
         { a -> a.isUpperCase() } // if the character is uppercase
         .collect(Collectors.toList()))
 
+    println("This is also how we can reverse a string with interpolation" +
+            " ${thisIsAString.reversed()}")
+
 }
