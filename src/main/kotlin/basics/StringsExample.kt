@@ -37,11 +37,15 @@ fun main(args: Array<String>) {
     // uppercase characters
     println(thisIsAString.uppercase())
 
-    // converts to a list, calls stream interface from Java, and filters the list
-    // based on if it is Uppercase, then sets the result to a list
+    /*
+    This is an example of chaining methods:
+
+    convert the string to a list of characters, and
+    if the character is uppercase, then we return print it in a list.
+     */
     println(thisIsAString.toList()
         .stream().filter
-        { a -> a.isUpperCase() }
+        { a -> a.isUpperCase() } // if the character is uppercase
         .collect(Collectors.toList()))
 
 }
