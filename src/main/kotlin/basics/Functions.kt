@@ -11,6 +11,13 @@ fun main(args: Array<String>) {
     one function is not good practice.
      */
 
+    // printline function
+    println(printThisLine())
+
+
+    // calculations function
+    println(doSomeCalculations(10, 20))
+
     // here is how we can call a function in main with a minus method on the end
     println(addDigits(5, 8).minus(5)) // returns 5
     println(addDigits(10, 4).plus(20)) // returns 24
@@ -21,4 +28,15 @@ fun main(args: Array<String>) {
 // here we create our first function that returns an integer
 fun addDigits(x: Int, y: Int) : Int {
     return if(x > y) y else x * 2
+}
+
+// this is a function without any parameters or return type
+fun printThisLine() {
+    println("This is the most basic function ever.")
+}
+
+// this is a function that takes in two parameters for calculations
+fun doSomeCalculations(y: Int, x: Int) {
+    val addition = x + y
+    println(addition)
 }
