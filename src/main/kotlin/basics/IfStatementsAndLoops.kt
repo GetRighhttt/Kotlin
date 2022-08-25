@@ -23,7 +23,15 @@ fun main(args: Array<String>) {
         println("This is not true.")
     }
 
+    /*
+    We can also assign values to if statements as well
+     */
+    val z = if(x <= y) 3 else 4
+
     val newAnswer = if (y == 10) println(y) else println(y + 1)
+
+    println(newAnswer)
+    println(z)
 
     // for loop
     var count = 0
