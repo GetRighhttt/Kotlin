@@ -5,6 +5,8 @@ fun main(args: Array<String>) {
     Arrays are a data structure that serves as a container for elements that
     have the same type.
 
+    Fixed size, random access, direct memory allocation,
+
     In Kotlin, we can declare arrays a number of ways:
      */
     val thisArray = intArrayOf(2, 3, 4, 5)
@@ -29,6 +31,15 @@ fun main(args: Array<String>) {
     println(thisArray.toString())
     println(newArray.toString())
     println(myArray.toString())
+
+    /*
+    Here we are going to loop through the array to find the largest number
+     */
+    var max = thisArray[0]
+    for(i in thisArray) {
+        if(i > max) max = i
+    }
+    println(max.toFloat()) // converted to a float number = 5.0
 
     /**
      * Output:
