@@ -6,7 +6,8 @@ package advanced.sealedenum
  * Enums only support constant values while sealed classes can support values
  * that can change in the future. Constants cannot change.
  *
- * Sealed classes are more flexible than enum classes but are still restricted.
+ * Sealed classes are more flexible than enum classes but are still restricted,
+ * and cannot be instantiated.
  *
  * Subclasses should be defined in the same file.
  *
