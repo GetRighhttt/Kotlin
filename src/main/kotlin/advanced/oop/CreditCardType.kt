@@ -16,7 +16,7 @@ import advanced.oop.Sports.*
  *
  * We can assign our own properties using a constructor.
  */
-enum class CreditCardType {
+enum class CreditCardTypeEnumExample {
     // enum constants have ordinal index
 
     SILVER, // ordinal = 0, and they also have a name property
