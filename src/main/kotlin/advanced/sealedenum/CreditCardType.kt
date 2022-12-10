@@ -1,6 +1,6 @@
-package advanced.oop
+package advanced.sealedenum
 
-import advanced.oop.Sports.*
+import advanced.sealedenum.Sports.*
 
 /**
  * Enums are essentially a collection of constants, or enum values.
