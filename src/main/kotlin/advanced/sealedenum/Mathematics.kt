@@ -9,6 +9,8 @@ package advanced.sealedenum
  * Sealed classes are more flexible than enum classes but are still restricted,
  * and cannot be instantiated.
  *
+ * By default, sealed class constructors are private also.
+ *
  * Subclasses should be defined in the same file.
  *
  * We can support classes & data classes in sealed classes and declare variables
