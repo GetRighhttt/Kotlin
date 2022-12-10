@@ -11,6 +11,10 @@ import advanced.oop.Sports.*
  * classes or sealed classes.
  *
  * We usually use enum values with a when statement to manipulate output.
+ *
+ * Enums cannot inherit from abstract or open classes.
+ *
+ * We can assign our own properties using a constructor.
  */
 enum class CreditCardType {
     // enum constants have ordinal index
