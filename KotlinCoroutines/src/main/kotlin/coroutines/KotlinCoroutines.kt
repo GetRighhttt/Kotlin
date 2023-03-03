@@ -12,14 +12,14 @@ import kotlin.concurrent.thread
  * This is crucial as it prevents application not responding errors in Android.
  */
 @OptIn(DelicateCoroutinesApi::class)
-fun main() {
+fun main() { // executes in main thread
 
     println("Starting on the main thread: ${Thread.currentThread().name}")
 
     /**
      * Declaring a background thread without coroutines...
      */
-    thread {
+    thread {  // executes on background/worker thread
 
         /**
          * Demonstrating how background threads work.
