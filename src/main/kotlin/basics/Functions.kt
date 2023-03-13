@@ -22,8 +22,15 @@ fun main(args: Array<String>) {
     println(addDigits(5, 8).minus(5)) // returns 5
     println(addDigits(10, 4).plus(20)) // returns 24
     println(addDigits(80, 200).compareTo(180)) // returns -1 for false
-    println(addDigits(30, 40)) // returns 40
+    println(addDigits(30, 40)) // returns 60
 }
+
+/*
+In Kotlin, we can use functions without have to explicitly put them in a class like we do in
+Java.
+
+So these methods below you will see can be called in the main function.
+ */
 
 // here we create our first function that returns an integer
 fun addDigits(x: Int, y: Int) : Int {

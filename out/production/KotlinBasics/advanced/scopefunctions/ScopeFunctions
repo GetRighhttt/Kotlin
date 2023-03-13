@@ -6,8 +6,8 @@ There are only two ways to distinguish between the two:
 2. The return value is either - the context object, or the lambda result.
 
 'with' - this, lambda result
-'let' -
-'run' -
+'let' - it, lambda result
+'run' - this, lambda result
 'apply' - this, context object
 'also' - it, context object
 
