@@ -1,0 +1,12 @@
+Kotlin DataStructures
+
+By default, all of the data structures in Kotlin are immutable, meaning they cannot be changed or modified.
+In order for use to be able to modify an existing data structure, we have to declare a data structure as
+"mutable". Example:
+
+val newData = mutableListOf()
+
+There are also alternative datastructures built in to the Kotlin language that are able to be explored, however
+we do not discuss them here. Just the most basic ones that we commonly see.
+
+The exception to this mutability rule are arrays, which we can change and modify at runtime as we please.

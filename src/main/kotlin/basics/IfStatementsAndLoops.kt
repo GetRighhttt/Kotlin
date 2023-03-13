@@ -60,4 +60,17 @@ fun main(args: Array<String>) {
         else -> println("Above 20.")
     }
 
+    /*
+    In Kotlin, "if" is an expression, meaning it returns a value.
+    So in more complex cases and when working with more professional code bases, often
+    if we be used with short syntax.
+
+    We don't need to declare a specific variable or use much syntax to provide a value here.
+
+    Single-line functions and statements in Kotlin are cool but we should use them with caution, as
+    it can become very confusing.
+     */
+
+    fun getName(x: Boolean): String = if (x) "Stefan" else "Bob"
+    println(getName(true)) // prints Stefan
 }
