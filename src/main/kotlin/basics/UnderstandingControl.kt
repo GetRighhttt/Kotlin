@@ -33,11 +33,16 @@ fun main(args: Array<String>) {
     println(newAnswer)
     println(z)
 
-    // for loop
+    // for loop - usually used with the range operator in Kotln.
     var count = 0
-    for (i in 0..10) {
-        println(count++)
-    }
+    for (i in 0..3) println(count++) // inclusive of all numbers in range
+
+
+    for (i in 0 until 5) println(i) // excludes last number
+
+    // for-each loop - usually used when you want to loop through each element
+    for (letter in "Stefan") println(letter.toString().uppercase())
+
 
     // while loop
     while (count < x) {
