@@ -27,5 +27,8 @@ command line tools, however in Kotlin, those are optional.
 8. Kotlin doesn't have a need for static modifiers and methods in order to indicate that that property can
 be accessed outside of the class. However, in Kotlin, that isn't necessary.
 
-9. Lastly, Kotlin doesn't have a need for semicolon in order to finish code. It is a pragmatic language,
+9. Kotlin has type inference and is type safe, meaning that the compiler will decide which type of value you
+are working with and it doesn't always have to be explicitly stated.
+
+10. Lastly, Kotlin doesn't have a need for semicolon in order to finish code. It is a pragmatic language,
 which emphasizes making things easy to achieve. The compiler decides where semicolons are needed.
