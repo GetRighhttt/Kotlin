@@ -11,6 +11,9 @@ fun main(args: Array<String>) {
     one function is not good practice.
      */
 
+    // gets the name
+    println(getName("Stefan"))
+
     // printline function
     println(printThisLine())
 
@@ -47,3 +50,6 @@ fun doSomeCalculations(y: Int, x: Int) {
     val addition = x + y
     println(addition)
 }
+
+// if a function is short and doesn't have a return type, we can omit the curly brackets
+fun getName(name: String) = "My name is: $name"

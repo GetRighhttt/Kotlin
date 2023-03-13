@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     It prints their memory locations.
 
     The println method doesn't allow us to print array elements without iterating
-    through the elements, typica/ly in a for loop.
+    through the elements, typically in a for loop.
      */
     println(thisArray.toString())
     println(newArray.toString())

@@ -1,6 +1,5 @@
 package advanced
 
-import java.util.Scanner
 import java.util.stream.Collectors
 
 fun main(args: Array<String>) {
