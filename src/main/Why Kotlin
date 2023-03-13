@@ -16,3 +16,16 @@ that you used in Java.
 
 5. Kotlin has data and sealed classes whereas Java does not, which makes it easier for
 us to handle data.
+
+6. In Kotlin, usually when working with the start fo a program, we have to put our "main()", method
+in a class, similar to how we have to do with Java. Kotlin however, has the concept of package-level functions:
+If your function doesn't need to access properties of a class, it doesn't need to be wrapped in a class.
+
+7. In Java, we have to pass in String []args in our parameter for our main method in order to configure
+command line tools, however in Kotlin, those are optional.
+
+8. Kotlin doesn't have a need for static modifiers and methods in order to indicate that that property can
+be accessed outside of the class. However, in Kotlin, that isn't necessary.
+
+9. Lastly, Kotlin doesn't have a need for semicolon in order to finish code. It is a pragmatic language,
+which emphasizes making things easy to achieve. The compiler decides where semicolons are needed.
