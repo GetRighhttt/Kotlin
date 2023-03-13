@@ -30,9 +30,11 @@ in the Kotlin language that is built in.
 
      // here is how we access values in a map
      println("Looks like the GOAT of basketball is: ${basketballGOATPyramid[1]}.") // prints MJ
+     println(6 in basketballGOATPyramid) // prints false
 
      /*
      Looks like the GOAT of basketball is: Michael Jordan.
+     false
       */
 
  }
