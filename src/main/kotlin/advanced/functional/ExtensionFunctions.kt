@@ -3,7 +3,8 @@ package advanced
 fun main(args: Array<String>) {
     /*
     In Kotlin, we have the capability to extend functions when we want to apply
-    a built-in function to a variable.
+    a built-in function to a variable, or if we want to extend the functionality of a
+    class that is defined as Final.
 
     This is a unique feature that Kotlin has allowed us to use.
      */
@@ -17,10 +18,17 @@ fun main(args: Array<String>) {
             println("is a prime number") else println("not prime")
     }
 
+
+    println("Please enter a name:")
+    val newName = readLine()
+    println(newName?.isNice())
+    println(newName?.hideName())
 }
 
 /*
-This is how we can use an extension function to check and see if a number is Prime
+This is how we can use an extension function to check and see if a number is Prime.
+
+We do this by prefixing the function with the name of the class that we would like to extend.
  */
 fun Int.isPrime(): Boolean {
     for (i in 2 until this - 1) {
@@ -28,3 +36,23 @@ fun Int.isPrime(): Boolean {
     }
     return true
 }
+
+/*
+Another example of an extension function that extends the String class.
+ */
+fun String.isNice(): Boolean {
+    this.length > 4
+    return true
+}
+
+fun String.hideName() = "*".repeat(this.length)
+
+/*
+Please enter a number:
+40
+is a prime number
+Please enter a name:
+Stefan
+true
+******
+ */
