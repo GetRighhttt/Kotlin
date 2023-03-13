@@ -61,6 +61,21 @@ fun main(args: Array<String>) {
     }
 
     /*
+    When statements are also very powerful and can be used with enums, functions, etc. to
+    return some values.
+
+    When trying to choose between if and when, you generally want to use when statements when you
+    are working with more than two values.
+     */
+    fun getNewNumber(x: Int) = when (x) {
+        2 -> println("Dos")
+        3 -> println("Tres")
+        4 -> println("Quatro")
+        else -> println("Not in the range of 2-4...")
+    }
+    println(getNewNumber(5)) // prints Not in the range of 2-4...
+
+    /*
     In Kotlin, "if" is an expression, meaning it returns a value.
     So in more complex cases and when working with more professional code bases, often
     if we be used with short syntax.
@@ -71,6 +86,6 @@ fun main(args: Array<String>) {
     it can become very confusing.
      */
 
-    fun getName(x: Boolean): String = if (x) "Stefan" else "Bob"
+    fun getName(a: Boolean): String = if (a) "Stefan" else "Bob"
     println(getName(true)) // prints Stefan
 }
