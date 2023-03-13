@@ -20,12 +20,19 @@ in the Kotlin language that is built in.
 
      println(basketballGOATPyramid.values) // prints the values to a list
      println(basketballGOATPyramid.keys) // prints the ids or keys to a list
-     println(basketballGOATPyramid) // in a set
+     println(basketballGOATPyramid) // in a map
 
      /*
      [Michael Jordan, Kobe, Hakeem Olajuwon, Kareem Abdul-Jabbar, Magic Johnson]
      [1, 2, 3, 4, 5]
      {1=Michael Jordan, 2=Kobe, 3=Hakeem Olajuwon, 4=Kareem Abdul-Jabbar, 5=Magic Johnson}
+      */
+
+     // here is how we access values in a map
+     println("Looks like the GOAT of basketball is: ${basketballGOATPyramid[1]}.") // prints MJ
+
+     /*
+     Looks like the GOAT of basketball is: Michael Jordan.
       */
 
  }
