@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
     val exampleLambdaAddition = generateAddition()
     println(exampleLambdaAddition(5)) // 6
     /*
-    Higher order functions are functions that take one or more functions as arguments
+    Higher order functions are functions that take one or more functions as arguments and return a function
      */
     var newList = (1..10).sorted().toList()
     println("Here is the regular list: ")
