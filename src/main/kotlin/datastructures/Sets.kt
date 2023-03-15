@@ -18,4 +18,13 @@ fun main() {
 
     println("Suns" in basketballChamps) // false
     println("Bulls" in basketballChamps) // true
+
+    for (element in basketballChamps) println(element) // prints in sequence
+
+    /*
+    Difference: Sequence not guaranteed.
+     */
+    val hashSetExample = hashSetOf<Int>(3, 4, 6, 1, 10, 2, 6)
+    for (element in hashSetExample) println(element) // prints out of sequence
+
 }
