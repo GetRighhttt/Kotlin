@@ -37,4 +37,20 @@ in the Kotlin language that is built in.
      false
       */
 
+     val myMap = HashMap<Int, String> ()
+     myMap[2] = "Deuce"
+     myMap[3] = "Tres"
+     myMap[4] = "Quarto"
+
+     myMap.replace(2, "Two")
+     val mapClone = myMap.clone().toString()
+     val mapCount = myMap.count()
+     val isMapEmpty = myMap.isEmpty()
+
+     for(key in myMap.keys) {
+         println("Element at Key: $key = ${myMap[key]}")
+     }
+     println(mapCount) // 3
+     println(mapClone) // clones map
+     println(isMapEmpty) // false
  }
