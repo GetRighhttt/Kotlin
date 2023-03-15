@@ -1,6 +1,5 @@
 package oop
 
-import basics.getName
 import java.util.stream.Collectors
 
 /*
@@ -17,13 +16,14 @@ If we want to pass in a mutable value not in the primary constructor, we declare
 body, and we must provide an initial value.
  */
 class Teacher(val name: String) {
-    var age: Int = 0
     var studentName: String = "Zion"
     var studentAge: Int = 5
 
     /*
     Below we instantiate a student in the teacher's class, because a teacher has students.
-    this is typically how composition works.
+    this is how Composition works.
+    Composition is another OOP concept that demonstrates a "has-a" relationship, while inheritance demonstrates
+    an "is-a" relationship. It allows for more loosely coupled coding.
      */
     private val newStudent = Student(studentName, studentAge) // an example of composition "has-a" relationship.
 
@@ -85,7 +85,8 @@ fun main() {
         .sortedBy { it.age }
 
     /*
-    Below we show different ways to print multiple lines of strings again.
+    Below we show different ways to print multiple lines of strings again while displaying sentences
+    using the classes and interfaces we created above.
      */
     println(
         """
@@ -100,11 +101,10 @@ fun main() {
     )
     /*
     Below we display how composition can be used to display the student declared in the
-    teacher's class.
+    teacher's class with the methods we created in the teacher's class also.
      */
     println(
         "${thisTeacher.printStudentName()} is in ${thisTeacher.name}'s " +
                 "Math class, and is ${thisTeacher.printStudentAge()} years old!"
     )
-
 }
