@@ -40,6 +40,8 @@ class Animal {
 
     fun addAnimal(animalName: String) = _animalList.add(animalName)
 
+    fun sortAnimalList(animalList: List<String>) = animalList.sorted()
+
 }
 
 fun main() {
@@ -64,5 +66,7 @@ fun main() {
     myAnimalInstance.addAnimal(newCatAnimal.animalName) // adds the cat instance to list
 
     println(myAnimalList) // prints [Bear, Fox, Giraffe, Cheetah, Jaguar, Squirrel, Dog, Cat]
+    println(myAnimalInstance.sortAnimalList(myAnimalList)) // [Bear, Cat, Cheetah, Dog, Fox, Giraffe, Jaguar, Squirrel]
+
 
 }
