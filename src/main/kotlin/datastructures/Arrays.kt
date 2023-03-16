@@ -1,4 +1,4 @@
-package advanced
+package datastructures
 
 fun main(args: Array<String>) {
     /*
@@ -66,7 +66,6 @@ fun main(args: Array<String>) {
     newArrayList.add(11)
     newArrayList.add(13)
     newArrayList.add(15)
-
     val sortedAndFiltered = newArrayList.stream()
         .filter{ it > 5}
         .sorted()
