@@ -62,12 +62,11 @@ fun main() {
     println("Main Program started...\n")
     println("Enter a number to determine age: ")
 
-    val userInput = readLine()
-    val userAge = when (userInput?.toInt()) {
-        in 1..10 -> userInput?.plus(10)
-        in 11..20 -> userInput?.plus(20)
-        in 21..30 -> userInput?.plus(30)
-        else -> userInput?.plus(50)
+    val userAge = when (val userInput = readLine().toString().toInt()) {
+        in 1..10 -> userInput - 5
+        in 11..20 -> userInput + 20
+        in 21..30 -> userInput + 30
+        else -> userInput + 50
     }
 
     println("Your age after setter modification is: $userAge\n")
