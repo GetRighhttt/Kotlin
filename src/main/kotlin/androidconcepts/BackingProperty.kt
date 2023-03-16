@@ -45,13 +45,23 @@ class Animal {
 }
 
 fun main() {
+    /*
+    Here we create instances of Animal class and use the properties we created above.
+    Notice we use the backing property here and we cannot modify the implementation.
+     */
     val myAnimalInstance = Animal() // creating an instance or animal, or an animal object
     println(myAnimalInstance.printAnimalName()) // prints Lion
 
-    val newAnimalName = Animal()
-    newAnimalName.animalName = "Squirrel"
+    /*
+    We can change the animals name in the class here because we created the animal
+    name as a var in the Animal Class. This is not recommended.
+     */
+    val newSquirrelAnimal = Animal()
+    newSquirrelAnimal.animalName = "Squirrel"
+
     val newDogAnimal = Animal()
     newDogAnimal.animalName = "Dog"
+
     val newCatAnimal = Animal()
     newCatAnimal.animalName = "Cat"
 
@@ -61,9 +71,11 @@ fun main() {
     myAnimalInstance.addAnimal("Giraffe")
     myAnimalInstance.addAnimal("Cheetah")
     myAnimalInstance.addAnimal("Jaguar")
-    myAnimalInstance.addAnimal(newAnimalName.animalName) // adds the squirrel instance to list
+    myAnimalInstance.addAnimal(newSquirrelAnimal.animalName) // adds the squirrel instance to list
     myAnimalInstance.addAnimal(newDogAnimal.animalName) // adds the dog instance to list
     myAnimalInstance.addAnimal(newCatAnimal.animalName) // adds the cat instance to list
+
+    // myAnimalList.add <- won't work because the list is immutable in the Animal class
 
     println(myAnimalList) // prints [Bear, Fox, Giraffe, Cheetah, Jaguar, Squirrel, Dog, Cat]
     println(myAnimalInstance.sortAnimalList(myAnimalList)) // [Bear, Cat, Cheetah, Dog, Fox, Giraffe, Jaguar, Squirrel]
