@@ -59,7 +59,16 @@ class Human {
 
 fun main() {
 
-    println("Main Program started...\n")
+    println("\nMain Program started...")
+    println("On thread : ${Thread.currentThread().name}\n")
+    Thread.sleep(1000)
+
+    println("Checking if thread is alive...")
+    Thread.sleep(1000)
+
+    println(Thread.currentThread().isAlive)
+    Thread.sleep(1000)
+
     println("Enter a number to determine age: ")
 
     val userAge = when (val userInput = readLine().toString().toInt()) {
@@ -69,16 +78,25 @@ fun main() {
         else -> userInput + 50
     }
 
+    Thread.sleep(1000)
+
     println("Your age after setter modification is: $userAge\n")
+    Thread.sleep(1000)
+
     println("Now let's create a Human object:")
+    Thread.sleep(2000)
 
     val newHuman = Human() // Human instantiation
+    Thread.sleep(2000)
 
     newHuman.age = 40 // since it's 40, it should add 50 to it based on the custom setter
     println("The value of the backing field after the setter is: ${newHuman.getAgeFromBackingField()}") // 90
 
     newHuman.age = 25 // should add 30 to it.
     println("The value of the backing field after the setter is: ${newHuman.getAgeFromBackingField()}") // 55
+
+    println("\nDetermining age bracket...")
+    Thread.sleep(1000)
 
     newHuman.determineAgeBracket() // prints "You are old!" because it's value is 55.
 
