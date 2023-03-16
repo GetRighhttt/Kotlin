@@ -1,5 +1,8 @@
 package androidconcepts
 
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
+
 /*
 A Backing Field is essentially just the "field" keyword we use when we want to customize
 our getters and setters for variables.
@@ -10,13 +13,20 @@ The backing field is not generated unless required.
  */
 class Human {
 
+    init {
+        println("----------------------------------------------------\n")
+        println("Human class has been instantiated...")
+        println("Continue...")
+        println("----------------------------------------------------\n")
+    }
+
     var age: Int = 0
         get() {
             return field // returns the age value
         }
         set(value) { // sets age value usually based on a condition
             field = when (value) {
-                in 1..10 -> value
+                in 1..10 -> value - 5
                 in 11..20 -> value + 20
                 in 21..30 -> value + 30
                 else -> value + 50
@@ -48,6 +58,20 @@ class Human {
 }
 
 fun main() {
+
+    println("Main Program started...\n")
+    println("Enter a number to determine age: ")
+
+    val userInput = readLine()
+    val userAge = when (userInput?.toInt()) {
+        in 1..10 -> userInput?.plus(10)
+        in 11..20 -> userInput?.plus(20)
+        in 21..30 -> userInput?.plus(30)
+        else -> userInput?.plus(50)
+    }
+
+    println("Your age after setter modification is: $userAge\n")
+    println("Now let's create a Human object:")
 
     val newHuman = Human() // Human instantiation
 
