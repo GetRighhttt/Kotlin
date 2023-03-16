@@ -51,4 +51,27 @@ fun main(args: Array<String>) {
     [Ljava.lang.Double;@2f4d3709
      5.0
      */
+
+    /*
+    Difference between array and arraylist:
+
+    ArrayList can grow in size. That's the only difference.
+     */
+    val newArrayList = arrayListOf<Int>()
+    newArrayList.add(1)
+    newArrayList.add(3)
+    newArrayList.add(5)
+    newArrayList.add(7)
+    newArrayList.add(9)
+    newArrayList.add(11)
+    newArrayList.add(13)
+    newArrayList.add(15)
+
+    val sortedAndFiltered = newArrayList.stream()
+        .filter{ it > 5}
+        .sorted()
+        .findFirst()
+        .toString()
+
+    println(sortedAndFiltered)
 }
