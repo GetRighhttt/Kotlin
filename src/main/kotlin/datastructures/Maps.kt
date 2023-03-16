@@ -37,6 +37,10 @@ in the Kotlin language that is built in.
      false
       */
 
+     /*
+     HashMaps are a class built in to Java and the difference is the functionality - read and write, and has
+     more functions that can be applied to it.
+      */
      val myMap = HashMap<Int, String> ()
      myMap[2] = "Deuce"
      myMap[3] = "Tres"
