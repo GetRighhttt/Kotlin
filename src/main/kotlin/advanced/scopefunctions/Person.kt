@@ -51,12 +51,11 @@ fun main() {
      *
      * Good if you want to execute on a nullable object and avoid null pointer exception.
      */
-    val name: String? = null
+    val name: String? = "Henry"
 
     name?.let {
         println(it.reversed())
         println(it.length)
-        println(it.chars())
         it.length
         it.reversed()
     }
@@ -67,7 +66,6 @@ fun main() {
      */
     val person: Person? = null
     person?.run {
-        println(this.name)
         println(this.age)
         age + 2
     }
