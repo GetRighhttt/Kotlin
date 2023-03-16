@@ -88,6 +88,7 @@ fun main() {
     Below we show different ways to print multiple lines of strings again while displaying sentences
     using the classes and interfaces we created above.
      */
+    println("\n")
     println(
         """
         |${yourStudent.name} and ${myStudent.name} have been friends for over 10 years.
@@ -97,14 +98,28 @@ fun main() {
     println(
         "${thisNewPlayer.name} is ${thisNewPlayer.age} years old! ${thisNewPlayer.name}" +
                 " rolled the ball ${thisNewPlayer.rollBall(10)} times for a score of" +
-                " ${thisNewPlayer.score} points!"
+                " ${thisNewPlayer.score} points!\n"
     )
     /*
     Below we display how composition can be used to display the student declared in the
     teacher's class with the methods we created in the teacher's class also.
      */
     println(
-        "${thisTeacher.printStudentName()} is in ${thisTeacher.name}'s " +
-                "Math class, and is ${thisTeacher.printStudentAge()} years old!"
+        """${thisTeacher.printStudentName()} is in ${thisTeacher.name}'s 
+            |Math class, and is ${thisTeacher.printStudentAge()} years old!
+            |${thisTeacher.printStudentName()} has been a great student! 
+            |Keep up the great work ${thisTeacher.printStudentName()}!""".trimMargin()
     )
 }
+
+/*
+Stefan and DJ have been friends for over 10 years.
+Stefan is 26 while DJ is 25!
+
+Luther is 10 years old! Luther rolled the ball 10 times for a score of 20 points!
+
+Zion is in Ayesha's
+Math class, and is 5 years old!
+Zion has been a great student!
+Keep up the great work Zion!
+ */
