@@ -102,5 +102,5 @@ fun main() {
 
     Thread.sleep(1000)
     println("Combined List:")
-    println("$combinedList")
+    println("${combinedList.sorted()}")
 }
