@@ -28,6 +28,8 @@ sealed class Mathematics {
     class Subtraction(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     class Division(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     class Multiplication(var firstNumber: Int, var secondNumber: Int) : Mathematics()
+    object NotMathematics: Mathematics()
+    object Calculus: Mathematics()
 
 //    data class NewMath(var firstNumber: Int, var secondNumber: Int): Mathematics()
 //    object Modulus : Mathematics()
@@ -41,11 +43,15 @@ fun main() {
     val subtraction = Mathematics.Subtraction(3,1)
     val division = Mathematics.Division(10,5)
     val multiplication = Mathematics.Multiplication(10,2)
+    val calculus = Mathematics.Calculus
+    val notMath = Mathematics.NotMathematics
 
     checkMathematics(addition)
     checkMathematics(subtraction)
     checkMathematics(division)
     checkMathematics(multiplication)
+    checkMathematics(calculus)
+    checkMathematics(notMath)
 }
 
 fun checkMathematics(mathematics: Mathematics) {
@@ -54,5 +60,7 @@ fun checkMathematics(mathematics: Mathematics) {
         is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
         is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
         is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
+        is Mathematics.Calculus -> println("Calculus ehh? Pretty smart guy.")
+        is Mathematics.NotMathematics -> println("Not a mathematical operation...")
     }
 }
