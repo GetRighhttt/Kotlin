@@ -44,6 +44,18 @@ class Animal {
 
 }
 
+fun readInAnimals(list: MutableList<String>) {
+    var count = 5
+    while (count > 0) {
+        val nameOfAnimal = readLine()
+        if (nameOfAnimal == "q") break
+        if (nameOfAnimal != null) {
+            list.add(nameOfAnimal)
+            count--
+        }
+    }
+}
+
 fun main() {
     /*
     Here we create instances of Animal class and use the properties we created above.
@@ -65,20 +77,30 @@ fun main() {
     val newCatAnimal = Animal()
     newCatAnimal.animalName = "Cat"
 
+    /*
+    Creating a new animal list from the user.
+     */
+    val anotherAnimalList = mutableListOf<String>()
+
+    println("Enter in animals:")
+    readInAnimals(anotherAnimalList)
+    println(anotherAnimalList)
+
     val myAnimalList = myAnimalInstance.animalList
     myAnimalInstance.addAnimal("Bear")
     myAnimalInstance.addAnimal("Fox")
-    myAnimalInstance.addAnimal("Giraffe")
-    myAnimalInstance.addAnimal("Cheetah")
-    myAnimalInstance.addAnimal("Jaguar")
     myAnimalInstance.addAnimal(newSquirrelAnimal.animalName) // adds the squirrel instance to list
     myAnimalInstance.addAnimal(newDogAnimal.animalName) // adds the dog instance to list
     myAnimalInstance.addAnimal(newCatAnimal.animalName) // adds the cat instance to list
 
     // myAnimalList.add <- won't work because the list is immutable in the Animal class
-
-    println(myAnimalList) // prints [Bear, Fox, Giraffe, Cheetah, Jaguar, Squirrel, Dog, Cat]
     println(myAnimalInstance.sortAnimalList(myAnimalList)) // [Bear, Cat, Cheetah, Dog, Fox, Giraffe, Jaguar, Squirrel]
 
+    val combinedList = mutableListOf<String>()
+    combinedList.addAll(myAnimalList)
+    combinedList.addAll(anotherAnimalList)
 
+    Thread.sleep(1000)
+    println("Combined List:")
+    println("$combinedList")
 }
