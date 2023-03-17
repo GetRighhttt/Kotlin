@@ -87,8 +87,6 @@ fun main() {
     println(anotherAnimalList)
 
     val myAnimalList = myAnimalInstance.animalList
-    myAnimalInstance.addAnimal("Bear")
-    myAnimalInstance.addAnimal("Fox")
     myAnimalInstance.addAnimal(newSquirrelAnimal.animalName) // adds the squirrel instance to list
     myAnimalInstance.addAnimal(newDogAnimal.animalName) // adds the dog instance to list
     myAnimalInstance.addAnimal(newCatAnimal.animalName) // adds the cat instance to list
