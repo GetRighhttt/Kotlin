@@ -42,8 +42,17 @@ fun main() {
     val division = Mathematics.Division(10,5)
     val multiplication = Mathematics.Multiplication(10,2)
 
-    println("${addition.firstNumber + addition.secondNumber} ")
-    println("${subtraction.firstNumber - subtraction.secondNumber} ")
-    println("${division.firstNumber / division.secondNumber} ")
-    println("${multiplication.firstNumber * multiplication.secondNumber} ")
+    checkMathematics(addition)
+    checkMathematics(subtraction)
+    checkMathematics(division)
+    checkMathematics(multiplication)
+}
+
+fun checkMathematics(mathematics: Mathematics) {
+    when (mathematics) {
+        is Mathematics.Addition -> println("${mathematics.firstNumber + mathematics.secondNumber} ")
+        is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
+        is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
+        is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
+    }
 }
