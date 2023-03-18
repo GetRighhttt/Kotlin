@@ -29,6 +29,8 @@ fun main(args: Array<String>) {
     val x = myNewList.groupBy { a -> a >= 3 }
     println(x.toString()) // {false=[2, 1], true=[3, 4, 5, 6, 9, 3, 8, 7, 10]}
 
+    val newInt = myNewList.find { it % 3 == 0 }
+    println(newInt.toString()) // finds the first element that fits the condition
     /*
     List by default are immutable - elements in the list cannot change.
 
