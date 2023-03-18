@@ -1,4 +1,4 @@
-package advanced
+package advanced.functional
 
 /*
 Functions without a name are called anonymous functions, and if those functions use short syntax,
@@ -73,6 +73,4 @@ fun main(args: Array<String>) {
 
     val intListExample = listOf<Int>(1, 2, 3, 4, 5)
     println(intListExample.flatMap { it.toString().toList() })
-
-
 }
