@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     Example of a lambda function and its syntax:
      */
     fun generateAddition(): (Int) -> Int {
-        return {x: Int ->
+        return { x: Int ->
             x + 1
         }
     }
@@ -32,7 +32,6 @@ fun main(args: Array<String>) {
     newList = newList.dropLastWhile { it != 2 }
     println("Drop method for elements in list not equal to 2: ")
     println(newList)
-
     /*
     Here is the regular list:
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -41,5 +40,39 @@ fun main(args: Array<String>) {
     Drop last method for list not equal to 2:
     [2]
      */
+
+    /*
+    Above, most of the functions we used all return a stream of elements, but that isn't the case for
+    all higher order functions that work on collections.
+
+    Terminator functions are functions that return a value, or return something else other than a new collection.
+    You can't chain their results together. They "terminate" the chain.
+
+    forEach is an example, as well as forEachIndexed which returns the index and value.
+     */
+    val numbers = (1..6)
+    numbers.map { it * it }
+        .filter { it < 20 }
+        .forEach { println(it) } // outputs 1 , 4 , 9 , 16 on new lines.
+
+    /*
+    reduce() is another example and transforms a collection into a single result starting from left to right.
+     */
+    val reduced = (1..100).reduce { a, i -> i + a }
+    println(reduced) // 5050
+
+    /*
+    Flatmap is used to transform a collection into another collection.
+    "Returns a single sequence of all elements from results of transform function being
+    invoked on each element of original sequence."
+
+    Basically transforms a list of one type to another list of another type.
+     */
+    val list = listOf("Stefan", "Bayne")
+    println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
+
+    val intListExample = listOf<Int>(1, 2, 3, 4, 5)
+    println(intListExample.flatMap { it.toString().toList() })
+
 
 }
