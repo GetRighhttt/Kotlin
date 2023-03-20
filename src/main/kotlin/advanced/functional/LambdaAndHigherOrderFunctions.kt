@@ -72,5 +72,13 @@ fun main(args: Array<String>) {
     println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
 
     val intListExample = listOf<Int>(1, 2, 3, 4, 5)
-    println(intListExample.flatMap { it.toString().toList() })
+    println(intListExample.flatMap { it ->
+        it.toString()
+            .toList()
+            .map { it.code }
+            .filter { it * 2 >= 30 } }
+        .forEach {
+            println(it.toString())
+        }
+    )
 }
