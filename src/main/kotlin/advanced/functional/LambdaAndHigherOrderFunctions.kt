@@ -14,11 +14,20 @@ fun main(args: Array<String>) {
             x + 1
         }
     }
+
+    fun generateMultiplication(): (Double) -> Double {
+        return { x: Double ->
+            x * x
+        }
+    }
     /*
-    Functions assigned to variables are called literal functions.
+    Functions assigned to variables are called LITERAL functions.
      */
     val exampleLambdaAddition = generateAddition()
     println(exampleLambdaAddition(5)) // 6
+
+    val multiplication = generateMultiplication()
+    println(multiplication(30.0)) // 900.0
     /*
     Higher order functions are functions that take one or more functions as arguments and return a function
      */
