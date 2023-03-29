@@ -28,6 +28,11 @@ fun main() {
     }
     println(ageMinusTen)
 
+    val addLastName: String = with(thisPerson) {
+        "$name Bayne"
+    }
+    println(addLastName)
+
     /**
      * Apply allows us to apply a context of an object to other properties. We normally see this
      * used a lot in android with binding:
