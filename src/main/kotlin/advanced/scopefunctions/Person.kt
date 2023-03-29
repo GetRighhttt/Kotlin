@@ -44,6 +44,9 @@ fun main() {
         println(it.age + 10)
         it.name = "Bob"
         println(it.name)
+    }.also {
+        it.name = "Stefan"
+        println(it.name)
     }
 
     /**

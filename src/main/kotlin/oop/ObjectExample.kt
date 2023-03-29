@@ -7,7 +7,7 @@ In Kotlin, we do not use the word "static" like we did in Java. So, in order for
 to create singletons, and declare static variables, we use the keywords "object" and
 "companion object".
 
-Objects behave just like classes and camn have properties, methods, and initializers,
+Objects behave just like classes and can have properties, methods, and initializers,
 but they cannot be instantiated.
  */
 object Customer {
