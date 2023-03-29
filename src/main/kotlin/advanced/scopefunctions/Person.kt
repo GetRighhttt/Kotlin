@@ -45,6 +45,14 @@ fun main() {
     }
     println(thisPerson.name)
 
+    thisPerson.apply {
+        val newAge: Int = with(thisPerson) {
+            age + 3
+        }
+        val newerAge = newAge + 10
+        println(newerAge)
+    }
+
     /**
      * Also is usually used to perform an extra method on an object after it has been initialized.
      *
