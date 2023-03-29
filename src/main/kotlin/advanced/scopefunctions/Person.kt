@@ -23,6 +23,11 @@ fun main() {
     }
     println(agePlusTwo)
 
+    val ageMinusTen: Double = with(thisPerson) {
+        age - 10.0
+    }
+    println(ageMinusTen)
+
     /**
      * Apply allows us to apply a context of an object to other properties. We normally see this
      * used a lot in android with binding:
