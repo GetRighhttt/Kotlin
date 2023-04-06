@@ -40,13 +40,14 @@ fun main() {
      *
      * Good if you want to initialize or configure an object.
      */
-    thisPerson.apply {
+    val applyPerson = Person()
+    applyPerson.apply {
         this.name = "John"
     }
-    println(thisPerson.name)
+    println(applyPerson.name)
 
-    thisPerson.apply {
-        val newAge: Int = with(thisPerson) {
+    applyPerson.apply {
+        val newAge: Int = with(applyPerson) {
             age + 3
         }
         val newerAge = newAge + 10
@@ -58,7 +59,8 @@ fun main() {
      *
      * Good for additional object configuration.
      */
-    thisPerson.also {
+    val alsoPerson = Person()
+    alsoPerson.also {
         println(it.age + 10)
         it.name = "Bob"
         println(it.name)
@@ -72,9 +74,9 @@ fun main() {
      *
      * Good if you want to execute on a nullable object and avoid null pointer exception.
      */
-    val name: String? = "Henry"
+    val letName: String? = "Henry"
 
-    name?.let {
+    letName?.let {
         println(it.reversed())
         println(it.length)
         it.length
@@ -85,11 +87,10 @@ fun main() {
      * Run is actually a combo of the with and let methods.
      * We use this when we need to pass in an object and use its values and execute on a nullable object.
      */
-    val person: Person? = null
-    person?.run {
-        println(this.age)
+    Person().run {
         age + 2
+        name = "Bayne"
+        println(this.name)
+        println(this.age)
     }
-    println(agePlusTwo)
-
 }
