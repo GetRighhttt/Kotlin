@@ -23,12 +23,21 @@ fun getStefanName(): String {
     return stefan.name
 }
 
+// below we call the object without destructuring and just using regular dot notation...
 fun getStefanCredentials(): String {
     return """${stefan.name} is ${stefan.age} years old. 
         |He weighs ${stefan.weight} lbs, 
         |and is ${stefan.height} tall! 
         |Stefan works as a ${stefan.job}!""".trimMargin()
 }
+
+data class Human(
+    val title: String,
+    val age: Int,
+    val userName: String,
+    val career: String
+    )
+
 fun main() {
     println(getStefanName()) // Stefan
     println(getStefanCredentials())
@@ -37,5 +46,24 @@ fun main() {
     He weighs 169.3 lbs,
     and is 5'10 tall!
     Stefan works as a Software Engineer!
+     */
+
+    /*
+    Destructuring example of a data class in Kotlin. Destructuring allows us to remove the dot notation
+     and just return a value. Reduces the line of code via a component.
+     */
+    val person = Human("Sir", 22, "Stefan", "Engineer")
+    val (title, age, userName, career) = person
+
+    println(title) // instead of: person.title
+    println(age) // instead of: person.age
+    println(userName) // instead of: person.userName
+    println(career) // instead of: person.career
+
+    /*
+    Sir
+    22
+    Stefan
+    Engineer
      */
 }
