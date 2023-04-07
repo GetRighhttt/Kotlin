@@ -1,15 +1,29 @@
 package advanced.functional
 
 /*
+Here we discuss Functions as Values, which means passing functions as arguments, returning functions, storing
+functions, etc.
+
 Functions without a name are called anonymous functions, and if those functions use short syntax,
 they are then called Lambda functions.
  */
 fun main(args: Array<String>) {
 
     /*
-    Example of a lambda function and its syntax:
+    Example of a function that returns another function without a name - anonymous function
+     */
+    fun generateDivision(): (Int) -> Int {
+        // anonymous below
+        return fun(y: Int): Int {
+            return y * 10
+        }
+    }
+
+    /*
+    Example of anonymous and lambda function and its syntax:
      */
     fun generateAddition(): (Int) -> Int {
+        // lambda below - short syntax
         return { x: Int ->
             x + 1
         }
@@ -23,17 +37,23 @@ fun main(args: Array<String>) {
     /*
     Functions assigned to variables are called LITERAL functions.
      */
+
+    val division = generateDivision()
+    println(division(20)) // 200
+
     val exampleLambdaAddition = generateAddition()
     println(exampleLambdaAddition(5)) // 6
 
     val multiplication = generateMultiplication()
     println(multiplication(30.0)) // 900.0
+
     /*
     Higher order functions are functions that take one or more functions as arguments and return a function
      */
     var newList = (1..10).sorted().toList()
     println("Here is the regular list: ")
     println(newList)
+
     newList = newList.filter { it % 2 == 0 }
     println("Numbers divisible by 2: ")
     println(newList)
@@ -80,7 +100,7 @@ fun main(args: Array<String>) {
     val list = listOf("Stefan", "Bayne")
     println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
 
-    val intListExample = listOf<Int>(1, 2, 3, 4, 5)
+    val intListExample = listOf(1, 2, 3, 4, 5)
     println(intListExample.flatMap { it ->
         it.toString()
             .toList()
