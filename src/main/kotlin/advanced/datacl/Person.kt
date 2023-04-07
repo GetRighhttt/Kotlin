@@ -66,4 +66,12 @@ fun main() {
     Stefan
     Engineer
      */
+
+    /*
+    We can also copy a data class using the copy() method, and if we want, we can use named parameters
+    to change the values.
+     */
+    val personCopy = person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse")
+    val (titleCopy, ageCopy, userNameCopy, careerCopy) = personCopy
+    println("$titleCopy $ageCopy $userNameCopy $careerCopy") // Ma'am 30 Woman Nurse
 }
