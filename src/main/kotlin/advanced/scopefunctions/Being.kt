@@ -1,13 +1,13 @@
 package advanced.scopefunctions
 
-class Person {
+class Being {
     var name: String = "Stefan"
     var age: Int = 27
 }
 
 fun main() {
 
-    val thisPerson = Person()
+    val thisPerson = Being()
 
     /**
      * With allows us to pass in an object and use its values. Good for when we have multiple properties and
@@ -40,7 +40,7 @@ fun main() {
      *
      * Good if you want to initialize or configure an object.
      */
-    val applyPerson = Person()
+    val applyPerson = Being()
     applyPerson.apply {
         this.name = "John"
     }
@@ -59,7 +59,7 @@ fun main() {
      *
      * Good for additional object configuration.
      */
-    val alsoPerson = Person()
+    val alsoPerson = Being()
     alsoPerson.also {
         println(it.age + 10)
         it.name = "Bob"
@@ -87,7 +87,7 @@ fun main() {
      * Run is actually a combo of the with and let methods.
      * We use this when we need to pass in an object and use its values and execute on a nullable object.
      */
-    Person().run {
+    Being().run {
         age + 2
         name = "Bayne"
         println(this.name)
