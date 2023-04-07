@@ -100,14 +100,15 @@ fun main(args: Array<String>) {
     val list = listOf("Stefan", "Bayne")
     println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
 
+    /*
+    Using the "onEach" method, unlike forEach, it can continue a collection.
+     */
     val intListExample = listOf(1, 2, 3, 4, 5)
     println(intListExample.flatMap { it ->
         it.toString()
             .toList()
             .map { it.code }
+            .onEach { println(it) }
             .filter { it * 2 >= 30 } }
-        .forEach {
-            println(it.toString())
-        }
     )
 }
