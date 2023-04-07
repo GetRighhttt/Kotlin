@@ -24,4 +24,16 @@ fun main() {
     val thisTriplePair = Triple("a", "b ","c")
     println(thisTriplePair.toList()) // [a, b , c]
 
+
+    /*
+    Another destructuring example with data classes which act as tuples as well if using values.
+    Below we create a data class acting as a Triple.
+     */
+    data class TupleExample(val first: Int, val second: Int, val third: Int)
+    val tupleExample = TupleExample(1, 2, 3)
+
+    val (first, second, third) = tupleExample
+    println("$first, $second, $third") // 1, 2, 3
+
+
 }
