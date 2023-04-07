@@ -17,6 +17,10 @@ fun main() {
     val (key, value) = pair
     println("$key, $value") // a, 1
 
+    val anotherPair = Pair("one" to 1, "two" to 2)
+    val (one, two) = anotherPair
+    println("$one and $two") // (one, 1) and (two, 2)
+
     /*
     There is also a triple tuple that we can work with in Kotlin and other languages that
     encompasses the concept of immutability.
