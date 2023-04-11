@@ -74,6 +74,8 @@ object NewTeacher: Teacher(name = "New Teacher") {
         println("$name created successfully.")
     }
     val teacherIds = TeacherIDs(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    @JvmName("getTeacherIds1")
+    fun getTeacherIds() = teacherIds
 }
 
 fun main() {
@@ -128,6 +130,7 @@ fun main() {
     println("${NewTeacher.name} is the name of the object created.")
     val teacherIDList = NewTeacher.teacherIds.id.size
     println(teacherIDList.toString())
+    println(NewTeacher.getTeacherIds())
 }
 
 /*
@@ -144,4 +147,5 @@ Keep up the great work Zion!
 New Teacher created successfully.
 New Teacher is the name of the object created.
 9
+TeacherIDs(id=[1, 2, 3, 4, 5, 6, 7, 8, 9])
  */

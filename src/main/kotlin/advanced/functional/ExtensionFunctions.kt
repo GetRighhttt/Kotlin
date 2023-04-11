@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
     val newName = readLine()
     println(newName?.isNice())
     println(newName?.hideName())
+    println(newName?.repeatName())
 }
 
 /*
@@ -46,6 +47,7 @@ fun String.isNice(): Boolean {
 }
 
 fun String.hideName() = "*".repeat(this.length)
+fun String.repeatName() = this.repeat(3).toList().forEach (::println)
 
 /*
 Please enter a number:
@@ -55,4 +57,22 @@ Please enter a name:
 Stefan
 true
 ******
+S
+t
+e
+f
+a
+n
+S
+t
+e
+f
+a
+n
+S
+t
+e
+f
+a
+n
  */
