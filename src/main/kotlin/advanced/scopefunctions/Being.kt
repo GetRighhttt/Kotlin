@@ -93,4 +93,9 @@ fun main() {
         println(this.name)
         println(this.age)
     }
+
+    Being().run {
+        println(this.name.reversed())
+        println(this.name.repeat(4))
+    }
 }
