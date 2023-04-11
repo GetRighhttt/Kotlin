@@ -24,14 +24,13 @@ package advanced.sealedenum
  * at compile time.
  */
 sealed class Mathematics {
-    class Addition(var firstNumber: Int, var secondNumber: Int) : Mathematics()
-    class Subtraction(var firstNumber: Int, var secondNumber: Int) : Mathematics()
-    class Division(var firstNumber: Int, var secondNumber: Int) : Mathematics()
-    class Multiplication(var firstNumber: Int, var secondNumber: Int) : Mathematics()
+    data class Addition(var firstNumber: Int, var secondNumber: Int) : Mathematics()
+    data class Subtraction(var firstNumber: Int, var secondNumber: Int) : Mathematics()
+    data class Division(var firstNumber: Int, var secondNumber: Int) : Mathematics()
+    data class Multiplication(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     object NotMathematics: Mathematics()
     object Calculus: Mathematics()
 
-//    data class NewMath(var firstNumber: Int, var secondNumber: Int): Mathematics()
 //    object Modulus : Mathematics()
 //    sealed class Calculus: Mathematics()
 //    sealed interface Geometry
