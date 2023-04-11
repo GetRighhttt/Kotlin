@@ -43,7 +43,7 @@ Here we are going to see how we can use default arguments.
 Default arguments basically display the result that is defaulted when there is
 no value passed as a parameter.
  */
-fun searchForString(search: String = "This string") : String {
+fun searchForString(search: String = "This string"): String {
     return search
 }
 

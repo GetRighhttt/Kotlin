@@ -25,7 +25,7 @@ fun main() {
     There is also a triple tuple that we can work with in Kotlin and other languages that
     encompasses the concept of immutability.
      */
-    val thisTriplePair = Triple("a", "b ","c")
+    val thisTriplePair = Triple("a", "b ", "c")
     println(thisTriplePair.toList()) // [a, b , c]
 
 
@@ -34,6 +34,7 @@ fun main() {
     Below we create a data class acting as a Triple.
      */
     data class TupleExample(val first: Int, val second: Int, val third: Int)
+
     val tupleExample = TupleExample(1, 2, 3)
 
     val (first, second, third) = tupleExample

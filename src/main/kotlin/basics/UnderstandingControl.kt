@@ -16,17 +16,16 @@ fun main(args: Array<String>) {
     val y = 10
     val x = 10
 
-    if(x == y) {
+    if (x == y) {
         println("This is true.")
-    }
-    else if(x == 11) {
+    } else if (x == 11) {
         println("This is not true.")
     }
 
     /*
     We can also assign values to if statements as well
      */
-    val z = if(x <= y) 3 else 4
+    val z = if (x <= y) 3 else 4
 
     val newAnswer = if (y == 10) println(y) else println(y + 1)
 
@@ -59,7 +58,7 @@ fun main(args: Array<String>) {
     When statements are like switch statements except they
     come with more functionality than switch statements.
      */
-    when(x) {
+    when (x) {
         in 1..10 -> println("In between 1 and 10")
         in 10..20 -> println("In between 10 and 20")
         else -> println("Above 20.")

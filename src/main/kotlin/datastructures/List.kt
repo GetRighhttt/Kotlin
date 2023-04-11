@@ -42,18 +42,20 @@ fun main(args: Array<String>) {
 
     println("Enter in 5 numbers:")
     // now we will read user input and add them to the list
-    for(element in 1..5) {
+    for (element in 1..5) {
         val num = readLine()?.toInt()
         if (num != null) {
             thisMutableList.add(num)
         }
     }
     // here we print the list in reverse order and sorted
-    println(thisMutableList
-        .stream()
-        .sorted()
-        .collect(Collectors.toList())
-        .asReversed())
+    println(
+        thisMutableList
+            .stream()
+            .sorted()
+            .collect(Collectors.toList())
+            .asReversed()
+    )
 
     /**
     Enter in 5 numbers:

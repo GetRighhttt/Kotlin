@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
     println(division)
 
     // modulus(remainder): 70/30 = 68 remainder 2; so 2
-    val modulus = b/ a
+    val modulus = b / a
     println(modulus)
 
     /**

@@ -48,18 +48,22 @@ fun main(args: Array<String>) {
         { a -> a.isUpperCase() } // if the character is uppercase
         .collect(Collectors.toList()))
 
-    println("This is also how we can reverse a string with interpolation" +
-            " ${thisIsAString.reversed()}")
+    println(
+        "This is also how we can reverse a string with interpolation" +
+                " ${thisIsAString.reversed()}"
+    )
 
     /*
     In Kotlin, multiline strings are supported using string concatenation, or using
     triple quotes.
      */
-    println("""This is the day the lord has made!
+    println(
+        """This is the day the lord has made!
         |Let us rejoice and be glad in it!
         |I thank everybody for coming out today, and 
         |I had a blast!
         |This was a joyous occasion. Thanks again!
-    """.trimMargin())
+    """.trimMargin()
+    )
 
 }

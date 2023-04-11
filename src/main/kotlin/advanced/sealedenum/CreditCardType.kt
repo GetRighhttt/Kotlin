@@ -63,13 +63,15 @@ fun main() {
     /**
      * when() statement with enums...
      */
-    when(goldCredit) {
+    when (goldCredit) {
         CreditCardType.SILVER -> {
             println("Silver")
         }
+
         CreditCardType.GOLD -> {
             println("Gold")
         }
+
         CreditCardType.PLATINUM -> {
             println("Platinum")
         }

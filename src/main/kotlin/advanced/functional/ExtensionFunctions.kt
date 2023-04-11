@@ -13,8 +13,8 @@ fun main(args: Array<String>) {
     val newNumber = readLine()?.toInt()
 
     // null check is always necessary for readLine values
-    if(newNumber != null) {
-        if(newNumber.isPrime())
+    if (newNumber != null) {
+        if (newNumber.isPrime())
             println("is a prime number") else println("not prime")
     }
 
@@ -32,7 +32,7 @@ We do this by prefixing the function with the name of the class that we would li
  */
 fun Int.isPrime(): Boolean {
     for (i in 2 until this - 1) {
-        if(this % i == 0) false
+        if (this % i == 0) false
     }
     return true
 }

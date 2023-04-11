@@ -48,12 +48,12 @@ class Human {
     fun getAgeFromBackingField() = age
 
     fun determineAgeBracket() = when {
-            isYoung -> println("You are young!")
-            isMiddleAge -> println("You are middle aged!")
-            isOld -> println("You are old!")
-            isABaby -> println("You are a baby!")
-            else -> println("Error: Cannot detect age...")
-        }
+        isYoung -> println("You are young!")
+        isMiddleAge -> println("You are middle aged!")
+        isOld -> println("You are old!")
+        isABaby -> println("You are a baby!")
+        else -> println("Error: Cannot detect age...")
+    }
 
 }
 

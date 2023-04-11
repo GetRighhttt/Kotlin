@@ -36,8 +36,8 @@ So these methods below you will see can be called in the main function.
  */
 
 // here we create our first function that returns an integer
-fun addDigits(x: Int, y: Int) : Int {
-    return if(x > y) y else x * 2
+fun addDigits(x: Int, y: Int): Int {
+    return if (x > y) y else x * 2
 }
 
 // this is a function without any parameters or return type

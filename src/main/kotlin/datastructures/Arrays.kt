@@ -36,8 +36,10 @@ fun main(args: Array<String>) {
     Here we are going to loop through the array to find the largest number
      */
     var max = thisArray[0]
-    for(i in thisArray) {
-        if(i > max) { max = i }
+    for (i in thisArray) {
+        if (i > max) {
+            max = i
+        }
     }
     println(max.toFloat()) // converted to a float number = 5.0
 
@@ -49,7 +51,7 @@ fun main(args: Array<String>) {
     [I@10f87f48
     [Z@b4c966a
     [Ljava.lang.Double;@2f4d3709
-     5.0
+    5.0
      */
 
     /*
@@ -67,7 +69,7 @@ fun main(args: Array<String>) {
     newArrayList.add(13)
     newArrayList.add(15)
     val sortedAndFiltered = newArrayList.stream()
-        .filter{ it > 5}
+        .filter { it > 5 }
         .sorted()
         .findFirst()
         .toString()

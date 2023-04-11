@@ -36,7 +36,7 @@ data class Human(
     val age: Int,
     val userName: String,
     val career: String
-    )
+)
 
 fun main() {
     println(getStefanName()) // Stefan

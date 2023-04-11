@@ -28,8 +28,8 @@ sealed class Mathematics {
     data class Subtraction(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     data class Division(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     data class Multiplication(var firstNumber: Int, var secondNumber: Int) : Mathematics()
-    object NotMathematics: Mathematics()
-    object Calculus: Mathematics()
+    object NotMathematics : Mathematics()
+    object Calculus : Mathematics()
 
 //    object Modulus : Mathematics()
 //    sealed class Calculus: Mathematics()
@@ -38,10 +38,10 @@ sealed class Mathematics {
 
 fun main() {
 
-    val addition = Mathematics.Addition(2,5)
-    val subtraction = Mathematics.Subtraction(3,1)
-    val division = Mathematics.Division(10,5)
-    val multiplication = Mathematics.Multiplication(10,2)
+    val addition = Mathematics.Addition(2, 5)
+    val subtraction = Mathematics.Subtraction(3, 1)
+    val division = Mathematics.Division(10, 5)
+    val multiplication = Mathematics.Multiplication(10, 2)
     val calculus = Mathematics.Calculus
     val notMath = Mathematics.NotMathematics
 

@@ -109,6 +109,6 @@ fun main(args: Array<String>) {
             .toList()
             .map { it.code }
             .onEach { println(it) }
-            .filter { it * 2 >= 30 } }
-    )
+            .filter { it * 2 >= 30 }
+    })
 }
