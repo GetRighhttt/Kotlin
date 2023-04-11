@@ -26,6 +26,12 @@ object Customer {
 }
 
 class Person {
+    init {
+        println("Regular class init block started.")
+        Thread.sleep(1000)
+        println("This block is called right before the object is created in main...")
+        Thread.sleep(1000)
+    }
 
     /*
     Companion objects work just like objects except are held within classes.
@@ -68,6 +74,8 @@ fun main() {
      */
     println("Declaring a regular object of the companion object demonstration..")
     Thread.sleep(2000)
+
+    // should be created after init block is created in class.
     val notCompanion = Person()
     println(notCompanion.notInTheCompanionObject())
 }
