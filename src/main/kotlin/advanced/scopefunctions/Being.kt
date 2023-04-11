@@ -1,6 +1,6 @@
 package advanced.scopefunctions
 
-import advanced.isPrime
+import advanced.functional.isPrime
 
 class Being {
     var name: String = "Stefan"
@@ -101,5 +101,7 @@ fun main() {
     Being().run {
         println(this.name.reversed())
         println(this.name.repeat(4))
+        val nameSplit = this.name.split("")
+        println(nameSplit) // [, S, t, e, f, a, n, ]
     }
 }

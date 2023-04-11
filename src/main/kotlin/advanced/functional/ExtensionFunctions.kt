@@ -1,4 +1,4 @@
-package advanced
+package advanced.functional
 
 fun main(args: Array<String>) {
     /*
