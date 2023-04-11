@@ -47,6 +47,8 @@ class Person {
 
         fun returnAge() = age
     }
+
+    fun notInTheCompanionObject() = println("Not apart of the companion object...")
 }
 
 fun main() {
@@ -59,4 +61,13 @@ fun main() {
 
     println(Person.getName())
     println(Person.returnAge())
+
+    /*
+    Below we show what happens in regular classes when you don't use a companion object or declare an object
+    by itself. Must create an instance and then call that instance method using dot notation.
+     */
+    println("Declaring a regular object of the companion object demonstration..")
+    Thread.sleep(2000)
+    val notCompanion = Person()
+    println(notCompanion.notInTheCompanionObject())
 }
