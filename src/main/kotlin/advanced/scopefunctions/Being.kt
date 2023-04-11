@@ -1,5 +1,7 @@
 package advanced.scopefunctions
 
+import advanced.isPrime
+
 class Being {
     var name: String = "Stefan"
     var age: Int = 27
@@ -81,6 +83,8 @@ fun main() {
         println(it.length)
         it.length
         it.reversed()
+    }.run {
+        this?.length?.isPrime()
     }
 
     /**

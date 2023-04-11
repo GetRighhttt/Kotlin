@@ -53,13 +53,11 @@ fun main() {
     checkMathematics(notMath)
 }
 
-fun checkMathematics(mathematics: Mathematics) {
-    when (mathematics) {
-        is Mathematics.Addition -> println("${mathematics.firstNumber + mathematics.secondNumber} ")
-        is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
-        is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
-        is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
-        is Mathematics.Calculus -> println("Calculus ehh? Pretty smart guy.")
-        is Mathematics.NotMathematics -> println("Not a mathematical operation...")
-    }
+fun checkMathematics(mathematics: Mathematics) = when (mathematics) {
+    is Mathematics.Addition -> println("${mathematics.firstNumber + mathematics.secondNumber} ")
+    is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
+    is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
+    is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
+    is Mathematics.Calculus -> println("Calculus ehh? Pretty smart guy.")
+    is Mathematics.NotMathematics -> println("Not a mathematical operation...")
 }
