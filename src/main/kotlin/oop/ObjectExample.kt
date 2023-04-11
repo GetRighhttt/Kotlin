@@ -33,6 +33,8 @@ class Person {
         Thread.sleep(1000)
     }
 
+    fun notInTheCompanionObject() = println("Not apart of the companion object...")
+
     /*
     Companion objects work just like objects except are held within classes.
      */
@@ -53,8 +55,6 @@ class Person {
 
         fun returnAge() = age
     }
-
-    fun notInTheCompanionObject() = println("Not apart of the companion object...")
 }
 
 fun main() {

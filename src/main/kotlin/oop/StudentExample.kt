@@ -15,7 +15,7 @@ open class Student(open val name: String, open var age: Int)
 If we want to pass in a mutable value not in the primary constructor, we declare it in the class
 body, and we must provide an initial value.
  */
-class Teacher(val name: String) {
+open class Teacher(open val name: String) {
     var studentName: String = "Zion"
     var studentAge: Int = 5
 
@@ -67,6 +67,15 @@ interface BallRoller {
     fun rollBall(times: Int): Int = times
 }
 
+data class TeacherIDs(val id: List<Int>)
+
+object NewTeacher: Teacher(name = "New Teacher") {
+    init {
+        println("$name created successfully.")
+    }
+    val teacherIds = TeacherIDs(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+}
+
 fun main() {
 
     val myStudent = Student("DJ", 25)
@@ -110,6 +119,15 @@ fun main() {
             |${thisTeacher.printStudentName()} has been a great student! 
             |Keep up the great work ${thisTeacher.printStudentName()}!""".trimMargin()
     )
+
+    /*
+    We can also use objects and extend classes from them as well, which technically isn't best practice, but it
+    can be done.
+    We should see the init block outputed before this when we run the program.
+     */
+    println("${NewTeacher.name} is the name of the object created.")
+    val teacherIDList = NewTeacher.teacherIds.id.size
+    println(teacherIDList.toString())
 }
 
 /*
@@ -122,4 +140,8 @@ Zion is in Ayesha's
 Math class, and is 5 years old!
 Zion has been a great student!
 Keep up the great work Zion!
+
+New Teacher created successfully.
+New Teacher is the name of the object created.
+9
  */
