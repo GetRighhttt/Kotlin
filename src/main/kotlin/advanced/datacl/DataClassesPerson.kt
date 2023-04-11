@@ -74,4 +74,11 @@ fun main() {
     val personCopy = person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse")
     val (titleCopy, ageCopy, userNameCopy, careerCopy) = personCopy
     println("$titleCopy $ageCopy $userNameCopy $careerCopy") // Ma'am 30 Woman Nurse
+
+    val personHashCode = person.hashCode()
+    println(personHashCode) // prints hash code for the person object
+
+    val personEquals = person.equals(personCopy)
+    println(personEquals) // returns false since they are not equal to each other
+
 }
