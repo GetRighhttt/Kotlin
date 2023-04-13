@@ -24,19 +24,54 @@ enum class CreditCardType {
     PLATINUM // ordinal = 2
 }
 
-// second example
-enum class Sports(name: String) {
-    BASKETBALL("Basketball"),
-    FOOTBALL("Football"),
-    BASEBALL("Baseball"),
-    SOCCER("Soccer"),
-    TENNIS("Tennis")
+// second example that inherits an interface
+enum class Sports(name: String) : YourSport {
+    BASKETBALL("Basketball") {
+        override fun yourSport() {
+            println("Your sport is Basketball.")
+        }
+    },
+    FOOTBALL("Football") {
+        override fun yourSport() {
+            println("Your sport is Football.")
+        }
+    },
+    BASEBALL("Baseball") {
+        override fun yourSport() {
+            println("Your sport is Baseball.")
+        }
+    },
+    SOCCER("Soccer") {
+        override fun yourSport() {
+            println("Your sport is Soccer.")
+        }
+    },
+    TENNIS("Tennis") {
+        override fun yourSport() {
+            println("Your sport is Tennis.")
+        }
+    }
+}
+
+/*
+Enums can only inherit interfaces
+ */
+interface YourSport {
+    fun yourSport()
 }
 
 /*
 Start main.
  */
 fun main() {
+
+
+    println("Printing Enum classes and thier values..")
+    Thread.sleep(1000)
+    println(CreditCardType.values().forEach(::println))
+    println(Sports.values().forEach(::println))
+    Thread.sleep(1000)
+
     // how we declare an object of an enum class
     val goldCredit: CreditCardType = CreditCardType.GOLD
     println("The second best card type is $goldCredit!")
@@ -85,4 +120,6 @@ fun main() {
         "SOCCER" -> println("$SOCCER is actually third..")
         "TENNIS" -> println("I don't even know why $TENNIS is here...")
     }
+
+    println(Sports.BASKETBALL.yourSport())
 }
