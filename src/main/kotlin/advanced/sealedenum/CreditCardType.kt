@@ -54,7 +54,7 @@ enum class Sports(name: String) : YourSport {
 }
 
 /*
-Enums can only inherit interfaces
+Enums can also inherit interfaces.
  */
 interface YourSport {
     fun yourSport()
