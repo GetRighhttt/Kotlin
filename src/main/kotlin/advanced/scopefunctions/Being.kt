@@ -78,6 +78,7 @@ fun main() {
      */
     val letName: String? = "Henry"
 
+    // must use safe call operator (?.) with let function - execute if not null
     letName?.let {
         println(it.reversed())
         println(it.length)
