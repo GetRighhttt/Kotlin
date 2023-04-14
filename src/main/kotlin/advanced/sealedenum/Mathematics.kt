@@ -30,10 +30,39 @@ sealed class Mathematics {
     data class Multiplication(var firstNumber: Int, var secondNumber: Int) : Mathematics()
     object NotMathematics : Mathematics()
     object Calculus : Mathematics()
-
+// we can also nest sealed classes in sealed classes
 //    object Modulus : Mathematics()
 //    sealed class Calculus: Mathematics()
 //    sealed interface Geometry
+}
+
+/*
+Below we will show typically how sealed classes are used for state changes.
+
+The class below could be used as a basic state representation for an API call.
+ */
+sealed class Result {
+    data class Success(val successMsg: String) : Result()
+    data class Failure(val errorMsg: String) : Result()
+    data class Canceled(val canceledMsg: String) : Result()
+    object Loading : Result()
+}
+
+/*
+we can also use sealed interfaces with sealed classes.
+ */
+sealed interface Error {
+    fun returnErrorMsg(): String
+}
+
+sealed class Exceptions {
+    sealed class RunTimeError(private val runTimeException: String) : Error {
+        override fun returnErrorMsg(): String = "Run time exception: $runTimeException"
+    }
+
+    sealed class CompileTimeError(private val compileTimeException: String) : Error {
+        override fun returnErrorMsg(): String = "Compile time exception: $compileTimeException"
+    }
 }
 
 fun main() {
