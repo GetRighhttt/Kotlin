@@ -67,10 +67,32 @@ fun checkResult(result: Result) = when (result) {
 }
 
 /*
-we can also use sealed interfaces with sealed classes.
+we can also use sealed interfaces when we need a simpler restricted set of objects, methods, etc.
+
+In this example, we are declaring a method in the interface so we would have to override any object in the
+interface with this method.
  */
 sealed interface Error {
     fun returnErrorMsg(): String
+}
+
+/*
+Below is an example without a method and just shows a group of singleton objects that extend the
+sealed interface.
+ */
+sealed interface HttpError {
+    object Authorized: HttpError
+    object UnAuthorized: HttpError
+    object NotFound: HttpError
+    object Forbidden: HttpError
+
+}
+
+fun getHttpError(error: HttpError) = when(error) {
+    HttpError.Authorized -> println("Authorized")
+    HttpError.Forbidden -> println("Forbidden")
+    HttpError.NotFound -> println("NotFound")
+    HttpError.UnAuthorized -> println("UnAuthorized")
 }
 
 sealed class Exceptions {
@@ -145,5 +167,19 @@ fun main() {
     Run time exception: #402321
     Compile time exception: #213021
     Compile time exception: #213021
+     */
+
+    /*
+    Below we show how we can call values of a sealed interface and display them to the screen
+    in the same way we do for sealed classes.
+     */
+    val sealedAuthorized = HttpError.Authorized
+    getHttpError(sealedAuthorized)
+
+    val sealedUnAuthorized = HttpError.UnAuthorized
+    getHttpError(sealedUnAuthorized)
+    /*
+    Authorized
+    UnAuthorized
      */
 }
