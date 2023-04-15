@@ -75,11 +75,11 @@ sealed interface Error {
 }
 
 sealed class Exceptions {
-    sealed class RunTimeError(private val runTimeException: String) : Error {
+    open class RunTimeError(private val runTimeException: String) : Error {
         override fun returnErrorMsg(): String = "Run time exception: $runTimeException"
     }
 
-    sealed class CompileTimeError(private val compileTimeException: String) : Error {
+    open class CompileTimeError(private val compileTimeException: String) : Error {
         override fun returnErrorMsg(): String = "Compile time exception: $compileTimeException"
     }
 }
@@ -106,6 +106,45 @@ fun main() {
     checkMathematics(calculus)
     checkMathematics(notMath)
 
+    /*
+    7
+    2
+    2
+    20
+    Calculus ehh? Pretty smart guy.
+    Not a mathematical operation...
+     */
+
+    // Result example with sealed class
     val successResult = Result.Success()
     checkResult(successResult)
+
+    val failureResult = Result.Failure()
+    checkResult(failureResult)
+
+    /*
+    Success
+    Failure
+     */
+
+    /*
+    Below we will show how we can get the same result by calling the override method,
+    and by calling the method we created using a when statement for Exceptions.
+     */
+
+    val runTimeExceptions = Exceptions.RunTimeError("#402321")
+    showException(runTimeExceptions) // method
+    println(runTimeExceptions.returnErrorMsg()) // override
+
+    val compileTimeException = Exceptions.CompileTimeError("#213021")
+    showException(compileTimeException) // method
+    println(compileTimeException.returnErrorMsg()) // override
+
+    /*
+    Output is the same:
+    Run time exception: #402321
+    Run time exception: #402321
+    Compile time exception: #213021
+    Compile time exception: #213021
+     */
 }
