@@ -125,7 +125,7 @@ fun main() {
     /*
     We can also use objects and extend classes from them as well, which technically isn't best practice, but it
     can be done.
-    We should see the init block outputed before this when we run the program.
+    We should see the init block output before this when we run the program.
      */
     println("${NewTeacher.name} is the name of the object created.")
     val teacherIDList = NewTeacher.teacherIds.id.size
