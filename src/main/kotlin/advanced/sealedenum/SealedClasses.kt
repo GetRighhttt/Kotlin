@@ -1,8 +1,5 @@
 package advanced.sealedenum
 
-import basics.printThisLine
-import java.lang.Exception
-
 /**
  * So how are sealed classes different than enums?
  *

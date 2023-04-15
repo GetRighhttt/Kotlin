@@ -15,8 +15,9 @@ interface DelegationExample {
 }
 
 open class DelegateBase(var a: String) : DelegationExample {
-    init {
-        println("Delegate Base class has been extended...") // called first
+    init { // called first in output
+        println(a)
+        println("Delegate Base class has been extended...")
     }
 
     override val message: String
@@ -31,8 +32,8 @@ open class DelegateBase(var a: String) : DelegationExample {
 }
 
 class DerivedDelegate(base: DelegationExample) : DelegationExample by base {
-    init {
-        println("Beginning Delegation from Derived Delegate class...") // called second
+    init { // called second in output
+        println("Beginning Delegation from Derived Delegate class...")
     }
 
     /*
@@ -55,7 +56,7 @@ In the output. we see that each init block is called first in order.
 Then, when we call the message, we see that the Derived Delegate message is the one being printed because
 we DELEGATED the message to that class.
 
-
+Starting...
 Delegate Base class has been extended...
 Beginning Delegation from Derived Delegate class...
 Here is the message from the Derived Delegate class proving that Delegation has been achieved.
