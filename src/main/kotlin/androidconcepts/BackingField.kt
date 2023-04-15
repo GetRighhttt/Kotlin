@@ -71,7 +71,7 @@ fun main() {
 
     println("Enter a number to determine age: ")
 
-    val userAge = when (val userInput = readLine().toString().toInt()) {
+    val userAge = when (val userInput = readlnOrNull().toString().toInt()) {
         in 1..10 -> userInput - 5
         in 11..20 -> userInput + 20
         in 21..30 -> userInput + 30
