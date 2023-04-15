@@ -1,5 +1,8 @@
 package advanced.sealedenum
 
+import basics.printThisLine
+import java.lang.Exception
+
 /**
  * So how are sealed classes different than enums?
  *
@@ -36,16 +39,32 @@ sealed class Mathematics {
 //    sealed interface Geometry
 }
 
+fun checkMathematics(mathematics: Mathematics) = when (mathematics) {
+    is Mathematics.Addition -> println("${mathematics.firstNumber + mathematics.secondNumber} ")
+    is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
+    is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
+    is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
+    is Mathematics.Calculus -> println("Calculus ehh? Pretty smart guy.")
+    is Mathematics.NotMathematics -> println("Not a mathematical operation...")
+}
+
 /*
 Below we will show typically how sealed classes are used for state changes.
 
 The class below could be used as a basic state representation for an API call.
  */
 sealed class Result {
-    data class Success(val successMsg: String) : Result()
-    data class Failure(val errorMsg: String) : Result()
-    data class Canceled(val canceledMsg: String) : Result()
+    data class Success(val successMsg: String = "Success") : Result()
+    data class Failure(val errorMsg: String = "Failure") : Result()
+    data class Canceled(val canceledMsg: String = "Canceled") : Result()
     object Loading : Result()
+}
+
+fun checkResult(result: Result) = when (result) {
+    is Result.Success -> println(result.successMsg)
+    is Result.Canceled -> println(result.canceledMsg)
+    is Result.Failure -> println(result.errorMsg)
+    Result.Loading -> Unit
 }
 
 /*
@@ -65,6 +84,12 @@ sealed class Exceptions {
     }
 }
 
+fun showException(e: Error) = when (e) {
+    is Exceptions.CompileTimeError -> println(e.returnErrorMsg())
+    is Exceptions.RunTimeError -> println(e.returnErrorMsg())
+    else -> { Unit }
+}
+
 fun main() {
 
     val addition = Mathematics.Addition(2, 5)
@@ -80,13 +105,7 @@ fun main() {
     checkMathematics(multiplication)
     checkMathematics(calculus)
     checkMathematics(notMath)
-}
 
-fun checkMathematics(mathematics: Mathematics) = when (mathematics) {
-    is Mathematics.Addition -> println("${mathematics.firstNumber + mathematics.secondNumber} ")
-    is Mathematics.Subtraction -> println("${mathematics.firstNumber - mathematics.secondNumber} ")
-    is Mathematics.Multiplication -> println("${mathematics.firstNumber * mathematics.secondNumber} ")
-    is Mathematics.Division -> println("${mathematics.firstNumber / mathematics.secondNumber} ")
-    is Mathematics.Calculus -> println("Calculus ehh? Pretty smart guy.")
-    is Mathematics.NotMathematics -> println("Not a mathematical operation...")
+    val successResult = Result.Success()
+    checkResult(successResult)
 }
