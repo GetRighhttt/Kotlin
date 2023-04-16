@@ -58,10 +58,15 @@ fun main() {
 
     // prints hashcode
     println(Name.hashCode())
+    println(Name().name.hashCode())
+    println(Name().name.hashCode())
 
     /*\
     We can see in the output that all hashcodes align for the companion object meaning that
     we did not create a new object each time we called the companion object.
+
+    Also, the hashcodes when just calling the name parameter itself is the same when called both
+    times meaning the value has not changed.
 
     Value class created efficiently.
     YELIMS EOJ
@@ -76,5 +81,9 @@ fun main() {
     1023892928
     Stefan Buddy
     1023892928
+    Value class created efficiently.
+    324569873
+    Value class created efficiently.
+    324569873
      */
 }
