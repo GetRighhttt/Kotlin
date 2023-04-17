@@ -19,17 +19,15 @@ data class Person(
 )
 
 val stefan: Person = Person("Stefan", 27, "5'10", 169.30, "Software Engineer")
-fun getStefanName(): String {
-    return stefan.name
-}
+fun getStefanName(): String = stefan.name
+
 
 // below we call the object without destructuring and just using regular dot notation...
-fun getStefanCredentials(): String {
-    return """${stefan.name} is ${stefan.age} years old. 
+fun getStefanCredentials(): String = """${stefan.name} is ${stefan.age} years old. 
         |He weighs ${stefan.weight} lbs, 
         |and is ${stefan.height} tall! 
         |Stefan works as a ${stefan.job}!""".trimMargin()
-}
+
 
 data class Human(
     val title: String,

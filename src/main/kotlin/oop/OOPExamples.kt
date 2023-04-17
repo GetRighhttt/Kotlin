@@ -16,8 +16,8 @@ If we want to pass in a mutable value not in the primary constructor, we declare
 body, and we must provide an initial value.
  */
 open class Teacher(open val name: String) {
-    var studentName: String = "Zion"
-    var studentAge: Int = 5
+    private var studentName: String = "Zion"
+    private var studentAge: Int = 5
 
     /*
     Below we instantiate a student in the teacher's class, because a teacher has students.

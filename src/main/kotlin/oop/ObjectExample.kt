@@ -41,7 +41,7 @@ open class Person {
     Companion objects work just like objects except are held within classes.
      */
     companion object { // behaves like singleton object
-        var newName = ""
+        private var newName = ""
         private var age = 0
 
         init {
