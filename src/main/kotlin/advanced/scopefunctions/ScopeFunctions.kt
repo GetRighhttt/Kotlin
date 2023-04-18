@@ -7,9 +7,14 @@ class Being {
     var age: Int = 27
 }
 
+// another example of the "also" scope function that adds functionality to methods and objects
+fun addCounterTogether(counter: Int): Int = (counter + counter).also { println(it) }
+
+
 fun main() {
 
     val thisPerson = Being()
+
 
     /**
      * With allows us to pass in an object and use its values. Good for when we have multiple properties and
@@ -60,6 +65,8 @@ fun main() {
      * Also is usually used to perform an extra method on an object after it has been initialized.
      *
      * Good for additional object configuration.
+     *
+     * Also is very useful when we want to add a method to another method as well.
      */
     val alsoPerson = Being()
     alsoPerson.also {
@@ -70,6 +77,9 @@ fun main() {
         it.name = "Stefan"
         println(it.name)
     }
+
+    // using the method we created above main()
+    addCounterTogether(3)
 
     /**
      * The let function has a lot of use cases, but we usually use it to avoid null pointers.
