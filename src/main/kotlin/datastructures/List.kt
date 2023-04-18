@@ -54,6 +54,9 @@ fun main(args: Array<String>) {
             .stream()
             .sorted()
             .collect(Collectors.toList())
+            .also { // scope function used here and continues collection afterwards
+                println(it)
+            }
             .asReversed()
     )
 
