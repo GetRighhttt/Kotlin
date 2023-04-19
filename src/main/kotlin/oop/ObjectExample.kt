@@ -84,8 +84,8 @@ fun main() {
     println(Customer.returnCount()) // 100
     Customer.typeOfCustomer() // American
 
-    println(Person.getName())
-    println(Person.returnAge())
+    println(Person().getName())
+    println(Person().returnAge())
 
     /*
     Below we show what happens in regular classes when you don't use a companion object or declare an object
