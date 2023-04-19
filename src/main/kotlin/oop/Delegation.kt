@@ -46,7 +46,8 @@ class DerivedDelegate(base: DelegationExample) : DelegationExample by base {
 
 fun main() {
     val delegationObject = DelegateBase("Starting...")
-    val delegationResult = DerivedDelegate(delegationObject)
+    // going to use a scope function here just for demo purposes
+    val delegationResult = DerivedDelegate(delegationObject).apply { this.message.uppercase() }
     println(delegationResult.message) // delegation
     println(delegationResult.returnDelegateBase()) // base class
 }
