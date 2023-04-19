@@ -30,6 +30,10 @@ fun main() {
     }
     println(agePlusTwo)
 
+    with(thisPerson) {
+        this.name.repeat(2)
+    }.also { println(it) }
+
     val ageMinusTen: Double = with(thisPerson) {
         age - 10.0
     }
