@@ -18,7 +18,7 @@ data class Person(
     val job: String
 )
 
-val stefan: Person = Person("Stefan", 27, "5'10", 169.30, "Software Engineer")
+val stefan by lazy { Person("Stefan", 27, "5'10", 169.30, "Software Engineer") }
 fun getStefanName(): String = stefan.name
 
 
@@ -50,7 +50,7 @@ fun main() {
     Destructuring example of a data class in Kotlin. Destructuring allows us to remove the dot notation
      and just return a value. Reduces the line of code via a component.
      */
-    val person = Human("Sir", 22, "Stefan", "Engineer")
+    val person by lazy { Human("Sir", 22, "Stefan", "Engineer") }
     val (title, age, userName, career) = person
 
     println(title) // instead of: person.title
@@ -69,9 +69,10 @@ fun main() {
     We can also copy a data class using the copy() method, and if we want, we can use named parameters
     to change the values.
      */
-    val personCopy = person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse")
+    val personCopy by lazy { person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse") }
     val (titleCopy, ageCopy, userNameCopy, careerCopy) = personCopy
-    println("$titleCopy $ageCopy $userNameCopy $careerCopy") // Ma'am 30 Woman Nurse
+    println("Printing the copy of the data class below...")
+    println("$titleCopy is $ageCopy and has a username of $userNameCopy. She works as a $careerCopy!") // Ma'am 30 Woman Nurse
 
     val personHashCode = person.hashCode()
     println(personHashCode) // prints hash code for the person object
