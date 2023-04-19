@@ -9,7 +9,11 @@ are automatically generated in the compiler for us to use in main.
 To allow a class to be inherited from, in Kotlin we have to use the open keyword. And that goes
 for properties of classes as well.
  */
-open class Student(open val name: String, open var age: Int)
+open class Student(open val name: String, open var age: Int) {
+    override fun toString(): String {
+        return "$name is $age years old"
+    }
+}
 
 /*
 If we want to pass in a mutable value not in the primary constructor, we declare it in the class
@@ -25,7 +29,12 @@ open class Teacher(open val name: String) {
     Composition is another OOP concept that demonstrates a "has-a" relationship, while inheritance demonstrates
     an "is-a" relationship. It allows for more loosely coupled coding.
      */
-    private val newStudent = Student(studentName, studentAge) // an example of composition "has-a" relationship.
+    private val newStudent by lazy {
+        Student(
+            studentName,
+            studentAge
+        )
+    } // an example of composition "has-a" relationship.
 
     fun printStudentName(): String = newStudent.name
     fun printStudentAge(): Int = newStudent.age
@@ -69,31 +78,33 @@ interface BallRoller {
 
 data class TeacherIDs(val id: List<Int>)
 
-object NewTeacher: Teacher(name = "New Teacher") {
+object NewTeacher : Teacher(name = "New Teacher") {
     init {
         println("$name created successfully.")
     }
-    val teacherIds = TeacherIDs(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+
+    val teacherIds by lazy { TeacherIDs(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)) }
+
     @JvmName("getTeacherIds1")
     fun getTeacherIds() = teacherIds
 }
 
 fun main() {
-
-    val myStudent = Student("DJ", 25)
-    val yourStudent = Student("Stefan", 26)
-    val thisNewPlayer = MyNewPlayer("Luther", 10)
-    val thisTeacher = Teacher("Ayesha")
+    // lazy delegation improves performance
+    val myStudent by lazy { Student("DJ", 25) }
+    val yourStudent by lazy { Student("Stefan", 26) }
+    val thisNewPlayer by lazy { MyNewPlayer("Luther", 10) }
+    val thisTeacher by lazy { Teacher("Ayesha") }
 
     /*
     Below we are creating a list of all the students, and because thisNewPlayer inherits from Student,
     it still doesn't cause an error in the list although its of type MyNewPlayer.
      */
-    val theseStudents = mutableListOf<Student>(myStudent, yourStudent, thisNewPlayer)
-    val filterByAge = theseStudents.stream()
-        .filter { it.age == 25 }
-        .collect(Collectors.toList())
+    val theseStudents by lazy { mutableListOf<Student>(myStudent, yourStudent, thisNewPlayer) }
+    theseStudents.filter { it.age >= 5 }
         .sortedBy { it.age }
+        .forEach(::println)
+        .toString()
 
     /*
     Below we show different ways to print multiple lines of strings again while displaying sentences
@@ -134,6 +145,11 @@ fun main() {
 }
 
 /*
+Luther is 10 years old
+DJ is 25 years old
+Stefan is 26 years old
+
+
 Stefan and DJ have been friends for over 10 years.
 Stefan is 26 while DJ is 25!
 
@@ -143,7 +159,6 @@ Zion is in Ayesha's
 Math class, and is 5 years old!
 Zion has been a great student!
 Keep up the great work Zion!
-
 New Teacher created successfully.
 New Teacher is the name of the object created.
 9

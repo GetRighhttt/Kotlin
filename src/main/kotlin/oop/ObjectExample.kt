@@ -50,7 +50,6 @@ open class Person {
     companion object { // behaves like singleton object at a class level
 
         const val TAG  = "PERSON" // this can be used for log statements
-
         private var newName = ""
         private var age = 0
     }
