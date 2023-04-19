@@ -81,14 +81,14 @@ Below is an example without a method and just shows a group of singleton objects
 sealed interface.
  */
 sealed interface HttpError {
-    object Authorized: HttpError
-    object UnAuthorized: HttpError
-    object NotFound: HttpError
-    object Forbidden: HttpError
+    object Authorized : HttpError
+    object UnAuthorized : HttpError
+    object NotFound : HttpError
+    object Forbidden : HttpError
 
 }
 
-fun getHttpError(error: HttpError) = when(error) {
+fun getHttpError(error: HttpError) = when (error) {
     HttpError.Authorized -> println("Authorized")
     HttpError.Forbidden -> println("Forbidden")
     HttpError.NotFound -> println("NotFound")
@@ -108,7 +108,9 @@ sealed class Exceptions {
 fun showException(e: Error) = when (e) {
     is Exceptions.CompileTimeError -> println(e.returnErrorMsg())
     is Exceptions.RunTimeError -> println(e.returnErrorMsg())
-    else -> { Unit }
+    else -> {
+        Unit
+    }
 }
 
 fun main() {
@@ -172,11 +174,17 @@ fun main() {
     /*
     Below we show how we can call values of a sealed interface and display them to the screen
     in the same way we do for sealed classes.
+
+    Here we are using lazy delegation just for performance. Lazy delegation only initializes when the method is called
      */
-    val sealedAuthorized = HttpError.Authorized
+    val sealedAuthorized by lazy {
+        HttpError.Authorized
+    }
     getHttpError(sealedAuthorized)
 
-    val sealedUnAuthorized = HttpError.UnAuthorized
+    val sealedUnAuthorized by lazy {
+        HttpError.UnAuthorized
+    }
     getHttpError(sealedUnAuthorized)
     /*
     Authorized
