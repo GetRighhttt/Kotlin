@@ -3,6 +3,14 @@ package basics
 /*
 Now we will go over types in Kotlin.
  */
+
+/*
+        val is known at runtime whereas const val is known at compile time, so before the code is executed.
+        Contents are immutable whereas val contents are mutable.
+        Must be declared in top level or companion object.
+        Only primitive or strings can be const.
+         */
+const val TAG = "MAIN"
 fun main(args: Array<String>) {
     /*
     Var = mutable(able to be changed) while Val = immutable(not able to be changed).
