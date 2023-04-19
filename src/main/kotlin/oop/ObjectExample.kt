@@ -33,6 +33,7 @@ open class Person {
         Thread.sleep(1000)
         println("This block is called right before the object is created in main...")
         Thread.sleep(1000)
+            .also { println("The name of the thread we are on is: ${Thread.currentThread().name.toString()}") }
     }
 
     fun notInTheCompanionObject() = println("Not apart of the companion object...")
@@ -63,8 +64,8 @@ open class Person {
     abstract classes are meant for extension but cannot be instantiated. They're like interfaces
     but with more capabilities.
 */
-abstract class NewObjectExample{
-    open fun getObject(name: String) : String = name
+abstract class NewObjectExample {
+    open fun getObject(name: String): String = name
 }
 
 fun main() {
