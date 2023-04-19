@@ -40,24 +40,32 @@ open class Person {
 
     /*
     Companion objects work just like objects except are held within classes.
+
+    Their most common use cases:
+
+    1. Property needed at class level and not a specific instance level(one variable shared across all objects of
+    the class).
+    2. Factory pattern: perform extra work before an object can be used
      */
-    companion object { // behaves like singleton object
+    companion object { // behaves like singleton object at a class level
+
+        const val TAG  = "PERSON" // this can be used for log statements
+
         private var newName = ""
         private var age = 0
-
-        init {
-            println("\nCompanion object has been created.")
-            println("Determining name and age...\n")
-
-            newName = "Bob"
-            age = 30
-        }
-
-        @JvmStatic // makes it behave like a static method and can be used in java file. (Optional here)
-        fun getName() = newName
-
-        fun returnAge() = age
     }
+
+    init {
+        println("\nCompanion object has been created.")
+        println("Determining name and age...\n")
+
+        newName = "Bob"
+        age = 30
+    }
+
+    fun getName() = newName
+    fun returnAge() = age
+
 }
 
 /* Will be used for main object declaration with an abstract class.
@@ -127,4 +135,6 @@ fun main() {
     }
     println(objectExpressionNew.toString())
     println(objectExpressionNew.printObject())
+
+    println(Person.TAG) // PERSON
 }
