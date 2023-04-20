@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
      */
 
     println("Please enter a number:")
-    val newNumber = readLine()?.toInt()
+    val newNumber = readlnOrNull()?.toInt()
 
     // null check is always necessary for readLine values
     if (newNumber != null) {
@@ -20,12 +20,17 @@ fun main(args: Array<String>) {
 
 
     println("Please enter a name:")
-    val newName = readLine()
+    val newName = readlnOrNull()
     println(newName?.isNice())
     println(newName?.hideName())
     println(newName?.repeatName())
-}
 
+    val list = mutableListOf(3, 6, 9, 12)
+    list.switchNumbers(0, 1)
+    list.switchNumbers(1, 2)
+    list.switchNumbers(2, 3)
+    println(list.toString())
+}
 /*
 This is how we can use an extension function to check and see if a number is Prime.
 
@@ -84,4 +89,5 @@ e
 f
 a
 n
+[6, 9, 12, 3]
  */
