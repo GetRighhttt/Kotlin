@@ -1,5 +1,7 @@
 package advanced.functional
 
+import java.lang.NumberFormatException
+
 fun main(args: Array<String>) {
     /*
     In Kotlin, we have the capability to extend functions when we want to apply
@@ -10,20 +12,31 @@ fun main(args: Array<String>) {
      */
 
     println("Please enter a number:")
-    val newNumber = readlnOrNull()?.toInt()
+    // Exception handling
+    try {
+        val newNumber = readlnOrNull()?.toInt()
 
-    // null check is always necessary for readLine values
-    if (newNumber != null) {
-        if (newNumber.isPrime())
-            println("is a prime number") else println("not prime")
+        // null check is always necessary for readLine values
+        if (newNumber != null) {
+            if (newNumber.isPrime())
+                println("is a prime number") else println("not prime")
+        }
+    } catch (e: NumberFormatException) {
+        println("Exception: $e")
     }
 
 
     println("Please enter a name:")
-    val newName = readlnOrNull()
-    println(newName?.isNice())
-    println(newName?.hideName())
-    println(newName?.repeatName())
+    // Exception Handling
+    try {
+        val newName = readlnOrNull()
+
+        println(newName?.isNice())
+        println(newName?.hideName())
+        println(newName?.repeatName())
+    } catch (e: RuntimeException) {
+        println("Exception: $e")
+    }
 
     val list = mutableListOf(3, 6, 9, 12)
     list.switchNumbers(0, 1)
@@ -31,6 +44,7 @@ fun main(args: Array<String>) {
     list.switchNumbers(2, 3)
     println(list.toString())
 }
+
 /*
 This is how we can use an extension function to check and see if a number is Prime.
 
@@ -52,7 +66,7 @@ fun String.isNice(): Boolean {
 }
 
 fun String.hideName() = "*".repeat(this.length)
-fun String.repeatName() = this.repeat(3).toList().forEach (::println)
+fun String.repeatName() = this.repeat(3).toList().forEach(::println)
 
 /*
 Extension function to swap numbers in a mutable list.
