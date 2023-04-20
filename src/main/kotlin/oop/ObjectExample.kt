@@ -132,8 +132,13 @@ fun main() {
 
         fun printObject() = "Object Expression"
     }
+    val objectA = objectExpressionNew
     println(objectExpressionNew.toString())
     println(objectExpressionNew.printObject())
 
     println(Person.TAG) // PERSON
+
+    // passed values by reference - these are the same object and have the same hashcode().
+    println(objectExpressionNew.hashCode())
+    println(objectA.hashCode())
 }
