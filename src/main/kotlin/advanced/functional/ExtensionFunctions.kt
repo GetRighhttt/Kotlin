@@ -50,6 +50,15 @@ fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList().forEach (::println)
 
 /*
+Extension function to swap numbers in a mutable list.
+ */
+fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
+    val temp = this[index1]
+    this[index1] = this[index2]
+    this[index2] = temp
+}
+
+/*
 Please enter a number:
 40
 is a prime number
