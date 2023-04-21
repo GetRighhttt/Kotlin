@@ -98,21 +98,24 @@ fun getHttpError(error: HttpError) = when (error) {
 sealed class Exceptions {
     open class RunTimeError(private val runTimeException: String) : Error {
         override fun returnErrorMsg(): String = "Run time exception: $runTimeException"
+        override fun toString(): String = runTimeException
     }
 
     open class CompileTimeError(private val compileTimeException: String) : Error {
         override fun returnErrorMsg(): String = "Compile time exception: $compileTimeException"
+        override fun toString(): String = compileTimeException
     }
 
-    object UnknownError : Exceptions()
+    object UnknownError : Error {
+        override fun returnErrorMsg(): String = "Unknown error"
+        override fun toString(): String = "******"
+    }
 }
 
 fun showException(e: Error) = when (e) {
     is Exceptions.CompileTimeError -> println(e.returnErrorMsg())
     is Exceptions.RunTimeError -> println(e.returnErrorMsg())
-    else -> {
-        Unit
-    }
+    is Exceptions.UnknownError -> println(e.returnErrorMsg())
 }
 
 /*
@@ -125,8 +128,8 @@ this method.
 fun Any.reverseAMessage(message: String): String = message.reversed()
 fun HttpError.printErrorMessage(e: HttpError): String = "An HttpError has occurred...."
 
-fun Exceptions.printUnknownMessage(e: Exceptions): String =
-    "Unknown error message...  Consider consulting Kotlin documentation..."
+fun Error.printUnknownMessage(e: String): String =
+    "Unknown $e...  Consider consulting Kotlin documentation..."
 
 fun main() {
 
@@ -213,7 +216,9 @@ fun main() {
     println("Printing messages using extension functions.")
     println("----------------------------------------------------------------")
     val unknownError = Exceptions.UnknownError
-    println(unknownError.printUnknownMessage(unknownError))
+    println(unknownError.printUnknownMessage(unknownError.toString()))
+    println(runTimeExceptions.printUnknownMessage(runTimeExceptions.toString()))
+    println(compileTimeException.printUnknownMessage(compileTimeException.toString()))
 
     // using extension function
     println(sealedUnAuthorized.printErrorMessage(sealedUnAuthorized))
