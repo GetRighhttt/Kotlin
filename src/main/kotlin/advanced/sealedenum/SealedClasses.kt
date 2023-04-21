@@ -103,6 +103,8 @@ sealed class Exceptions {
     open class CompileTimeError(private val compileTimeException: String) : Error {
         override fun returnErrorMsg(): String = "Compile time exception: $compileTimeException"
     }
+
+    object UnknownError : Exceptions()
 }
 
 fun showException(e: Error) = when (e) {
@@ -112,6 +114,19 @@ fun showException(e: Error) = when (e) {
         Unit
     }
 }
+
+/*
+We can also use extension functions with interfaces, classes, or objects that we create. This is one
+of the best language features that Kotlin has to offer. They extend the functionality of an object.
+
+Because we created an extension method below with type "Any", any object has the ability to use
+this method.
+ */
+fun Any.reverseAMessage(message: String): String = message.reversed()
+fun HttpError.printErrorMessage(e: HttpError): String = "An HttpError has occurred...."
+
+fun Exceptions.printUnknownMessage(e: Exceptions): String =
+    "Unknown error message...  Consider consulting Kotlin documentation..."
 
 fun main() {
 
@@ -187,7 +202,37 @@ fun main() {
     }
     getHttpError(sealedUnAuthorized)
     /*
-    Authorized
-    UnAuthorized
+   Authorized
+   UnAuthorized
+    */
+
+    /*
+   Below we use the extension function we created that prints the unknown error message for the object
+    */
+    println("----------------------------------------------------------------")
+    println("Printing messages using extension functions.")
+    println("----------------------------------------------------------------")
+    val unknownError = Exceptions.UnknownError
+    println(unknownError.printUnknownMessage(unknownError))
+
+    // using extension function
+    println(sealedUnAuthorized.printErrorMessage(sealedUnAuthorized))
+    println(HttpError.NotFound.printErrorMessage(HttpError.NotFound))
+
+    /*
+    Using extension method with any type to reverse messages from various classes
+     */
+    val canceledResult = Result.Canceled()
+    println(successResult.reverseAMessage(successResult.successMsg))
+    println(failureResult.reverseAMessage(failureResult.errorMsg))
+    println(canceledResult.reverseAMessage(canceledResult.canceledMsg))
+    println(compileTimeException.reverseAMessage(compileTimeException.returnErrorMsg()))
+    println(runTimeExceptions.reverseAMessage(runTimeExceptions.returnErrorMsg()))
+    /*
+    sseccuS
+    eruliaF
+    delecnaC
+    120312# :noitpecxe emit elipmoC
+    123204# :noitpecxe emit nuR
      */
 }
