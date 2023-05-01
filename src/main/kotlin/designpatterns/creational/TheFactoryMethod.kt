@@ -7,7 +7,7 @@ Kotlin language in most areas, however it is important to know how the factory p
 need to create this for our own use case in the future.
 
 The factory pattern hides the complexity of creating and selecting the right object for the job.
-Essentially, it works to create objects and hides the complexity of creating objects.
+Essentially, it works to create objects and hides the complexity of creating objects of the same family.
  */
 
 interface FileParser
