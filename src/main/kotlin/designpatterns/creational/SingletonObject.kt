@@ -1,9 +1,10 @@
-package designpatterns
+package designpatterns.creational
 
 /*
 A "Singleton" is about limiting memory usage and resource allocation. When we create objects that are the same,
 we are being wasteful and using unnecessary resources. This is a problem when we want our apps to scale and need
-additional resources in order to do so.
+additional resources in order to do so. We want to ensure as developers that we are creating objects and instantiating
+objects in the most useful and efficient way possible.
 
 In Kotlin, this is made easy for us by using the 'object' keyword. All of our requirements are met in Kotlin by using
 the object keyword.
