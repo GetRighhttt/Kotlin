@@ -53,4 +53,15 @@ fun main() {
         .meat("bacon")
         .condiments("olive oil")
         .build()
+
+    val fishOrder = FoodOrder.Builder()
+        .bread("white bread")
+        .meat("bacon")
+        .fish("catfish")
+        .condiments("salt")
+        .condiments("pepper")
+        .condiments("mustard")
+        .build()
+
+    println(foodOrder!! == fishOrder) // prints false
 }
