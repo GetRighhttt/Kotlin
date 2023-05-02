@@ -16,6 +16,6 @@ a creational design pattern.
 Design Patterns come in three main types:
 
 Creational - how and when you create objects;
-Structural - deals with the relationship between objects; and
-Behavioral - deals with the behavior between objects, and how they interact with one another.
+Structural - how to structure your objects to make them loosely coupled/easy to work with; and
+Behavioral - how to handle the behavior between objects, and how they interact with one another.
 
