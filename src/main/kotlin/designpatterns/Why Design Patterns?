@@ -1,0 +1,21 @@
+Why Do we need Design Patterns and what are they?
+
+- Design Patterns, first made notable by the "Gang of Four" a while ago, came about when some brilliant
+software developers recognized common problems when developing code. The idea is this: all software engineers at
+some point in their careers are going to face extremely similar, if not identical problems that all have similar,
+or identical solutions. The solutions are design patterns. Well, what are design patterns? Design patterns are
+proven solutions to reoccurring problems that developers face when designing software. These problems have been
+observed and noticed over time, and these solutions have been tested and over and over again, and have proven to work.
+
+When you think of Design patterns, think of a proven solution to a common problem. This also, doesn't just mean in
+tech. Think of a sport, let's say basketball. Guys and girls play. However, they typically have different hand sizes due
+to their genetic makeup. The normal basketball is sometimes too big for females players. What is the solution? Design a
+smaller ball. Have two separate sizes. Walla. You just completed a design pattern. In this case, however, it was
+a creational design pattern.
+
+Design Patterns come in three main types:
+
+Creational - how and when you create objects;
+Structural - deals with the relationship between objects; and
+Behavioral - deals with the behavior between objects, and how they interact with one another.
+
