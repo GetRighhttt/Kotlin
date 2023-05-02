@@ -1,6 +1,6 @@
 Why Do we need Design Patterns and what are they?
 
-- Design Patterns, first made notable by the "Gang of Four" a while ago, came about when some brilliant
+- Design Patterns, first made notable by the "Gang of Four", came about when some brilliant
 software developers recognized common problems when developing code. The idea is this: all software engineers at
 some point in their careers are going to face extremely similar, if not identical problems that all have similar,
 or identical solutions. The solutions are design patterns. Well, what are design patterns? Design patterns are
