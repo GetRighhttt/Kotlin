@@ -21,7 +21,8 @@ Creational - how and when you create objects;
 Structural - how to structure your objects to make them loosely coupled/easy to work with; and
 Behavioral - how to handle the behavior between objects, and how they interact with one another.
 
-Each of these have patterns that fit within each category, and in this repo, we go over the main ones that are used,
-and known in Kotlin. There are hundreds of Design Patterns by the way, and if you've been coding for awhile, I'm sure
-you've already used quite a few of them, and didn't even realize it!
+Each of these have categories have numerous patterns that fit within each category, however in this repo, we review
+ the main ones that are used, and known in Kotlin.
+ There are hundreds of Design Patterns by the way, and if you've been coding for awhile, I'm sure you've already used
+ quite a few of them, and didn't even realize it!
 
