@@ -97,13 +97,13 @@ fun main(args: Array<String>) {
 
     Basically transforms a list of one type to another list of another type.
      */
-    val list = listOf("Stefan", "Bayne")
+    val list by lazy { listOf("Stefan", "Bayne") }
     println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
 
     /*
     Using the "onEach" method, unlike forEach, it can continue a collection.
      */
-    val intListExample = listOf(1, 2, 3, 4, 5)
+    val intListExample by lazy { listOf(1, 2, 3, 4, 5) }
     println(intListExample.flatMap { it ->
         it.toString()
             .toList()
