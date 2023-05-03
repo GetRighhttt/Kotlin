@@ -68,6 +68,9 @@ fun main() {
     /*
     We can also copy a data class using the copy() method, and if we want, we can use named parameters
     to change the values.
+
+    This is also an example of the Prototype design pattern: making copies of an object and adjusting the functionality
+    of that object.
      */
     val personCopy by lazy { person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse") }
     val (titleCopy, ageCopy, userNameCopy, careerCopy) = personCopy
@@ -79,5 +82,9 @@ fun main() {
 
     val personEquals = person.equals(personCopy)
     println(personEquals) // returns false since they are not equal to each other
+
+    val newPersonCopy by lazy { person.copy(title = "Shawn", age = 20, userName = "ShawnPDiddy", career = "Business") }
+    val (name, year, user, job) = newPersonCopy
+    println("$name is $year and has a username of $user. They works as a $job!") // Ma'am 30 Woman Nurse
 
 }
