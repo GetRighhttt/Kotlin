@@ -59,20 +59,35 @@ fun main(args: Array<String>) {
 
     ArrayList can grow in size. That's the only difference.
      */
+
+    println("Let's print values from an array and filter out a sorted array:")
     val newArrayList = arrayListOf<Int>()
     newArrayList.add(1)
-    newArrayList.add(3)
-    newArrayList.add(5)
-    newArrayList.add(7)
-    newArrayList.add(9)
-    newArrayList.add(11)
-    newArrayList.add(13)
-    newArrayList.add(15)
-    val sortedAndFiltered = newArrayList.stream()
-        .filter { it > 5 }
+    newArrayList.add(83)
+    newArrayList.add(51)
+    newArrayList.add(47)
+    newArrayList.add(99)
+    newArrayList.add(221)
+    newArrayList.add(23)
+    newArrayList.add(25)
+    newArrayList.add(35)
+    newArrayList.add(65)
+    newArrayList.add(25)
+    newArrayList.add(25)
+    val sortedAndFiltered = newArrayList
+        .filter { it > 25 }
         .sorted()
-        .findFirst()
+        .onEach(::println)
+        .contains(99)
         .toString()
 
-    println(sortedAndFiltered)
+    /*
+    35
+    47
+    51
+    65
+    83
+    99
+    221
+     */
 }

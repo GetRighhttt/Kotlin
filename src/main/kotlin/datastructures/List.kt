@@ -51,9 +51,7 @@ fun main(args: Array<String>) {
     // here we print the list in reverse order and sorted
     println(
         thisMutableList
-            .stream()
             .sorted()
-            .collect(Collectors.toList())
             .also { // scope function used here and continues collection afterwards
                 println(it)
             }
