@@ -1,7 +1,5 @@
 package oop
 
-import kotlin.concurrent.thread
-
 /*
 In Kotlin, we do not use the word "static" like we did in Java. So, in order for us
 to create singletons, and declare static variables, we use the keywords "object" and
@@ -94,7 +92,7 @@ fun main() {
     Thread.sleep(2000)
 
     // should be created after init block is created in class.
-    val notCompanion = Person()
+    val notCompanion by lazy { Person() }
     println(notCompanion.notInTheCompanionObject())
 
     /*
@@ -126,13 +124,12 @@ fun main() {
     ANONYMOUS object.
      */
     val objectExpressionNew = object {
-        val firstName = "Bob"
-        val lastName = "Marley"
+        val firstName by lazy { "Bob" }
+        val lastName by lazy { "Marley" }
         override fun toString(): String = "$firstName $lastName"
 
         fun printObject() = "Object Expression"
     }
-    val objectA = objectExpressionNew
     println(objectExpressionNew.toString())
     println(objectExpressionNew.printObject())
 
@@ -140,5 +137,5 @@ fun main() {
 
     // passed values by reference - these are the same object and have the same hashcode().
     println(objectExpressionNew.hashCode())
-    println(objectA.hashCode())
+    println(objectExpressionNew.hashCode())
 }
