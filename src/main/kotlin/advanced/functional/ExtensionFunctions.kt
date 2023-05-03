@@ -14,11 +14,11 @@ fun main(args: Array<String>) {
     println("Please enter a number:")
     // Exception handling
     try {
-        val newNumber = readlnOrNull()?.toInt()
+        val newNumber by lazy { readlnOrNull()?.toInt() }
 
         // null check is always necessary for readLine values
         if (newNumber != null) {
-            if (newNumber.isPrime())
+            if (newNumber!!.isPrime())
                 println("is a prime number") else println("not prime")
         }
     } catch (e: NumberFormatException) {
@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
     println("Please enter a name:")
     // Exception Handling
     try {
-        val newName = readlnOrNull()
+        val newName by lazy { readlnOrNull() }
 
         println(newName?.isNice())
         println(newName?.hideName())

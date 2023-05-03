@@ -38,13 +38,13 @@ fun main(args: Array<String>) {
     Functions assigned to variables are called LITERAL functions.
      */
 
-    val division = generateDivision()
+    val division by lazy { generateDivision() }
     println(division(20)) // 200
 
-    val exampleLambdaAddition = generateAddition()
+    val exampleLambdaAddition by lazy { generateAddition() }
     println(exampleLambdaAddition(5)) // 6
 
-    val multiplication = generateMultiplication()
+    val multiplication by lazy { generateMultiplication() }
     println(multiplication(30.0)) // 900.0
 
     /*
