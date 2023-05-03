@@ -1,4 +1,4 @@
-package advanced
+package datastructures
 
 import java.util.stream.Collectors
 
