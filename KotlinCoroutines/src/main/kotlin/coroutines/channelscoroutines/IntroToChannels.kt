@@ -1,4 +1,4 @@
-package channelscoroutines
+package coroutines.channelscoroutines
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel

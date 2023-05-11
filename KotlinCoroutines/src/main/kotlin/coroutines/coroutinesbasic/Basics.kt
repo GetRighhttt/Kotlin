@@ -1,4 +1,4 @@
-package coroutines
+package coroutines.coroutinesbasic
 
 import kotlinx.coroutines.*
 import kotlin.concurrent.thread

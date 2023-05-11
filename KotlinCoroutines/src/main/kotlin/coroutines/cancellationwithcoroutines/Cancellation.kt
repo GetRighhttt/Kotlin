@@ -1,4 +1,4 @@
-package cancellationwithcoroutines
+package coroutines.cancellationwithcoroutines
 
 import kotlinx.coroutines.*
 
@@ -12,7 +12,7 @@ import kotlinx.coroutines.*
 
 fun main() = runBlocking {
 
-    println("Start of main program: ${Thread.currentThread().name}")
+    println("Start of main program: ${Thread .currentThread().name}")
 
     /**
      * Coroutine must be cooperative to cancel.

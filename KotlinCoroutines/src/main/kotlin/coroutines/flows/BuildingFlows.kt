@@ -1,6 +1,6 @@
 @file:Suppress("KotlinConstantConditions")
 
-package flows
+package coroutines.flows
 
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
