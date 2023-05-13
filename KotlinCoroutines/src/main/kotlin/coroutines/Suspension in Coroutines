@@ -1,0 +1,11 @@
+Suspension is the key concepts of Coroutines, but how does it really work?
+
+- Suspending a coroutine essentially means stopping it in the middle. We can think of this similar to a
+video game, when a person might pause the game to go do some chores, use the restroom, etc.
+Then, when you would come back to the game, you resume from the position where you left off at.
+
+- When Coroutines are suspended, they return a "Continuation", which allows them to continue where they left off at.
+In normal threads, this is not possible, because Threads usually can only be blocked, not paused or stopped in the
+middle. When a coroutine is suspended, it does not consume any resources, prioritizing the application's resources.
+A coroutine in theory can even resume on a different thread when suspended which is another powerful key feature
+and concept of Kotlin coroutines.
