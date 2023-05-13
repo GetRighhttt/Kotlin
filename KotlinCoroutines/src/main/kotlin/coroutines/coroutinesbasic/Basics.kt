@@ -48,7 +48,6 @@ fun main() { // executes in main thread
      * Coroutines follow the concept of Structured Concurrency, which essentially means that each coroutine
      * should be launched in a defined Coroutine Scope, which delimits the life of that coroutine. It helps to
      * prevent resource and memory leakage. This is why we use GlobalScope to launch this coroutine below.
-     * Structured Concurrency = managed jobs. When something doesn't need to run anymore, it is killed automatically.
      *
      * An outer scope cannot complete until all the children have completed.
      *

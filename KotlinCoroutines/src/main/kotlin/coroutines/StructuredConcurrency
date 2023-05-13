@@ -1,0 +1,12 @@
+What is Structured Concurrency?
+
+- Structured Concurrency is essentially Coroutines have to be launched within a defined Coroutine Scope, which
+creates a Coroutine hierarchy that follows a set of constraints and guidelines. It's when a parent coroutine
+has child coroutines, and there are constraints that arise because of this. It basically encompasses the ideology
+of Object Oriented Programming, but for asynchronous programming.
+
+Here are the rules that constraints that arise when using Structured Concurrency:
+A. Children inherit context from their parent;
+B. If a child coroutine raises an error, the parent coroutine also has an error;
+C. When a parent is canceled, it's children are also canceled; and
+D. A parent coroutine suspends until all of its children have finished thier tasks.

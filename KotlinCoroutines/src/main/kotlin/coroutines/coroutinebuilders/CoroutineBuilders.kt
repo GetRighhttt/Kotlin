@@ -8,6 +8,9 @@ import kotlinx.coroutines.*
  *
  * launch, async, and runblocking are coroutine builders that essentially just create coroutines.
  *
+ * runblocking is the only Coroutine builder that cannot be used in Structured Concurrency. It must be used as
+ * a root or parent scope.
+ *
  * Jobs are essentially the results of running an asynchronous task.
  * "A cancellable thing with a lifecycle that culminates its completion".
  * Kind of like a disposable, and it represents an actual coroutine.
@@ -28,6 +31,8 @@ fun main() = runBlocking { // creates a blocking coroutine that executes in main
         delay(1000)
         println("End of launch worker thread: ${Thread.currentThread().name}")
     }
+    // join() is used to wait for coroutine to finish executing, then next statement will be executed.
+    job.join()
 
     /**
      * async = deferred; doesn't return a job object but instead returns a deferred object which is a subclass of Job.
@@ -49,8 +54,6 @@ fun main() = runBlocking { // creates a blocking coroutine that executes in main
     println("The value from the async deferred job is: $numberFromAsync !")
 
 
-    // join() is used to wait for coroutine to finish executing, then next statement will be executed.
-    job.join()
     println("End of main program: ${Thread.currentThread().name}")
 
 }
