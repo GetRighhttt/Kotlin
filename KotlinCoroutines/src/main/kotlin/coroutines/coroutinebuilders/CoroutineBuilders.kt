@@ -8,6 +8,8 @@ import kotlinx.coroutines.*
  *
  * launch, async, and runblocking are coroutine builders that essentially just create coroutines.
  *
+ * launch and async both run concurrently, however async returns a result.
+ *
  * runblocking is the only Coroutine builder that cannot be used in Structured Concurrency. It must be used as
  * a root or parent scope.
  *
