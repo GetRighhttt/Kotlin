@@ -13,8 +13,8 @@ Concurrent -> happening simultaneously with one single core processing unit.
 What is Structured Concurrency?
 
 - Structured Concurrency aims to improve the readability and ease of use when working with asynchronous tasks and
-programming. It's the idea that new coroutines can only be launched within a Coroutine Scope which delimits the
-life of the coroutine. It's when a parent coroutine has child coroutines, and there exists a relationship between the two that has certain constraints.
+programming. It's the idea that new coroutines can only be launched within a Coroutine Scope which determines the
+lifetime of the coroutine. It's when a parent coroutine has child coroutines, and there exists a relationship between the two that has certain constraints.
 It basically encompasses the ideology of inheritance, but for concurrency.
 
 Here are the rules that constraints that arise when using Structured Concurrency:
