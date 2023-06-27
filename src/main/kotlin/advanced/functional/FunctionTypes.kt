@@ -8,6 +8,7 @@ to loosen architecture, and provides easier ways to handle data.
 val integerFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing function as expression (short syntax)
 val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val beta: (Int) -> Unit = { } // returns nothing
+val delta: (Int, Int) -> Int = { x, y -> x / y }
 fun main() {
 
     // we can either use invoke() to call the parameters of the function types
@@ -17,4 +18,5 @@ fun main() {
     println(integerFunction(10, 12))
     println(addition)
     println(beta.invoke(100)) // can invoke an int
+    println(delta.invoke(20, 2)) // output should be 10
 }
