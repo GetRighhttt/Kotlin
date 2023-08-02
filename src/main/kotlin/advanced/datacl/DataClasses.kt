@@ -36,6 +36,12 @@ data class Human(
     val career: String
 )
 
+data class Basketball(
+    val circumference: Double,
+    val radius: Double,
+    val weight: Double
+)
+
 fun main() {
     println(getStefanName()) // Stefan
     println(getStefanCredentials())
@@ -64,6 +70,12 @@ fun main() {
     Stefan
     Engineer
      */
+
+    // creating a basketball object and destructing it
+    val myBasketball by lazy { Basketball(100.0, 30.0, 20.0 ) }
+    val (circumference, radius, weight) = myBasketball // destruction example again
+    println("""This basketball has a circumference of $circumference, with a radius of $radius, and a weight of $weight.
+    """.trimMargin())
 
     /*
     We can also copy a data class using the copy() method, and if we want, we can use named parameters
