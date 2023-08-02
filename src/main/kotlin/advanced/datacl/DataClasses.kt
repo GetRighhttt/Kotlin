@@ -71,11 +71,13 @@ fun main() {
     Engineer
      */
 
-    // creating a basketball object and destructing it
-    val myBasketball by lazy { Basketball(100.0, 30.0, 20.0 ) }
+    // creating a basketball object and destructing it using the username we created from our person object
+    val myBasketball by lazy { Basketball(100.0, 30.0, 20.0) }
     val (circumference, radius, weight) = myBasketball // destruction example again
-    println("""This basketball has a circumference of $circumference, with a radius of $radius, and a weight of $weight.
-    """.trimMargin())
+    println(
+        """$userName has a basketball with a circumference of $circumference, with a radius of $radius, and a weight of $weight.
+    """.trimMargin()
+    )
 
     /*
     We can also copy a data class using the copy() method, and if we want, we can use named parameters
