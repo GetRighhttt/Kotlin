@@ -13,12 +13,10 @@ fun main(args: Array<String>) {
      * do-while loops do some logic while the condition is met. They
      * always run at least one time.
      */
-    val y = 10
-    val x = 10
+    val y = 9
+    val x = 13
 
-    if (x == y) {
-        println("This is true.")
-    } else if (x == 11) {
+    if (!(x == y) && y >= 10) println(message = "This is true.") else if (x == 15 || y != x) {
         println("This is not true.")
     }
 
