@@ -9,7 +9,7 @@ null pointer exception, the program won't run at all, and that will have to be r
  */
 fun main() {
 
-    // causes an error that wont compile
+    // causes an error that won't compile
     // printNumber(null)
 
     printNumber(5) // prints 5

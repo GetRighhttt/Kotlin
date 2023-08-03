@@ -36,6 +36,7 @@ fun main(args: Array<String>) {
 
     // uppercase characters
     println(thisIsAString.uppercase())
+    println(thisIsAString.chars().filter{ it -> it >= 10 }.toString() )
 
     /*
     This is an example of chaining methods:

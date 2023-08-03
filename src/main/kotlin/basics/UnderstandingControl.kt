@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
      */
     val z = if (x <= y) 3 else 4
 
-    val newAnswer = if (y == 10) println(y) else println(y + 1)
+    val newAnswer = if (y == 10) println(y) else println(y + 1) // short notation
 
     println(newAnswer)
     println(z)
