@@ -2,6 +2,16 @@ package advanced.functional
 
 import java.lang.NumberFormatException
 
+/*
+Extension function to swap numbers in a mutable list. This is what we are going to use to decipher what letters we are
+going to use.
+ */
+fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
+    val temp = this[index1]
+    this[index1] = this[index2]
+    this[index2] = temp
+}
+
 fun main(args: Array<String>) {
     /*
     In Kotlin, we have the capability to extend functions when we want to apply
@@ -18,7 +28,7 @@ fun main(args: Array<String>) {
 
         // null check is always necessary for readLine values
         if (newNumber != null) {
-            if (newNumber!!.isPrime())
+            if (newNumber?.isPrime() == true)
                 println("is a prime number") else println("not prime")
         }
     } catch (e: NumberFormatException) {
@@ -67,15 +77,6 @@ fun String.isNice(): Boolean {
 
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList().forEach(::println)
-
-/*
-Extension function to swap numbers in a mutable list.
- */
-fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
-    val temp = this[index1]
-    this[index1] = this[index2]
-    this[index2] = temp
-}
 
 /*
 Please enter a number:
