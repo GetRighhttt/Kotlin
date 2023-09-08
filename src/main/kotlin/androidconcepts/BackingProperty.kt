@@ -47,7 +47,7 @@ class Animal {
 fun readInAnimals(list: MutableList<String>) {
     var count = 5
     while (count > 0) {
-        val nameOfAnimal = readLine()
+        val nameOfAnimal = readlnOrNull()
         if (nameOfAnimal == "q") break
         if (nameOfAnimal != null) {
             list.add(nameOfAnimal)
