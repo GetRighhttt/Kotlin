@@ -43,9 +43,9 @@ fun main() {
         // creating a person object and destructuring it
         val person = Person(name.uppercase(), age * 2)
         val (upperCaseName, ageTimesTwo) = person
-        println(upperCaseName) // Stefan
+        println(upperCaseName) // STEFAN
         println(ageTimesTwo) // 60
-        person
+        this
     }
     println(printPerson(Person("Stefan", 30))) // Person(name=STEFAN, age=60)
 }
