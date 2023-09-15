@@ -14,10 +14,6 @@ fun main(args: Array<String>) {
     /*
     Below is an example of a higher-order function that returns a lambda expression with code blocks that demonstrates
     how an anonymous function is declared.
-
-    " fun example(): (String) -> String { // Ex. } " == a function that takes in a string and returns a string.
-
-    The syntax before the code block is a lambda return expression broken down.
      */
     fun generateDivision(): (Int) -> Int { // takes in an int and returns an int
 
@@ -28,7 +24,7 @@ fun main(args: Array<String>) {
     }
 
     /*
-    Below are two higher-order function that returns a lambda expression in short syntax without code blocks.
+    Below are two higher-order function that takes in a lambda and returns a double.
      */
     fun generateAddition(): (Int, Double) -> Double = { x: Int, y: Double -> x + y }
 
@@ -37,6 +33,9 @@ fun main(args: Array<String>) {
     " fun omit:() -> Return " == omitted .
      */
     fun generateMultiplication() = { x: Double, z: Double -> (x * x) * z }
+
+    val name = { x: String -> x.uppercase() }
+    println(name("Stefan")) // STEFAN
 
     /*
     Functions assigned to variables are called LITERAL functions.
@@ -50,9 +49,6 @@ fun main(args: Array<String>) {
     val multiplication by lazy { generateMultiplication() }
     println(multiplication(30.0, 10.0)) // 9000.0
 
-    /*
-    Higher order functions are functions that take one or more functions as arguments and return a function
-     */
     var newList = (1..10).sorted().toList()
     println("Here is the regular list: ")
     println(newList)
