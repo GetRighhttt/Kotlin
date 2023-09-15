@@ -25,8 +25,27 @@ fun main() {
     println(friend("Bobby")) // bobby
 
     val justTheArgumentsAndBody = { a: Int, b: Int -> a + b }
-    println(justTheArgumentsAndBody(3, 4)) // 7
+    println(justTheArgumentsAndBody.invoke(3, 4)) // 7 (using invoke)
     println(" ${friend("Stefan")} is ${justTheArgumentsAndBody(10, 18)} years old!") //  stefan is 28 years old!
 
+    /*
+    Shorthand lambda syntax omits the variables and uses "it". This is optional but is usually
+    used in android development and other paradigms. This can only be done with a single argument.
+     */
+    val squareShortSyntax: (Int) -> Int = { it * it }
 
+    /*
+    Lambdas can also be used with class extensions
+     */
+    data class Person(val name: String, val age: Int)
+
+    val printPerson: Person.() -> Person = {
+        // creating a person object and destructuring it
+        val person = Person(name.uppercase(), age * 2)
+        val (upperCaseName, ageTimesTwo) = person
+        println(upperCaseName) // Stefan
+        println(ageTimesTwo) // 60
+        person
+    }
+    println(printPerson(Person("Stefan", 30))) // Person(name=STEFAN, age=60)
 }
