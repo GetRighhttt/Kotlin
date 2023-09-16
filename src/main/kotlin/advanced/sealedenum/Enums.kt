@@ -3,8 +3,8 @@ package advanced.sealedenum
 import advanced.sealedenum.Sports.*
 
 /**
- * Enums are essentially a collection of constants, or enum values.
- * Enums are used to store the same type of values pretty much.
+ * Enumerated classes are classes that store the same type of values, and these values are known as constants, or
+ * they can't be changed.
  *
  * For more practical examples, in android development for example,
  * we use enums sometimes to hold state values when we do not need to use
@@ -21,35 +21,10 @@ enum class CreditCardType {
 
     SILVER, // ordinal = 0, and they also have a name property
     GOLD, // ordinal = 1
-    PLATINUM // ordinal = 2
-}
+    PLATINUM; // ordinal = 2
 
-// second example that inherits an interface
-enum class Sports(name: String) : YourSport {
-    BASKETBALL("Basketball") {
-        override fun yourSport() {
-            println("Your sport is Basketball.")
-        }
-    },
-    FOOTBALL("Football") {
-        override fun yourSport() {
-            println("Your sport is Football.")
-        }
-    },
-    BASEBALL("Baseball") {
-        override fun yourSport() {
-            println("Your sport is Baseball.")
-        }
-    },
-    SOCCER("Soccer") {
-        override fun yourSport() {
-            println("Your sport is Soccer.")
-        }
-    },
-    TENNIS("Tennis") {
-        override fun yourSport() {
-            println("Your sport is Tennis.")
-        }
+    companion object {
+        fun returnType(type: CreditCardType) = type.name
     }
 }
 
@@ -60,17 +35,49 @@ interface YourSport {
     fun yourSport()
 }
 
+// second example that inherits an interface
+enum class Sports(name: String) : YourSport {
+
+    BASKETBALL(name = "Basketball") {
+        override fun yourSport() {
+            println("Your sport is $name.")
+        }
+    },
+
+    FOOTBALL(name = "Football") {
+        override fun yourSport() {
+            println("Your sport is $name.")
+        }
+    },
+
+    BASEBALL(name = "Baseball") {
+        override fun yourSport() {
+            println("Your sport is $name.")
+        }
+    },
+
+    SOCCER(name = "Soccer") {
+        override fun yourSport() {
+            println("Your sport is $name.")
+        }
+    },
+
+    TENNIS(name = "Tennis") {
+        override fun yourSport() {
+            println("Your sport is $name.")
+        }
+    };
+}
+
 /*
 Start main.
  */
 fun main() {
 
-
-    println("Printing Enum classes and thier values..")
-    Thread.sleep(1000)
+    println("Printing Enum classes and their values..")
     println(CreditCardType.values().forEach(::println))
     println(Sports.values().forEach(::println))
-    Thread.sleep(1000)
+    println(CreditCardType.returnType(CreditCardType.SILVER))
 
     // how we declare an object of an enum class
     val goldCredit: CreditCardType = CreditCardType.GOLD
@@ -90,7 +97,7 @@ fun main() {
     /**
      * Enums also have two built in methods: values() and valueOf().
      * values() returns an array of values of enum objects
-     * valueOf() returns an
+     * valueOf() returns the enum constant name that matches the parameter
      */
     val allValues = CreditCardType.values()
     allValues.forEach { println(it) }
@@ -98,21 +105,18 @@ fun main() {
     /**
      * when() statement with enums...
      */
-    when (CreditCardType.SILVER) {
-        CreditCardType.SILVER -> {
+    val myCreditCard: CreditCardType = CreditCardType.GOLD
+    when(myCreditCard.name) {
+        CreditCardType.SILVER.toString() -> {
             println("Silver has been chosen!")
         }
 
-        CreditCardType.GOLD -> {
+        CreditCardType.GOLD.toString() -> {
             println("Gold has been chosen!")
         }
 
-        CreditCardType.PLATINUM -> {
+        CreditCardType.PLATINUM.toString() -> {
             println("Platinum has been chosen!")
-        }
-
-        else -> {
-            Unit
         }
     }
 
@@ -125,5 +129,5 @@ fun main() {
         "TENNIS" -> println("I don't even know why $TENNIS is here...")
     }
 
-    println(Sports.BASKETBALL.yourSport())
+    println(BASKETBALL.yourSport())
 }

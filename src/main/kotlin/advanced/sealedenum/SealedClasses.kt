@@ -1,7 +1,7 @@
 package advanced.sealedenum
 
 /**
- * So how are sealed classes different than enums?
+ * So how are sealed classes different from enums?
  *
  * Enums only support constant values while sealed classes can support values
  * that can change in the future. Constants cannot change.
@@ -69,7 +69,7 @@ fun checkResult(result: Result) = when (result) {
 /*
 we can also use sealed interfaces when we need a simpler restricted set of objects, methods, etc.
 
-In this example, we are declaring a method in the interface so we would have to override any object in the
+In this example, we are declaring a method in the interface, so we would have to override any object in the
 interface with this method.
  */
 sealed interface Error {
@@ -126,7 +126,7 @@ Because we created an extension method below with type "Any", any object has the
 this method.
  */
 fun Any.reverseAMessage(message: String): String = message.reversed()
-fun HttpError.printErrorMessage(e: HttpError): String = "An HttpError has occurred...."
+fun HttpError.printErrorMessage(e: HttpError): String = "An HttpError: $e has occurred...."
 
 fun Error.printUnknownMessage(e: String): String =
     "Unknown $e...  Consider consulting Kotlin documentation..."
