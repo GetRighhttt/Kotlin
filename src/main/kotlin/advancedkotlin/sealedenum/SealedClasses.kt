@@ -1,4 +1,4 @@
-package advanced.sealedenum
+package advancedkotlin.sealedenum
 
 /**
  * So how are sealed classes different from enums?

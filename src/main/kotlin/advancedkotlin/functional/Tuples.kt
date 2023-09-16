@@ -1,4 +1,4 @@
-package advanced.functional
+package advancedkotlin.functional
 
 /*
 A tuple is a piece of data that cannot be changed after it is created.

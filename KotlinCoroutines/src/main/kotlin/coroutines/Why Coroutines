@@ -1,6 +1,6 @@
 Why Coroutines?
 
-Coroutines are one of the best ways to achieve asynchronous programming with minimal code and advanced code quality.
+Coroutines are one of the best ways to achieve asynchronous programming with minimal code and advancedkotlin code quality.
 In Android, the main UI thread is responsible for updating the screen at a rate of 60 times per second.
 So, because of this, we want to do all heavy operations on another thread, preferably a background thread. This
 is the concept of asynchronous programming, or programming tasks in parallel.

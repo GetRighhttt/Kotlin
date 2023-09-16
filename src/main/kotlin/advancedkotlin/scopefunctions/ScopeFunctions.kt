@@ -1,6 +1,6 @@
-package advanced.scopefunctions
+package advancedkotlin.scopefunctions
 
-import advanced.functional.isPrime
+import advancedkotlin.functional.isPrime
 
 class Being {
     var name: String = "Stefan"

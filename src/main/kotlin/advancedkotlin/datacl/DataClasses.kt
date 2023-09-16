@@ -1,4 +1,4 @@
-package advanced.datacl
+package advancedkotlin.datacl
 
 /**
  * Data classes were merely created as data holders and are usually what we

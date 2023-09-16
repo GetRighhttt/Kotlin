@@ -1,4 +1,4 @@
-package advanced.valuecl
+package advancedkotlin.valuecl
 
 /*
 In programming and development, we want to allocate memory as efficiently as possible.

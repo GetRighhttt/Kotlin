@@ -1,6 +1,6 @@
-package advanced.sealedenum
+package advancedkotlin.sealedenum
 
-import advanced.sealedenum.Sports.*
+import advancedkotlin.sealedenum.Sports.*
 
 /**
  * Enumerated classes are classes that store the same type of values, and these values are known as constants, or

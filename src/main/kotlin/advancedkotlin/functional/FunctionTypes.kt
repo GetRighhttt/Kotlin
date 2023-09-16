@@ -1,4 +1,4 @@
-package advanced.functional
+package advancedkotlin.functional
 
 /*
 Kotlin has a variety of ways in which we can declare functions as objects. This improves code readability, helps

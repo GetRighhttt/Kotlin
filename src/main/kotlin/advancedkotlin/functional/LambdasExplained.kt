@@ -1,4 +1,4 @@
-package advanced.functional
+package advancedkotlin.functional
 
 /*
 Kotlin's functions are known as first class, which essentially means they can be sorted in variables,

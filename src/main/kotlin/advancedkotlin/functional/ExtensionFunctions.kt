@@ -1,4 +1,4 @@
-package advanced.functional
+package advancedkotlin.functional
 
 import java.lang.NumberFormatException
 

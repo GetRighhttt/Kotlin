@@ -1,4 +1,4 @@
-package advanced.functional
+package advancedkotlin.functional
 
 /*
 Higher-Order functions are known as functions that take in other functions as arguments or parameters, returns a
