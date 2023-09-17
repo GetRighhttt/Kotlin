@@ -50,7 +50,7 @@ Below we will show typically how sealed classes are used for state changes.
 
 The class below could be used as a basic state representation for an API call.
 
-We also use named parameters for the sake of an example.
+We also give default values parameters for the sake of the example.
  */
 sealed class Result {
     data class Success(val successMsg: String = "Success") : Result()
