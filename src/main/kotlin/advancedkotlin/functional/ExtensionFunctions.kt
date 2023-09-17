@@ -48,7 +48,7 @@ fun main(args: Array<String>) {
         println("Exception: $e")
     }
 
-    val list = mutableListOf(3, 6, 9, 12)
+    val list = mutableListOf(3, 6, 9, 12, 14, 5, 7, 10)
     list.switchNumbers(0, 1)
     list.switchNumbers(1, 2)
     list.switchNumbers(2, 3)
@@ -77,7 +77,6 @@ fun String.isNice(): Boolean {
 
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList().forEach(::println)
-
 /*
 Please enter a number:
 40
