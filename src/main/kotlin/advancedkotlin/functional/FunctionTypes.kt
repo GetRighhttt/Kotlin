@@ -8,6 +8,7 @@ val integerFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing f
 val beta: (Int) -> Unit = { } // returns nothing
 val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val delta: (Int, Int) -> Int = { x, y -> x / y }
+fun String.doMultiplication(i: Int, i1: Int): (Int, Int) -> String = { a, b -> (a * b).toString() }
 fun main() {
 
     // we can either use invoke() to call the parameters of the function types
@@ -19,6 +20,9 @@ fun main() {
     println(alpha(30)) // output should be 31
     println(beta.invoke(100)) // returns nothing
     println(delta.invoke(20, 2)) // output should be 10
+
+    val myScore by lazy { readlnOrNull() }
+    println(myScore?.doMultiplication(20, 10))
 }
 
 /*
