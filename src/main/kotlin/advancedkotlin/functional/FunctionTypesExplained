@@ -15,7 +15,7 @@ arguments. Here are a few examples:
 
 " () -> Unit " - function type that returns nothing useful and has no argument.
 " (String) -> String " - type that returns String and takes in a String argument.
-" () -> () -> Unit "- type that returns another function that returns nothing useful. Both have no arguments.
+" () -> () -> Unit "  - type that returns another function that returns nothing useful. Both have no arguments.
 
 // Implementing with a class
 class functionTypeClassEx: () -> Unit { // example }
@@ -34,3 +34,5 @@ Lambda
 
 Anonymous function
 fun(a: Int, b: Int): Int { return a + b }
+
+https://blog.kotlin-academy.com/kotlin-programmer-dictionary-function-type-vs-function-literal-vs-lambda-expression-vs-anonymous-edc97e8873e
