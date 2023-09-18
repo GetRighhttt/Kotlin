@@ -18,7 +18,7 @@ arguments. Here are a few examples:
 " () -> () -> Unit "- type that returns another function that returns nothing useful. Both have no arguments.
 
 // Implementing with a class
-class functionTypeClassEx: () -> Unit { // TODO }
+class functionTypeClassEx: () -> Unit { // example }
 
 // declared as a type argument
 val doWork: () -> Unit
