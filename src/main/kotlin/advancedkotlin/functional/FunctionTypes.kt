@@ -1,13 +1,12 @@
 package advancedkotlin.functional
 
 /*
-Kotlin has a variety of ways in which we can declare functions as objects. This improves code readability, helps
-to loosen architecture, and provides easier ways to handle data.
+Function type examples with lambdas.
  */
 
 val integerFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing function as expression (short syntax)
-val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val beta: (Int) -> Unit = { } // returns nothing
+val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val delta: (Int, Int) -> Int = { x, y -> x / y }
 fun main() {
 
@@ -17,6 +16,15 @@ fun main() {
     // or we can use parentheses
     println(integerFunction(10, 12))
     println(addition)
-    println(beta.invoke(100)) // can invoke an int
+    println(alpha(30)) // output should be 31
+    println(beta.invoke(100)) // returns nothing
     println(delta.invoke(20, 2)) // output should be 10
 }
+
+/*
+120
+411
+31
+kotlin.Unit
+10
+ */
