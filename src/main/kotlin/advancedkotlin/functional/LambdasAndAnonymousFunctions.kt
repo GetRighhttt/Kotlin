@@ -46,4 +46,12 @@ fun main() {
         this
     }
     println(printPerson(Person("Stefan", 30))) // Person(name=STEFAN, age=60)
+
+    /*
+    Anonymous Functions are functions literals without a name.
+     */
+    val numTimesTwo = fun(a: Int) : Int {
+            return a*2
+        }
+    println(numTimesTwo(20)) // 40
 }

@@ -1,45 +1,76 @@
 package advancedkotlin.functional
 
 /*
-Higher-Order functions are known as functions that take in other functions as arguments or parameters, returns a
+Higher-Order functions are functions that take in other functions as arguments or parameters, returns a
 function, or does both.
 Lambdas are anonymous functions are function literals used a ton in higher-order functions.
-
-a lambda expression: { a, b -> a + b },
-
-an anonymous function: fun(s: String): Int { return s.toIntOrNull() ?: 0 }
  */
 fun main(args: Array<String>) {
 
     /*
-    Below is an example of a higher-order function that returns a lambda expression with code blocks that demonstrates
-    how an anonymous function is declared.
-     */
-    fun generateDivision(): (Int) -> Int { // takes in an int and returns an int
+    Ex: Higher-Order function examples below with function types, lambdas, anonymous functions, etc.
 
-        // anonymous function: "fun(y: Int): Int { }" == no name for the function
+    The below example takes in a function type, and two ints, as an argument.
+    It returns the function that combines the other two arguments.
+     */
+    fun higherOrderOperation(
+        a: Int,
+        b: Int,
+        c: (Int, Int) -> Int // function type
+    ): Int {
+        return c(a, b)
+    }
+    // variable to implement higher-order operation method
+    higherOrderOperation(
+        10,
+        20,
+        c = { a, b -> a + b } // lambda (function literal)
+    ).also(::println) // 30
+
+    higherOrderOperation(
+        100,
+        20,
+        c = { a, b -> a / b }
+    ).also(::println) // 5
+
+    // short syntax
+    higherOrderOperation(20, 30, c = { a, b -> a * b }).also(::println) // 600
+
+    // Extension functions on the String class that returns uppercase & lowercase names.
+    fun String.printNameInUppercaseLetters(
+        name: (String) -> String
+    ): String {
+        return name("".uppercase())
+    }
+
+    // condensed format (sometimes confusing)
+    fun String.printFirstNameInLowercaseLetters(firstName: String, name: (String) -> String): String =
+        name(firstName.lowercase())
+
+    // returns a function type and demonstrates anonymous functions
+    fun generateDivision(): (Int) -> Int {
+
+        // anonymous function == no name for the function (also function literal)
         return fun(y: Int): Int {
             return y * 10
         }
     }
 
-    /*
-    Below are two higher-order function that takes in a lambda and returns a double.
-     */
-    fun generateAddition(): (Int, Double) -> Double = { x: Int, y: Double -> x + y }
+    // with return function type to lambda
+    fun generateAddition(): (Int, Double) -> Double = { // lambda
+            x: Int, y: Double ->
+        x + y
+    }
 
-    /*
-    The params return can be omitted to just show the lambda expression.
-    " fun omit:() -> Return " == omitted .
-     */
-    fun generateMultiplication() = { x: Double, z: Double -> (x * x) * z }
+    fun generateMultiplication() = { // lambda
+            x: Double, z: Double ->
+        (x * x) * z
+    }
 
+    // lambda expressions are also higher-order functions
     val name = { x: String -> x.uppercase() }
     println(name("Stefan")) // STEFAN
 
-    /*
-    Functions assigned to variables are called LITERAL functions.
-     */
     val division by lazy { generateDivision() }
     println(division(20)) // 200
 
