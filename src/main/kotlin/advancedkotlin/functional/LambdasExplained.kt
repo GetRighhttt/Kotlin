@@ -1,12 +1,10 @@
 package advancedkotlin.functional
 
 /*
-Kotlin's functions are known as first class, which essentially means they can be sorted in variables,
-objects, and other data structures, and can be passed as arguments, and returned to other higher order functions.
+Lambdas are a type of function literal(a special notation used to simplify function types).
+i.e { a, b -> a + b }
 
-Lambdas are just anonymous functions used as an expression with no declaration. i.e { a, b -> a + b }
-
-The full syntactic expression for a lambda is as follows:
+The full syntactic expression for function type to a lambda is as follows:
 val add: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
 
 Examples: https://kotlinlang.org/docs/lambdas.html#underscore-for-unused-variables

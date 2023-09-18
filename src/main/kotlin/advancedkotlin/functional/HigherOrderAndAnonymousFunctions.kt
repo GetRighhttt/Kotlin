@@ -3,7 +3,7 @@ package advancedkotlin.functional
 /*
 Higher-Order functions are known as functions that take in other functions as arguments or parameters, returns a
 function, or does both.
-Lambdas are anonymous functions passed as an expression without a declaration.
+Lambdas are anonymous functions are function literals used a ton in higher-order functions.
 
 a lambda expression: { a, b -> a + b },
 
