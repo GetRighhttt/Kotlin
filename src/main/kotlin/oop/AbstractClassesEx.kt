@@ -14,10 +14,14 @@ whereas an interface is referred to a template of a class.
 abstract class Home() {
 
     init {
-        println("Abstract class created.")
+        println("Abstract class $TAG created.")
     }
      abstract fun cleaHouse()
      abstract fun cleanYard()
+
+     companion object {
+         const val TAG = "HOME"
+     }
 }
 
 class MyHouse: Home() {
