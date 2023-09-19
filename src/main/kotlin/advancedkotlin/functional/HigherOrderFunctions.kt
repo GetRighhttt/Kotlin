@@ -20,7 +20,6 @@ fun main(args: Array<String>) {
     ): Int {
         return c(a, b)
     }
-    // variable to implement higher-order operation method
     higherOrderOperation(
         10,
         20,

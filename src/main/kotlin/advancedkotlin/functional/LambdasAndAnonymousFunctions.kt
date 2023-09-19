@@ -50,13 +50,17 @@ fun main() {
     /*
     Anonymous Functions are functions literals without a name.
      */
-    val numSquare = fun(a: Int) : Int {
-            return a*a
-        }
+    val numSquare = fun(a: Int): Int {
+        return a * a
+    }.also {
+        println("The square of a is:")
+    }
     println(numSquare(400)) // 160000
 
-    val numTimesThree = fun(num: Double) : Double {
+    val numTimesThree = fun(num: Double): Double {
         return num * 3
+    }.also {
+        println("Num times three is:")
     }
     println(numTimesThree(400.0)) // 1200.0
 }
