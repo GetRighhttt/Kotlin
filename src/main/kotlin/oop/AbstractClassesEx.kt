@@ -10,3 +10,29 @@ have, but also they can have fields(private and protected properties), can have 
 Abstract classes are sometimes called "incomplete classes" because cannot be instantiated, and act like an interface,
 whereas an interface is referred to a template of a class.
  */
+
+abstract class Home() {
+
+    init {
+        println("Abstract class created.")
+    }
+     abstract fun cleaHouse()
+     abstract fun cleanYard()
+}
+
+class MyHouse: Home() {
+    override fun cleaHouse() {
+        println("I have cleaned my house.")
+    }
+
+    override fun cleanYard() {
+        println("I have cleaned my yard!")
+    }
+}
+
+fun main() {
+    val newHouse = MyHouse()
+
+    println(newHouse.cleaHouse())
+    println(newHouse.cleanYard())
+}

@@ -2,6 +2,8 @@ package advancedkotlin.functional
 
 /*
 Function type examples with lambdas.
+
+Closure -> scope of variables accessible in the body of a function.
  */
 
 val integerFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing function as expression (short syntax)
