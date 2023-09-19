@@ -11,7 +11,7 @@ Abstract classes are sometimes called "incomplete classes" because cannot be ins
 whereas an interface is referred to a template of a class.
  */
 
-abstract class Home() {
+abstract class Home {
 
     init {
         println("Abstract class $TAG created.")
