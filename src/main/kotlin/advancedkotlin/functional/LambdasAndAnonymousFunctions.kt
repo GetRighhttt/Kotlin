@@ -43,6 +43,7 @@ fun main() {
         val (upperCaseName, ageTimesTwo) = person
         println(upperCaseName) // STEFAN
         println(ageTimesTwo) // 60
+        repeat(2) { println(upperCaseName) } // another way to use a lambda expression
         this
     }
     println(printPerson(Person("Stefan", 30))) // Person(name=STEFAN, age=60)

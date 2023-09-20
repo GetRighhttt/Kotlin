@@ -35,4 +35,13 @@ Lambda
 Anonymous function
 fun(a: Int, b: Int): Int { return a + b }
 
-https://blog.kotlin-academy.com/kotlin-programmer-dictionary-function-type-vs-function-literal-vs-lambda-expression-vs-anonymous-edc97e8873e
+Closures are the entire scope of variables accessible in the body of a function. Most people just think of closures
+as a function body but really it's more so about the variables rather than the actual logic.
+
+fun showClosure(
+a: Int,
+b: Int,
+c: (Int) -> Int // function type
+): Int {
+return c(a,b) // closure
+}
