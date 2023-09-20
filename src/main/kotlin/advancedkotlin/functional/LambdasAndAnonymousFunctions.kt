@@ -4,6 +4,9 @@ package advancedkotlin.functional
 Lambdas are a type of function literal(a special notation used to simplify function types).
 i.e { a, b -> a + b }
 
+             // function type                  // lambda
+val lambda = (InputType) -> Return Type = { arguments: InputType -> body }
+
 The full syntactic expression for function type to a lambda is as follows:
 val add: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
 
@@ -13,7 +16,7 @@ fun main() {
 
     /*
     friend = name of lambda
-    (String) -> String = type
+    (String) -> String = function type
      name: String = arguments
      -> name.lowercase() = body
 
