@@ -14,7 +14,7 @@ that cannot be used explicitly. We can use function types like interfaces by imp
 arguments. Here are a few examples:
 
 (InputType) -> Return Type
-" () -> Unit " - function type that returns nothing useful and has no argument.
+" () -> Unit " - function type that returns nothing useful and has no arguments.
 " (String) -> String " - type that returns String and takes in a String argument.
 " () -> () -> Unit "  - type that returns another function that returns nothing useful. Both have no arguments.
 
