@@ -53,6 +53,9 @@ fun main(args: Array<String>) {
     list.switchNumbers(1, 2)
     list.switchNumbers(2, 3)
     println(list.toString())
+
+    val doubleToInt = 38.6
+    println(doubleToInt.convertToInt())
 }
 
 /*
@@ -77,6 +80,7 @@ fun String.isNice(): Boolean {
 
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList().forEach(::println)
+fun Double.convertToInt(): Int = this.toInt()
 /*
 Please enter a number:
 40
