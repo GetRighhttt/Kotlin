@@ -12,7 +12,7 @@ fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
     this[index2] = temp
 }
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     In Kotlin, we have the capability to extend functions when we want to apply
     a built-in function to a variable, or if we want to extend the functionality of a
