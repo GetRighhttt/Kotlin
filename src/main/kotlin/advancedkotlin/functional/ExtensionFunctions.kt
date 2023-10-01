@@ -42,6 +42,7 @@ fun main(args: Array<String>) {
         val newName by lazy { readlnOrNull() }
 
         println(newName?.isNice())
+        println(newName?.isNotHealthy())
         println(newName?.hideName())
         println(newName?.repeatName())
     } catch (e: RuntimeException) {
@@ -77,7 +78,10 @@ fun String.isNice(): Boolean {
     this.length > 4
     return true
 }
-
+fun String.isNotHealthy(): Boolean {
+    this.length < 4 && this.startsWith("s", false)
+    return true
+}
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList().forEach(::println)
 fun Double.convertToInt(): Int = this.toInt()
