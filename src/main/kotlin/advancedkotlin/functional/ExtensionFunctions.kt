@@ -66,7 +66,8 @@ We do this by prefixing the function with the name of the class that we would li
  */
 fun Int.isPrime(): Boolean {
     for (i in 2 until this - 1) {
-        if (this % i == 0) false
+        if (this % i == 0)
+            return false
     }
     return true
 }
