@@ -11,6 +11,8 @@ val beta: (Int) -> Unit = { } // returns nothing
 val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val delta: (Int, Int) -> Int = { x, y -> x / y }
 val multiplyNum: (Double) -> Double = { x -> x * 10 }
+
+// we can also use function types in higher order functions
 fun divideNumb(
     a: Double,
     v: Double,
@@ -19,10 +21,13 @@ fun divideNumb(
     return c(a, v)
 }
 
+val convertNumToDouble by lazy { readlnOrNull()?.toInt() }
+
 fun main() {
 
     // we can either use invoke() to call the parameters of the function types
     val addition = alpha.invoke(10) + integerFunction.invoke(20, 20)
+
     val divider = divideNumb(
         10.0,
         12.0,
@@ -30,6 +35,7 @@ fun main() {
     )
 
     // or we can use parentheses
+    println(convertNumToDouble?.let { alpha.invoke(it) })
     println(integerFunction(10, 12))
     println(addition)
     println(alpha(30)) // output should be 31
