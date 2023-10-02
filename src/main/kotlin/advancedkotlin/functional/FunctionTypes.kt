@@ -6,7 +6,7 @@ Function type examples with lambdas.
 Closure -> scope of variables accessible in the body of a function.
  */
 
-val integerFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing function as expression (short syntax)
+val integerMultiplyFunction: (Int, Int) -> Int = { a, b -> a * b } // lambda : passing function as expression (short syntax)
 val beta: (Int) -> Unit = { } // returns nothing
 val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val delta: (Int, Int) -> Int = { x, y -> x / y }
@@ -26,7 +26,7 @@ val convertNumToDouble by lazy { readlnOrNull()?.toInt() }
 fun main() {
 
     // we can either use invoke() to call the parameters of the function types
-    val addition = alpha.invoke(10) + integerFunction.invoke(20, 20)
+    val addition = alpha.invoke(10) + integerMultiplyFunction.invoke(20, 20)
 
     val divider = readlnOrNull()?.toDouble()?.let {
         divideNumb(
@@ -38,12 +38,12 @@ fun main() {
 
     // or we can use parentheses
     println(convertNumToDouble?.let { alpha.invoke(it) }) // 21
-    println(integerFunction(10, 12))
+    println(integerMultiplyFunction(10, 12))
     println(addition)
     println(alpha(30)) // output should be 31
     println(beta.invoke(100)) // returns nothing
     println(delta.invoke(20, 2)) // output should be 10
-    println(divider) //=
+    println(divider) //
 
     // with reading in values and extension function
     val multiplication by lazy { readlnOrNull()?.toDouble() }
