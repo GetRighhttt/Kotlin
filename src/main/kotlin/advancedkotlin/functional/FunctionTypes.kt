@@ -28,20 +28,22 @@ fun main() {
     // we can either use invoke() to call the parameters of the function types
     val addition = alpha.invoke(10) + integerFunction.invoke(20, 20)
 
-    val divider = divideNumb(
-        10.0,
-        12.0,
-        c = { a, v -> a / v }
-    )
+    val divider = readlnOrNull()?.toDouble()?.let {
+        divideNumb(
+            it,
+            it,
+            c = { a, v -> a / v }
+        )
+    }
 
     // or we can use parentheses
-    println(convertNumToDouble?.let { alpha.invoke(it) })
+    println(convertNumToDouble?.let { alpha.invoke(it) }) // 21
     println(integerFunction(10, 12))
     println(addition)
     println(alpha(30)) // output should be 31
     println(beta.invoke(100)) // returns nothing
     println(delta.invoke(20, 2)) // output should be 10
-    println(divider) // 0.8333333333333334
+    println(divider) //=
 
     // with reading in values and extension function
     val multiplication by lazy { readlnOrNull()?.toDouble() }
