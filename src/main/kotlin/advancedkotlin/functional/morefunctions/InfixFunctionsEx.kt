@@ -6,16 +6,16 @@ of use.
 Infix functions must be defined inside a class or an extension function to an existing class.
  */
 
-infix fun String.name(name: String): String = "My name is $name"
-infix fun Int.ageTimesThree(age: () -> Int): Int = age()
+infix fun String.newName(name: String): String = "My name is $name"
+infix fun Int.theirAgeTimesThree(age: () -> Int): Int = age()
 
 fun main() {
     // created a variable with no initial name
     val tempName = ""
 
     // example of using infix function to assign name and age times three
-    val actualName = tempName name "Stefan"
-    val theirAge = 12 ageTimesThree {
+    val actualName = tempName newName "Stefan"
+    val theirAge = 12 theirAgeTimesThree {
         36
     }
     println("$actualName and my age times three is $theirAge.")
