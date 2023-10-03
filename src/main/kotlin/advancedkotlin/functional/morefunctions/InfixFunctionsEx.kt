@@ -19,9 +19,18 @@ fun main() {
     val theirAge = 12 theirAgeTimesThree {
         36
     }
+
     println("$actualName and my age times three is $theirAge.")
+
+    // using let scope function to multiply it once again by 3
+    theirAge.let {
+        it theirAgeTimesThree {
+            it * 3
+        }
+    }.also(::println)
 }
 
 /*
 My name is Stefan  and my age times three is 36.
+108
  */
