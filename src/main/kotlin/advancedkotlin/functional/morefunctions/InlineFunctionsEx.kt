@@ -17,10 +17,15 @@ to occur, you can mark them with the NOINLINE keyword.
 We are going to declare a method that takes in two function type arguments and call them in main.
 There really isn't a syntactic difference apart from using the "inline" keyword in front of the function
  */
-inline fun runTime(message: () -> Unit, time: () -> Long) {
+inline fun runTime(
+    message: () -> Unit,
+    time: () -> Long
+) {
     message()
     println("They ran in ${time()} seconds.")
 }
+
+inline fun multiplyTime(time: () -> Long) = time() * 2
 fun main() {
 
     // calling inline method
@@ -29,15 +34,18 @@ fun main() {
         message = {
             println("This is how fast he ran the lap")
         },
-        // second function type used as the function literal "lambda"
+        // second function type used as the function literal "lambda", and multiples it
         time = {
-            2000L
+            {
+                2000L
+            }.let {
+                multiplyTime(it)
+            }
         }
     )
-
 }
 
 /*
 This is how fast he ran the lap
-They ran in 2000 seconds.
+They ran in 4000 seconds.
  */
