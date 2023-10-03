@@ -41,7 +41,7 @@ fun main() {
     }
 
     // or we can use parentheses
-    println(divider) //
+    println(divider) // takes in two numbers and divides them
     println(convertNumToDouble?.let { alpha.invoke(it) }) // 21
     println(integerMultiplyFunction(10, 12))
     println(addition)
