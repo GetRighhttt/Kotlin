@@ -46,3 +46,9 @@ c: (Int) -> Int // function type
 ): Int {
 return c(a,b) // closure
 }
+
+showClosure (
+a = 10,
+b = 20,
+c = { a,b -> a + b } // lambda
+)
