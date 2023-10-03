@@ -33,9 +33,9 @@ fun main() {
     val divider = readlnOrNull()?.toDouble()?.let {firstNumber ->
         readlnOrNull()?.toDouble()?.let { secondNumber ->
             divideNumb(
-                firstNumber, // read in first number
-                secondNumber,
-                c = { a, v -> a / v }
+                a = firstNumber, // read in first number
+                v = secondNumber, // read in second number
+                c = { a, v -> a / v } // taking in both values and dividing them
             )
         }
     }
