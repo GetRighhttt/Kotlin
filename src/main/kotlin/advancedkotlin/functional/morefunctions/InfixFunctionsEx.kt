@@ -4,6 +4,7 @@ package advancedkotlin.functional.morefunctions
 Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
 of use.
 Infix functions must be defined inside a class or an extension function to an existing class.
+You don't generally see infix functions used in a lot of android projects but it is a cool feature to know.
  */
 
 // declaring extension functions
