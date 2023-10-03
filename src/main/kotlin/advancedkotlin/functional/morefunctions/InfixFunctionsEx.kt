@@ -11,6 +11,7 @@ You don't generally see infix functions used in a lot of android projects but it
 infix fun String.newName(name: String): String = name
 infix fun Int.multipliedByThree(age: () -> Int): Int = age() // function type that returns an Int
 infix fun String.setMiddleName(name: String): String = newName(name)
+infix fun Int.setNumberOfChildren(children: () -> Int): Int = children()
 
 fun main() {
     // created a variable with no initial name
@@ -40,9 +41,21 @@ fun main() {
     }.also {
         println("If I multiple my age again by 3, it is $it.")
     }
+
+    val childrenNum = 1
+    childrenNum.let {
+        it setNumberOfChildren {
+            it + 2
+        }
+    }.also {
+        println("I have $it kids.")
+    }
+
 }
 
 /*
-My name is Stefan  and my age times three is 36.
-108
+Stefan is my name and my age times three is 36.
+My middle name is John.
+If I multiple my age again by 3, it is 108.
+I have 3 kids.
  */
