@@ -39,7 +39,7 @@ fun main() {
             it * 3
         }
     }.also {
-        println("If I multiple my age again by 3, it is $it.")
+        println("If I multiply my age again by 3, it is $it.")
     }
 
     val childrenNum = 1
