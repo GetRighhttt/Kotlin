@@ -6,8 +6,9 @@ of use.
 Infix functions must be defined inside a class or an extension function to an existing class.
  */
 
+// declaring extension functions
 infix fun String.newName(name: String): String = "My name is $name"
-infix fun Int.theirAgeTimesThree(age: () -> Int): Int = age()
+infix fun Int.theirAgeTimesThree(age: () -> Int): Int = age() // function type that returns an Int
 
 fun main() {
     // created a variable with no initial name
