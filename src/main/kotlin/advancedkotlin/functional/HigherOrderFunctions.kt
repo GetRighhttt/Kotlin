@@ -140,9 +140,9 @@ fun main(args: Array<String>) {
         generateNewName {
             it
         }
-    }.also {
+    }.also {theName ->
         print("Name generated is -> ")
-        println(it)
+        println(theName?.map { theName.uppercase() })
     }
 }
 
