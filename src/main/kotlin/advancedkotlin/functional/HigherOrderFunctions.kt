@@ -26,15 +26,15 @@ fun main(args: Array<String>) {
     // short syntax
     higherOrderOperation(20, 30, c = { a, b -> a * b }).also(::println) // 600
 
-    // Extension functions on the String class that returns uppercase & lowercase names.
-    fun String.printNameInUppercaseLetters(
+    // Extension functions on the String class that returns uppercase & lowercase names with infix for readability
+    infix fun String.printNameInUppercaseLetters(
         name: (String) -> String
     ): String {
         return name("".uppercase())
     }
 
-    // condensed format (sometimes confusing)
-    fun String.printFirstNameInLowercaseLetters(
+    // condensed format (sometimes confusing) with infix for readability
+    infix fun String.printFirstNameInLowercaseLetters(
         name: (String) -> String
     ): String = name("".lowercase())
 
@@ -60,13 +60,13 @@ fun main(args: Array<String>) {
 
     // lambda expressions are also higher-order functions
     val name = ""
-    println(name.printNameInUppercaseLetters {
+    println(name printNameInUppercaseLetters {
         "Stefan"
     }) // STEFAN
 
     val lastName = ""
     println(
-        lastName.printFirstNameInLowercaseLetters {
+        lastName printFirstNameInLowercaseLetters {
             "Bayne"
         }) // bayne
 
