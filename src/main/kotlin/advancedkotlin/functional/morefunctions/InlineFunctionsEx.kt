@@ -16,6 +16,8 @@ to occur, you can mark them with the NOINLINE keyword.
 /*
 We are going to declare a method that takes in two function type arguments and call them in main.
 There really isn't a syntactic difference apart from using the "inline" keyword in front of the function
+
+inline functions also cannot be declared in fun main() {}. This isn't yet supported by Kotlin - 10/04/2023
  */
 inline fun runTime(
     message: () -> Unit,
