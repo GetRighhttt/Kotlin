@@ -100,6 +100,4 @@ fun main(args: Array<String>) {
     println(newString.find {
         it.isUpperCase()
     }) // T
-
-
 }
