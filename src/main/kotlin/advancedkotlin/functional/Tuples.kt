@@ -49,4 +49,19 @@ fun main() {
 //    The values are: 1 and 2
 //    The key-value pairs are: (a, 11) | (b , 12) | (c, 13)
 //    first, second, third
+
+    // we can return pairs and triples from functions
+    fun returnTriple(): Triple<Int, Int, Int> {
+        val firstOne = 1
+        val secondOne = 2
+        val thirdOne = 3
+        return Triple(firstOne, secondOne, thirdOne)
+    }
+    println(returnTriple().toList()) // [1, 2, 3]
+
+    // we can also pass in pairs and triples into functions
+    fun passingInTriple(thisTriple: Triple<Int, Int, Int>): Int {
+        return thisTriple.toList().fold(0) { a, b -> a + b } // accumulates values into one
+    }
+    println(passingInTriple(Triple(2, 4, 5))) // 11
 }

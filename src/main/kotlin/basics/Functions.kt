@@ -9,6 +9,8 @@ fun main(args: Array<String>) {
 
     Typically, functions are created to do one thing. Having multiple use cases for
     one function is not good practice.
+
+    Note* - these are just the basics, and we will discuss more of Kotlin's advanced functional methods in other sections.
      */
 
     // gets the name

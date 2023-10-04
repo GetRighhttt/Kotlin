@@ -140,7 +140,7 @@ fun main(args: Array<String>) {
         generateNewName {
             it
         }
-    }.also {theName ->
+    }.also { theName ->
         print("Name generated is -> ")
         println(theName?.map { theName.uppercase().split(" ", ignoreCase = true, limit = 3) })
     }
@@ -149,7 +149,7 @@ fun main(args: Array<String>) {
 // declaring an inline higher-order function
 inline fun generateNewName(
     returnName: () -> String
-) : String {
+): String {
     return returnName()
 }
 

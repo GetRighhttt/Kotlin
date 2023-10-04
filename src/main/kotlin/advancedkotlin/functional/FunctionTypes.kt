@@ -30,7 +30,7 @@ fun main() {
     val addition = alpha.invoke(10) + integerMultiplyFunction.invoke(20, 20)
 
     // showing how to read user input and convert to double also calling a function
-    val divider = readlnOrNull()?.toDouble()?.let {firstNumber ->
+    val divider = readlnOrNull()?.toDouble()?.let { firstNumber ->
         readlnOrNull()?.toDouble()?.let { secondNumber ->
             divideNumb(
                 a = firstNumber, // read in first number
