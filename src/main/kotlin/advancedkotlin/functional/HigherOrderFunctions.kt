@@ -14,23 +14,14 @@ fun main(args: Array<String>) {
     It returns the function that combines the other two arguments.
      */
     fun higherOrderOperation(
-        a: Int,
-        b: Int,
-        c: (Int, Int) -> Int // function type
+        a: Int, b: Int, c: (Int, Int) -> Int // function type
     ): Int {
         return c(a, b)
     }
-    higherOrderOperation(
-        10,
-        20,
-        c = { a, b -> a + b } // lambda (function literal)
+    higherOrderOperation(10, 20, c = { a, b -> a + b } // lambda (function literal)
     ).also(::println) // 30
 
-    higherOrderOperation(
-        100,
-        20,
-        c = { a, b -> a / b }
-    ).also(::println) // 5
+    higherOrderOperation(100, 20, c = { a, b -> a / b }).also(::println) // 5
 
     // short syntax
     higherOrderOperation(20, 30, c = { a, b -> a * b }).also(::println) // 600
@@ -43,8 +34,9 @@ fun main(args: Array<String>) {
     }
 
     // condensed format (sometimes confusing)
-    fun String.printFirstNameInLowercaseLetters(firstName: String, name: (String) -> String): String =
-        name(firstName.lowercase())
+    fun String.printFirstNameInLowercaseLetters(
+        name: (String) -> String
+    ): String = name("".lowercase())
 
     // returns a function type and demonstrates anonymous functions
     fun generateDivision(): (Int) -> Int {
@@ -67,8 +59,16 @@ fun main(args: Array<String>) {
     }
 
     // lambda expressions are also higher-order functions
-    val name = { x: String -> x.uppercase() }
-    println(name("Stefan")) // STEFAN
+    val name = ""
+    println(name.printNameInUppercaseLetters {
+        "Stefan"
+    }) // STEFAN
+
+    val lastName = ""
+    println(
+        lastName.printFirstNameInLowercaseLetters {
+            "Bayne"
+        }) // bayne
 
     val division by lazy { generateDivision() }
     println(division(20)) // 200
@@ -109,9 +109,7 @@ fun main(args: Array<String>) {
     forEach is an example, as well as forEachIndexed which returns the index and value.
      */
     val numbers = (1..6)
-    numbers.map { it * it }
-        .filter { it < 20 }
-        .forEach { println(it) } // outputs 1 , 4 , 9 , 16 on different lines.
+    numbers.map { it * it }.filter { it < 20 }.forEach { println(it) } // outputs 1 , 4 , 9 , 16 on different lines.
 
     /*
     reduce() is another example and transforms a collection into a single result starting from left to right.
@@ -134,11 +132,7 @@ fun main(args: Array<String>) {
      */
     val intListExample by lazy { listOf(1, 2, 3, 4, 5) }
     println(intListExample.flatMap { it ->
-        it.toString()
-            .toList()
-            .map { it.code }
-            .onEach { println(it) }
-            .filter { it * 2 >= 105 }
+        it.toString().toList().map { it.code }.onEach { println(it) }.filter { it * 2 >= 105 }
     })
 }
 
