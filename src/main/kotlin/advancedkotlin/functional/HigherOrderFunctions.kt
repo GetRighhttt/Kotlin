@@ -140,7 +140,10 @@ fun main(args: Array<String>) {
         generateNewName {
             it
         }
-    }.also { println(it) }
+    }.also {
+        print("Name generated is -> ")
+        println(it)
+    }
 }
 
 // declaring an inline higher-order function
