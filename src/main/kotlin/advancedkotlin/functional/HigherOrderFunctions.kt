@@ -5,6 +5,7 @@ Higher-Order functions are functions that take in other functions as arguments o
 function, or does both.
 Lambdas are anonymous functions are function literals used a ton in higher-order functions.
  */
+
 fun main(args: Array<String>) {
 
     /*
@@ -134,6 +135,19 @@ fun main(args: Array<String>) {
     println(intListExample.flatMap { it ->
         it.toString().toList().map { it.code }.onEach { println(it) }.filter { it * 2 >= 105 }
     })
+
+    val newNameGenerated = readlnOrNull()?.let {
+        generateNewName {
+            it
+        }
+    }.also { println(it) }
+}
+
+// declaring an inline higher-order function
+inline fun generateNewName(
+    returnName: () -> String
+) : String {
+    return returnName()
 }
 
 /*
