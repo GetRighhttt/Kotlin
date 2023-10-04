@@ -142,7 +142,7 @@ fun main(args: Array<String>) {
         }
     }.also {theName ->
         print("Name generated is -> ")
-        println(theName?.map { theName.uppercase() })
+        println(theName?.map { theName.uppercase().split(" ", ignoreCase = true, limit = 3) })
     }
 }
 
