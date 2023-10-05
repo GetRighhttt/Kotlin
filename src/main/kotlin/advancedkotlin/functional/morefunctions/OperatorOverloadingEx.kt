@@ -27,9 +27,12 @@ data class OperationValues(
     operator fun invoke() : OperationValues = OperationValues(this.totalNumberOfOperations)
 }
 
+// using type aliases to declare a shorter name for the class
+typealias Oper = OperationValues
+
 fun main() {
 
-    val numOfOperations = OperationValues(10)
+    val numOfOperations = Oper(10)
     val additionalOperations = 11
     val subtractedOperations = 3
 
