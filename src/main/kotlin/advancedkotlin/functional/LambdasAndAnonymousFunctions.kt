@@ -53,15 +53,17 @@ fun main() {
 
     /*
     Anonymous Functions are functions literals without a name.
+    function type declaration to anon. function definition
      */
-    val numSquare = fun(a: Int): Int {
+    val numSquare: (Int) -> Int = fun(a: Int): Int {
         return a * a
     }.also {
         println("The square of a is:")
     }
     println(numSquare(400)) // 160000
 
-    val numTimesThree = fun(num: Double): Double {
+    // function type declaration to anon. function definition
+    val numTimesThree: (Double) -> Double = fun(num: Double): Double {
         return num * 3
     }.also {
         println("Num times three is:")

@@ -52,3 +52,8 @@ a = 10,
 b = 20,
 c = { a,b -> a + b } // lambda
 )
+
+In closing just remember this if it is still confusing for you ->
+
+FUNCTION TYPES are DECLARATIONS
+FUNCTION LITERALS(lambdas and anonymous functions) are DEFINITIONS
