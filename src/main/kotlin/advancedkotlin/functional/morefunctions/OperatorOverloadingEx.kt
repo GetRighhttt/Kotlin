@@ -10,9 +10,11 @@ data class OperationValues(
     val totalNumberOfOperations: Int
 ) {
     /*
-    Declaring operator methods -> plus , minus , divide
+    Declaring operator methods -> plus , minus
 
-    We can also omit the data class extension declaration and just declare the operator also
+    We can also omit the data class extension declaration and just declare the operator also.
+
+    Operator overloading is very useful when calling "invoke" operator.
      */
     operator fun plus(addOperation: Int): OperationValues {
         return OperationValues(this.totalNumberOfOperations + addOperation)
@@ -21,6 +23,8 @@ data class OperationValues(
     operator fun minus(subtractOperation: Int): OperationValues {
         return OperationValues(this.totalNumberOfOperations - subtractOperation)
     }
+
+    operator fun invoke() : OperationValues = OperationValues(this.totalNumberOfOperations)
 }
 
 fun main() {
@@ -34,4 +38,8 @@ fun main() {
      */
     println(numOfOperations + additionalOperations) // OperationValues(totalNumberOfOperations=21)
     println(numOfOperations - subtractedOperations) // OperationValues(totalNumberOfOperations=7)
+
+    // using invoke method we do not have to add an operator and can just add parentheses
+    val newOperations = numOfOperations() + additionalOperations + subtractedOperations
+    println(newOperations) // OperationValues(totalNumberOfOperations=24)
 }
