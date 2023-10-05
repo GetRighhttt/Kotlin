@@ -28,6 +28,7 @@ data class OperationValues(
 }
 
 infix fun Int.addThisNumber(total: () -> Int): Int = total()
+infix fun Int.setNewNumber(newNumber: () -> Int): Int = newNumber()
 
 // using type aliases to declare a shorter name for the class
 typealias Oper = OperationValues
@@ -43,6 +44,8 @@ fun main() {
     val addedNum = additionalOperations.let { it addThisNumber { it + 30 } }
     val subtractedOperations = 3
     val subtractedNum = subtractedOperations.let { it addThisNumber { it - 5 } }
+    val dividedNum = 12 setNewNumber  { 30 }
+    println(dividedNum) // 30
 
     /*
     We can now just use the " plus " sign to add together the operations.
