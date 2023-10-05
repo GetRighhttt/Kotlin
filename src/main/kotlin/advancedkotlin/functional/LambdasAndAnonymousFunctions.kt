@@ -10,10 +10,12 @@ val lambda = (InputType) -> Return Type = { arguments: InputType -> body }
 The full syntactic expression for function type to a lambda is as follows:
 val add: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
 
+the full syntactic expression for function type to an anonymous function is as follows:
+val subtract: (Int, Int) -> Int = fun(a: Int, b: Int): Int { return a - b }
+
 Examples: https://kotlinlang.org/docs/lambdas.html#underscore-for-unused-variables
  */
 fun main() {
-
     /*
     friend = name of lambda
     (String) -> String = function type
