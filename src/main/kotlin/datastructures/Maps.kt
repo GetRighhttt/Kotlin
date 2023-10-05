@@ -45,6 +45,15 @@ fun main() {
         Pair(2, 40),
         Pair(3,50)
     )
+    println(anotherMap.values) // [30, 40, 50]
+    anotherMap.entries.onEach {
+        println("$it ")
+    }
+    /*
+    1=30
+    2=40
+    3=50
+     */
 
     /*
     HashMaps are a class built in to Java and the difference is the functionality - read and write, and has
