@@ -38,6 +38,15 @@ fun main() {
      */
 
     /*
+    Another way to access values in a map is by using Pairs
+     */
+    val anotherMap = mapOf(
+        Pair(1, 30),
+        Pair(2, 40),
+        Pair(3,50)
+    )
+
+    /*
     HashMaps are a class built in to Java and the difference is the functionality - read and write, and has
     more functions that can be applied to it.
      */
