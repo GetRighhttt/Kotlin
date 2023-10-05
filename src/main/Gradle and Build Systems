@@ -37,3 +37,5 @@ Some gradle files:
     3. settings.gradle - used to configure the build system itself.
     4. build.gradle{.kts} - main file which describes how your gradle project should be built. Usually house all the
     configurations for that project are housed.
+
+Gradle has Transitive Dependencies which essentially just means your dependencies are handled by the build system.
