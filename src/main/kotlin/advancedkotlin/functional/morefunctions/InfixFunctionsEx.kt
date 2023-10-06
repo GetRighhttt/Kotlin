@@ -1,5 +1,6 @@
 package advancedkotlin.functional.morefunctions
 
+import javax.naming.Context
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
@@ -74,6 +75,6 @@ inline infix fun <T,R> T.testFunction(param: (T) -> R): R {
 /*
 Stefan is my name and my age times three is 36.
 My middle name is John.
-If I multiple my age again by 3, it is 108.
+If I multiply my age again by 3, it is 108.
 I have 3 kids.
  */
