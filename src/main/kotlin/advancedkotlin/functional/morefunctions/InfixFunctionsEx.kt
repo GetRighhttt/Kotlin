@@ -1,5 +1,9 @@
 package advancedkotlin.functional.morefunctions
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
+
 /*
 Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
 of use.
@@ -49,8 +53,22 @@ fun main() {
         }
     }.also {
         println("I have $it kids.")
+    } testFunction {
+        val increment = it.inc().times(2)
+        println("This incremented value by 1 times 2 is: $increment") // 8
     }
+}
 
+/*
+We can also have inline infix functions like the one below which is actually the same type of function in the
+standard library for the "let" scope function.
+ */
+@OptIn(ExperimentalContracts::class)
+inline infix fun <T,R> T.testFunction(param: (T) -> R): R {
+    contract {
+        callsInPlace(param, InvocationKind.EXACTLY_ONCE)
+    }
+    return param(this)
 }
 
 /*
