@@ -51,6 +51,8 @@ fun main() {
     childrenNum.let {
         it setNumberOfChildren {
             it + 2
+        } compareInts {num ->
+            num + 10
         }
     }.also {
         println("I have $it kids.")
@@ -70,6 +72,14 @@ inline infix fun <T,R> T.testFunction(param: (T) -> R): R {
         callsInPlace(param, InvocationKind.EXACTLY_ONCE)
     }
     return param(this)
+}
+
+@OptIn(ExperimentalContracts::class)
+inline infix fun <T: Comparable<T>, R> T.compareInts(other: (T) -> R): R {
+    contract {
+        callsInPlace(other, InvocationKind.EXACTLY_ONCE)
+    }
+   return other(this)
 }
 
 /*
