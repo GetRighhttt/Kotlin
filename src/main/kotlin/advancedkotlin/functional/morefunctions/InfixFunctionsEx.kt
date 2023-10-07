@@ -1,6 +1,5 @@
 package advancedkotlin.functional.morefunctions
 
-import javax.naming.Context
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
