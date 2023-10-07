@@ -13,9 +13,9 @@ You don't generally see infix functions used in a lot of android projects but it
 
 // declaring extension functions
 infix fun String.newName(name: String): String = name
-infix fun Int.multipliedByThree(age: () -> Int): Int = age() // function type that returns an Int
+inline infix fun Int.multipliedByThree(age: () -> Int): Int = age() // function type that returns an Int
 infix fun String.setMiddleName(name: String): String = newName(name)
-infix fun Int.setNumberOfChildren(children: () -> Int): Int = children()
+inline infix fun Int.setNumberOfChildren(children: () -> Int): Int = children()
 
 fun main() {
     // created a variable with no initial name
