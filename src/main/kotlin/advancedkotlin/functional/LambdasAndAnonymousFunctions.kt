@@ -52,6 +52,7 @@ fun main() {
         this
     }
     println(printPerson(Person("Stefan", 30))) // Person(name=STEFAN, age=60)
+    println(squareShortSyntax(12)) // 144
 
     /*
     Anonymous Functions are functions literals without a name.
