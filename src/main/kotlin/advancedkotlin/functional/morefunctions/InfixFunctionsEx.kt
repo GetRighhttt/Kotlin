@@ -7,11 +7,10 @@ import kotlin.contracts.contract
 /*
 Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
 of use.
-Infix functions must be defined inside a class or an extension function to an existing class.
-You don't generally see infix functions used in a lot of android projects but it is a cool feature to know.
+Infix functions must be defined inside a class or be an extension function to an existing class.
  */
 
-// declaring extension functions
+// declaring infix extension functions
 infix fun String.newName(name: String): String = name
 inline infix fun Int.multipliedByThree(age: () -> Int): Int = age() // function type that returns an Int
 infix fun String.setMiddleName(name: String): String = newName(name)
@@ -79,6 +78,16 @@ inline infix fun <T: Comparable<T>, R> T.compareInts(other: (T) -> R): R {
         callsInPlace(other, InvocationKind.EXACTLY_ONCE)
     }
    return other(this)
+}
+
+// displaying that infix functions must either be a member variable or extension method, and have one parameter
+abstract class textInfix(val text: String) {
+
+    init {
+        println("abstract class initialized")
+    }
+    abstract infix fun isRemoving(text: String)
+    abstract infix fun isSetting(text: String)
 }
 
 /*
