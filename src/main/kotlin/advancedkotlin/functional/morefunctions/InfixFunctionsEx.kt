@@ -81,13 +81,25 @@ inline infix fun <T: Comparable<T>, R> T.compareInts(other: (T) -> R): R {
 }
 
 // displaying that infix functions must either be a member variable or extension method, and have one parameter
-abstract class textInfix(val text: String) {
+abstract class TextInfix(val text: String) {
 
     init {
         println("abstract class initialized")
     }
     abstract infix fun isRemoving(text: String)
     abstract infix fun isSetting(text: String)
+}
+
+typealias tInfix = TextInfix
+
+class SampleText<T>() : tInfix(text = "Sample") {
+    override fun isRemoving(text: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun isSetting(text: String) {
+        TODO("Not yet implemented")
+    }
 }
 
 /*
