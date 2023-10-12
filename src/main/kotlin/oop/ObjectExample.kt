@@ -41,9 +41,9 @@ open class Person {
 
     Their most common use cases:
 
-    1. Property needed at class level and not a specific instance level(one variable shared across all objects of
-    the class).
-    2. Factory pattern: perform extra work before an object can be used
+    1. Property needed at class level and not a specific instance level(one variable shared across all objects or
+    methods of the class).
+    2. Factory pattern: perform extra work before an object can be used, or to create objects.
      */
     companion object { // behaves like singleton object at a class level
 
