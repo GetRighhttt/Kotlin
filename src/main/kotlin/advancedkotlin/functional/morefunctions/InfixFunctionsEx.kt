@@ -49,12 +49,12 @@ fun main() {
     childrenNum.let {
         it setNumberOfChildren {
             it + 2
-        } compareInts {num ->
+        } isComparableTo { num ->
             num + 10
         }
     }.also {
         println("I have $it kids.")
-    } testFunction {
+    } allowFor {
         val increment = it.inc().times(2)
         println("This incremented value by 1 times 2 is: $increment") // 8
     }
@@ -65,7 +65,7 @@ We can also have inline infix functions like the one below which is actually the
 standard library for the "let" scope function.
  */
 @OptIn(ExperimentalContracts::class)
-inline infix fun <T,R> T.testFunction(param: (T) -> R): R {
+inline infix fun <T,R> T.allowFor(param: (T) -> R): R {
     contract {
         callsInPlace(param, InvocationKind.EXACTLY_ONCE)
     }
@@ -73,7 +73,7 @@ inline infix fun <T,R> T.testFunction(param: (T) -> R): R {
 }
 
 @OptIn(ExperimentalContracts::class)
-inline infix fun <T: Comparable<T>, R> T.compareInts(other: (T) -> R): R {
+inline infix fun <T: Comparable<T>, R> T.isComparableTo(other: (T) -> R): R {
     contract {
         callsInPlace(other, InvocationKind.EXACTLY_ONCE)
     }
