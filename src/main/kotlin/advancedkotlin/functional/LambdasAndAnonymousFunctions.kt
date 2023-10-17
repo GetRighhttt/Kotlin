@@ -73,15 +73,14 @@ fun main() {
     }
     println(numTimesThree(400.0)) // 1200.0
 
-    fun rollDice(callback: (Int) -> Int): String {
-        val result = callback.invoke(3)
-        return "$result Dice Rolled"
+    fun rollDice(callback: () -> Int): String {
+        return "Dice Rolled ${callback.invoke()} times."
     }
 
     // when lambdas functions are the last parameter, we can do what is called a "trailing lambda"
     println(
-        rollDice() {
-            it * 3
+        rollDice {
+            justTheArgumentsAndBody.invoke(3, 10) // Dice Rolled 13 times.
         }
     )
 }
