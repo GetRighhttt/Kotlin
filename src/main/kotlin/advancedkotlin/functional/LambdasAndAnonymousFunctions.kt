@@ -73,12 +73,13 @@ fun main() {
     }
     println(numTimesThree(400.0)) // 1200.0
 
+    // when lambdas are the last parameter in a function, we can do what is called a "trailing lambda"
     fun rollDice(callback: () -> Int): String {
         return "Dice Rolled ${callback.invoke()} times."
     }
 
-    // when lambdas functions are the last parameter, we can do what is called a "trailing lambda"
     println(
+        // trailing lambda for function
         rollDice {
             justTheArgumentsAndBody.invoke(3, 10) // Dice Rolled 13 times.
         }
