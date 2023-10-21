@@ -8,7 +8,7 @@ Closure -> scope of variables accessible in the body of a function.
 
 val integerMultiplyFunction: (Int, Int) -> Int =
     { a, b -> a * b } // lambda : passing function as expression (short syntax)
-val beta: (Int) -> Unit = { } // returns nothing
+val beta: (Int) -> Unit = { Unit } // returns nothing as noted by "Unit"
 val alpha: (Int) -> Int = { i: Int -> i + 1 }
 val delta: (Int, Int) -> Int = { x, y -> x / y }
 val multiplyNum: (Double) -> Double = { x -> x * 10 }
