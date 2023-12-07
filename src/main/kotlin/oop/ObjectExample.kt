@@ -9,6 +9,9 @@ Objects behave just like classes and can have properties, methods, and initializ
 but they cannot be instantiated.
 
 When creating a singleton or creating our own object class, it is called OBJECT DECLARATION.
+
+Companion objects should also be at the bottom of the class according to Kotlin standard documentation.
+https://kotlinlang.org/docs/coding-conventions.html
  */
 object Customer {
     private var count: Int = 0 // behaves as static variable
