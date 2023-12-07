@@ -1,8 +1,6 @@
 package advancedkotlin.functional.morefunctions
 
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
+import kotlin.contracts.*
 
 /*
 Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
@@ -99,6 +97,12 @@ class SampleText<T>() : tInfix(text = "Sample") {
 
     override fun isSetting(text: String) {
         TODO("Not yet implemented")
+    }
+
+    @OptIn(ExperimentalContracts::class)
+    fun returnEffect(): SimpleEffect {
+        val x: Boolean = true
+        return (x ?: false) as SimpleEffect
     }
 }
 
