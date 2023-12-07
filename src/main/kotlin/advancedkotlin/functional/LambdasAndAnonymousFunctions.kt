@@ -38,6 +38,12 @@ fun main() {
     val squareShortSyntax: (Int) -> Int = { it * it }
 
     /*
+    Reminder of lambda syntax.
+     */
+    val superSquare: (Double, Double) -> Int = { a,b -> (a * b).toInt() }
+    println(superSquare.invoke(10.12, 11.20)) // 113
+
+    /*
     Lambdas can also be used with class extensions
      */
     data class Person(val name: String, val age: Int)
