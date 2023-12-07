@@ -92,17 +92,16 @@ typealias tInfix = TextInfix
 
 class SampleText<T>() : tInfix(text = "Sample") {
     override fun isRemoving(text: String) {
-        TODO("Not yet implemented")
+        TODO("Not yet implemented!")
     }
 
     override fun isSetting(text: String) {
-        TODO("Not yet implemented")
+        TODO("Not yet setting!")
     }
 
     @OptIn(ExperimentalContracts::class)
-    fun returnEffect(): SimpleEffect {
-        val x: Boolean = true
-        return (x ?: false) as SimpleEffect
+    infix fun Boolean.returnEffect(action: () -> Boolean): SimpleEffect {
+        return (action ?: false) as SimpleEffect
     }
 }
 
