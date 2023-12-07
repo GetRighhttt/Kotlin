@@ -39,22 +39,6 @@ open class Person {
 
     fun notInTheCompanionObject() = println("Not apart of the companion object...")
 
-    /*
-    Companion objects work just like objects except are held within classes.
-
-    Their most common use cases:
-
-    1. Property needed at class level and not a specific instance level(one variable shared across all objects or
-    methods of the class).
-    2. Factory pattern: perform extra work before an object can be used, or to create objects.
-     */
-    companion object { // behaves like singleton object at a class level
-
-        const val TAG  = "PERSON" // this can be used for log statements
-        private var newName = ""
-        private var age = 0
-    }
-
     init {
         println("\nCompanion object has been created.")
         println("Determining name and age...\n")
@@ -65,6 +49,22 @@ open class Person {
 
     fun getName() = newName
     fun returnAge() = age
+
+    /*
+   Companion objects work just like objects except are held within classes.
+
+   Their most common use cases:
+
+   1. Property needed at class level and not a specific instance level(one variable shared across all objects or
+   methods of the class).
+   2. Factory pattern: perform extra work before an object can be used, or to create objects.
+    */
+    companion object { // behaves like singleton object at a class level
+
+        const val TAG  = "PERSON" // this can be used for log statements
+        private var newName = ""
+        private var age = 0
+    }
 
 }
 
