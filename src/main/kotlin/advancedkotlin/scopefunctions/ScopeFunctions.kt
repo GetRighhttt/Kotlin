@@ -47,7 +47,7 @@ fun main() {
     /**
      * Apply allows us to apply a context of an object to other properties. We normally see this
      * used a lot in android with binding:
-     * binding.apply { }
+     * "binding.apply { }"
      *
      * Good if you want to initialize or configure an object.
      */
@@ -90,16 +90,16 @@ fun main() {
      *
      * Good if you want to execute on a nullable object and avoid null pointer exception.
      */
-    val letName: String? = "Henry"
+    val letName = "Henry"
 
     // must use safe call operator (?.) with let function - execute if not null
-    letName?.let {
+    letName.let {
         println(it.reversed())
         println(it.length)
         it.length
         it.reversed()
     }.run {
-        this?.length?.isPrime()
+        this.length.isPrime()
     }
 
     /**
