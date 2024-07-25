@@ -1,0 +1,24 @@
+Why Coroutines?
+
+Coroutines are one of the best ways to achieve asynchronous programming with minimal code and advancedkotlin code quality.
+In Android, the main UI thread is responsible for updating the screen at a rate of 60 times per second.
+So, because of this, we want to do all heavy operations on another thread, preferably a background thread. This
+is the concept of asynchronous programming, or programming tasks in parallel.
+
+Asynchronous programming allows a user to go about their task while other tasks are running in the background,
+and the current tasks will not be interrupted. When thinking of asynchronous programming, think of the concept of
+"non-blocking" architecture; the execution of one task is not dependent on another. When thinking about Synchronous
+programming, think of "blocking architecture"; one task must be complete in order for another to finish.
+Coroutines helps us achieve this and alleviate the pain of boilerplate code in the process.
+
+A coroutine is essentially a lightweight thread that exists ON a background thread. This means that a coroutine is not
+an actual background thread in itself. One Coroutine represents a job that it is doing,
+and that job can consists of various tasks.
+
+With those tasks, you can "suspend" functions or methods to handle the tasks, which essentially suspends one task
+to allow for another to complete while its doing its work. They are so lightweight that you can run thousands
+at one time on one background thread. Because of this, we can chain these tasks in parallel which allows us to
+complete numerous tasks at one time while not blocking the main UI thread.
+
+Coroutines combine the simplicity of synchronous code with the complexity of asynchronous code.
+This in essence, is why Coroutines are one of the most useful libraries in Android right now.

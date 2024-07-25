@@ -1,0 +1,12 @@
+What is Reactive Programming?
+- A paradigm based on functional programming in which we model our logic as a set of operations in a data stream.
+Reactive programming is largely based on observing some data, and performing some operations based on the data returned.
+
+Reactive programming essentially is just relying on asynchronous programming to complete tasks and deliver information
+to otherwise static content.
+
+Four principles:
+- Responsive: ensuring a system is responsive or responds regularly
+- Resilient: resilient to failures by way of: delegation, replication, containment and isolation.
+- Elastic: stretches in response to work load; scalable.
+- Message-Driven: communicating via asynchronous message passing. You can continue work while messages are passed.
