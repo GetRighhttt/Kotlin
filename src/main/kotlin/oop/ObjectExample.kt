@@ -116,6 +116,11 @@ fun main() {
         override fun getObject(name: String): String = name
     }
     println(oldObject.getObject("Old Object"))
+    val currentObject = object : NewObjectExample() {
+        override fun getObject(name: String): String {
+            return super.getObject(name)
+        }
+    }
 
     /*
     We can also use object expression using no classes.
