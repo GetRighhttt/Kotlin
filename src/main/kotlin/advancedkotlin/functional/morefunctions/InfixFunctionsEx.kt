@@ -99,6 +99,10 @@ class SampleText<T>() : tInfix(text = "Sample") {
         TODO("Not yet setting!")
     }
 
+    override fun isStarting(text: String) {
+        // TODO("Not yet implemented!")
+    }
+
     @OptIn(ExperimentalContracts::class)
     infix fun Boolean.returnEffect(action: () -> Boolean): SimpleEffect {
         return (action ?: false) as SimpleEffect
