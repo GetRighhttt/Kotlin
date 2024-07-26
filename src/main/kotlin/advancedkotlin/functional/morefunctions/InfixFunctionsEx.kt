@@ -99,7 +99,7 @@ class SampleText<T>() : tInfix(text = "Sample") {
         TODO("Not yet setting!")
     }
 
-    override fun isStarting(text: String) {
+    fun isStarting(text: String) {
         // TODO("Not yet implemented!")
     }
 
