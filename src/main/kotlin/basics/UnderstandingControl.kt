@@ -1,6 +1,6 @@
 package basics
 
-fun main(args: Array<String>) {
+fun main() {
 
     /**
      * This is going to be a basic example of if
