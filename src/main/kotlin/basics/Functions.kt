@@ -44,7 +44,8 @@ fun addDigits(x: Int, y: Int): Int {
 
 // this is a function without any parameters or return type
 fun printThisLine() {
-    println("This is the most basic function ever.")
+    println("This is the most basic function syntactically however " +
+            "it's probably the best approach when working with other devs.")
 }
 
 // this is a function that takes in two parameters for calculations
