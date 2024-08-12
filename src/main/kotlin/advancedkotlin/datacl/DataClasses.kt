@@ -95,7 +95,7 @@ fun main() {
     val personHashCode = person.hashCode()
     println(personHashCode) // prints hash code for the person object
 
-    val personEquals = person.equals(personCopy)
+    val personEquals = person == personCopy
     println(personEquals) // returns false since they are not equal to each other
 
     val newPersonCopy by lazy { person.copy(title = "Shawn", age = 20, userName = "ShawnPDiddy", career = "Business") }
