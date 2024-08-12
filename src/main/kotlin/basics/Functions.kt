@@ -1,6 +1,6 @@
 package basics
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     Functions make it easier for us to create logic and code in cleaner ways.
 
