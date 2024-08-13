@@ -84,7 +84,7 @@ fun main() {
 
     We don't need to declare a specific variable or use much syntax to provide a value here.
 
-    Single-line functions and statements in Kotlin are cool but we should use them with caution, as
+    Single-line functions and statements in Kotlin are cool, but we should use them with caution, as
     it can become very confusing.
      */
 

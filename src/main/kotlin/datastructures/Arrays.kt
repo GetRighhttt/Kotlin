@@ -1,6 +1,6 @@
 package datastructures
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     Arrays are a data structure that serves as a container for elements that
     have the same type.

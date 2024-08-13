@@ -69,6 +69,10 @@ fun main() {
     println(Thread.currentThread().isAlive)
     Thread.sleep(1000)
 
+    println("Checking the thread state...")
+    println(Thread.currentThread().state)
+    Thread.sleep(1000)
+
     println("Enter a number to determine age: ")
 
     val userAge = when (val userInput = readlnOrNull().toString().toInt()) {

@@ -16,7 +16,7 @@ fun main() {
     // gets the name
     println(getName("Stefan"))
 
-    // printline function
+    // println() function
     println(printThisLine())
 
 

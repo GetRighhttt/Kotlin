@@ -2,7 +2,7 @@ package datastructures
 
 import java.util.stream.Collectors
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     List are like arrays except with list, the values in the list cannot be changed
     at run time whereas in arrays they can.

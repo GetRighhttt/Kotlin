@@ -15,7 +15,6 @@ fun main() {
 
     val thisPerson = Being()
 
-
     /**
      * With allows us to pass in an object and use its values. Good for when we have multiple properties and
      * methods for one class.
