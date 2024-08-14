@@ -13,6 +13,20 @@ open class Student(open val name: String, open var age: Int) {
     override fun toString(): String {
         return "$name is $age years old"
     }
+
+    // Local Classes are used to specify something in a class
+    fun printSomeData(data: String) {
+        class NewData(val someData: String) {
+            val newData = someData.uppercase()
+
+            fun result() {
+                if (newData.length < 3) {
+                    println("Data too short.")
+                }
+            }
+        }
+        println(NewData(data).result())
+    }
 }
 
 /*
