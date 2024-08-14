@@ -33,6 +33,9 @@ infix fun Int.setNewNumber(newNumber: () -> Int): Int = newNumber()
 // using type aliases to declare a shorter name for the class
 typealias Oper = OperationValues
 
+// neat operator method to invoke anything and print in
+operator fun Any.invoke(): Any = println(this)
+
 fun main() {
 
     val numOfOperations = Oper(10)
@@ -56,4 +59,19 @@ fun main() {
     // using invoke method we do not have to add an operator and can just add parentheses
     val newOperations = numOfOperations() + additionalOperations + subtractedOperations.let { it addThisNumber { 10 } }
     println(newOperations) // OperationValues(totalNumberOfOperations=31)
+
+    // prints invoke method
+    ""()
+    ""()
+    "Now we are going to print some methods to the console using the invoke operator method"()
+    true.invoke()
+    1()
+    "You can also invoke methods with `.invoke()`".invoke()
+
+    /*
+    Now we are going to print some methods to the console using the invoke operator method
+    true
+    1
+    You can also invoke methods with `.invoke()`
+     */
 }
