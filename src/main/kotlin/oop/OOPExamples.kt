@@ -1,5 +1,6 @@
 package oop
 
+import advancedkotlin.functional.repeatName
 import java.util.stream.Collectors
 
 /*
@@ -52,8 +53,11 @@ We also implement the BallRoller interface and call the rollBall() method in the
  */
 class MyNewPlayer(override val name: String, override var age: Int) : Student(name, age), BallRoller {
 
-    // nested classes are good for having a specific source about a class
+    /*
+    Nested classes are good for having a specific source about a class.
+    */
     class OldPlayer(val name: String) { fun returnOldName() = name.uppercase() }
+    class ClassicPlayer(val name: String) { fun returnClassicName() = name.repeatName() }
 
     var score: Int = 20
         set(value) {
@@ -98,7 +102,8 @@ fun main() {
     val yourStudent by lazy { Student("Stefan", 26) }
     val thisNewPlayer by lazy { MyNewPlayer("Luther", 10) }
     val thisTeacher by lazy { Teacher("Ayesha") }
-    val oldPlayer by lazy { MyNewPlayer.OldPlayer("Stefan")}
+    val oldPlayer by lazy { MyNewPlayer.OldPlayer("Stefan") }
+    val classicPlayer by lazy { MyNewPlayer.ClassicPlayer("Coach!") }
 
     /*
     Below we are creating a list of all the students, and because thisNewPlayer inherits from Student,
@@ -146,6 +151,9 @@ fun main() {
     val teacherIDList = NewTeacher.teacherIds.id.size
     println(teacherIDList.toString())
     println(NewTeacher.getTeacherIds())
+
+    println(" This is the old player name from the nested class ${oldPlayer.name}.")
+    println(" This is the classic player name from the nested class ${classicPlayer.name}.")
 }
 
 /*
