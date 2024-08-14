@@ -27,7 +27,7 @@ data class OperationValues(
     operator fun invoke(): OperationValues = OperationValues(this.totalNumberOfOperations)
 }
 
-infix fun Int.addThisNumber(total: () -> Int): Int = total()
+infix fun Int.exchangeNumberToNewNumber(total: () -> Int): Int = total()
 infix fun Int.setNewNumber(newNumber: () -> Int): Int = newNumber()
 
 // using type aliases to declare a shorter name for the class
@@ -47,9 +47,9 @@ fun main() {
     Using infix methods with function types to add numbers to operations (just for practice)
      */
     val additionalOperations = 11
-    val addedNum = additionalOperations.let { it addThisNumber { it + 30 } }
+    val addedNum = additionalOperations.let { it exchangeNumberToNewNumber { it + 30 } }
     val subtractedOperations = 3
-    val subtractedNum = subtractedOperations.let { it addThisNumber { it - 5 } }
+    val subtractedNum = subtractedOperations.let { it exchangeNumberToNewNumber { it - 5 } }
     val dividedNum = 12 setNewNumber  { 30 }
     println(dividedNum) // 30
 
@@ -60,7 +60,8 @@ fun main() {
     println(numOfOperations - subtractedNum) // OperationValues(totalNumberOfOperations=12)
 
     // using invoke method we do not have to add an operator and can just add parentheses
-    val newOperations = numOfOperations() + additionalOperations + subtractedOperations.let { it addThisNumber { 10 } }
+    // should be 10 + 11 + 3 -> exchanges to 10
+    val newOperations = numOfOperations() + additionalOperations + subtractedOperations.let { it exchangeNumberToNewNumber { 10 } }
     println(newOperations) // OperationValues(totalNumberOfOperations=31)
 
     // prints invoke method
