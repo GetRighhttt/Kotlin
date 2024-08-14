@@ -84,7 +84,7 @@ fun String.isNotHealthy(): Boolean {
     return true
 }
 fun String.hideName() = "*".repeat(this.length)
-fun String.repeatName() = this.repeat(3).toList().forEach(::println)
+fun String.repeatName() = this.repeat(3).toList()
 fun Double.convertToInt(): Int = this.toInt()
 /*
 Please enter a number:

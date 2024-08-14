@@ -1,7 +1,6 @@
 package oop
 
 import advancedkotlin.functional.repeatName
-import java.util.stream.Collectors
 
 /*
 In Kotlin, when we pass in values and variables in the primary constructor, getters and setters
@@ -112,7 +111,7 @@ fun main() {
 
     // nested class initialization
     val oldPlayer by lazy { MyNewPlayer.OldPlayer("Stefan") }
-    val classicPlayer by lazy { MyNewPlayer.ClassicPlayer("Coach!") }
+    val classicPlayer by lazy { MyNewPlayer.ClassicPlayer("George") }
 
     /*
     Below we are creating a list of all the students, and because thisNewPlayer inherits from Student,
@@ -161,8 +160,8 @@ fun main() {
     println(teacherIDList.toString())
     println(NewTeacher.getTeacherIds())
 
-    println(" This is the old player name from the nested class ${oldPlayer.name}.")
-    println(" This is the classic player name from the nested class ${classicPlayer.name}.")
+    println("This is the old player name from the nested class ${ oldPlayer.returnOldName() }.")
+    println("This is the classic player name from the nested class ${ classicPlayer.returnClassicName() }.")
 }
 
 /*
