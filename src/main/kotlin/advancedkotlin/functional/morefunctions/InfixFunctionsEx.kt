@@ -100,7 +100,7 @@ class SampleText<T>() : tInfix(text = "Sample") {
     }
 
     fun isStarting(text: String) {
-        // TODO("Not yet implemented!")
+        TODO("Not yet implemented!")
     }
 
     @OptIn(ExperimentalContracts::class)

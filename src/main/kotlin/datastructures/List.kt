@@ -43,7 +43,7 @@ fun main() {
     println("Enter in 5 numbers:")
     // now we will read user input and add them to the list
     for (element in 1..5) {
-        val num = readLine()?.toInt()
+        val num = readlnOrNull()?.toInt()
         if (num != null) {
             thisMutableList.add(num)
         }
@@ -52,7 +52,7 @@ fun main() {
     println(
         thisMutableList
             .sorted()
-            .also { // scope function used here and continues collection afterwards
+            .also { // scope function used here and continues collection afterward
                 println(it)
             }
             .asReversed()
