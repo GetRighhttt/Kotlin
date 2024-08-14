@@ -52,6 +52,9 @@ We also implement the BallRoller interface and call the rollBall() method in the
  */
 class MyNewPlayer(override val name: String, override var age: Int) : Student(name, age), BallRoller {
 
+    // nested classes are good for having a specific source about a class
+    class OldPlayer(val name: String) { fun returnOldName() = name.uppercase() }
+
     var score: Int = 20
         set(value) {
             field = if (value >= 0) {
@@ -95,6 +98,7 @@ fun main() {
     val yourStudent by lazy { Student("Stefan", 26) }
     val thisNewPlayer by lazy { MyNewPlayer("Luther", 10) }
     val thisTeacher by lazy { Teacher("Ayesha") }
+    val oldPlayer by lazy { MyNewPlayer.OldPlayer("Stefan")}
 
     /*
     Below we are creating a list of all the students, and because thisNewPlayer inherits from Student,
