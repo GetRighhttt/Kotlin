@@ -117,7 +117,7 @@ fun main() {
     Below we are creating a list of all the students, and because thisNewPlayer inherits from Student,
     it still doesn't cause an error in the list although its of type MyNewPlayer.
      */
-    val theseStudents by lazy { mutableListOf<Student>(myStudent, yourStudent, thisNewPlayer) }
+    val theseStudents by lazy { mutableListOf(myStudent, yourStudent, thisNewPlayer) }
     theseStudents.filter { it.age >= 5 }
         .sortedBy { it.age }
         .forEach(::println)
@@ -183,4 +183,6 @@ New Teacher created successfully.
 New Teacher is the name of the object created.
 9
 TeacherIDs(id=[1, 2, 3, 4, 5, 6, 7, 8, 9])
+This is the old player name from the nested class STEFAN.
+This is the classic player name from the nested class [G, e, o, r, g, e, G, e, o, r, g, e, G, e, o, r, g, e].
  */
