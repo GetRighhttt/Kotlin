@@ -1,7 +1,5 @@
 package oop
 
-import basics.printNumber
-
 /*
 Delegation is the concept of extending responsibility of a class to another class or an object.
 

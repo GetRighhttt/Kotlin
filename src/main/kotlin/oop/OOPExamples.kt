@@ -83,8 +83,14 @@ interface BallRoller {
     fun rollBall(times: Int): Int = times
 }
 
+/*
+Data classes are used for holding data and have some methods generated.
+ */
 data class TeacherIDs(val id: List<Int>)
 
+/*
+Objects are usually used for Singletons.
+ */
 object NewTeacher : Teacher(name = "New Teacher") {
     init {
         println("$name created successfully.")
@@ -97,11 +103,14 @@ object NewTeacher : Teacher(name = "New Teacher") {
 }
 
 fun main() {
+
     // lazy delegation improves performance
     val myStudent by lazy { Student("DJ", 25) }
     val yourStudent by lazy { Student("Stefan", 26) }
     val thisNewPlayer by lazy { MyNewPlayer("Luther", 10) }
     val thisTeacher by lazy { Teacher("Ayesha") }
+
+    // nested class initialization
     val oldPlayer by lazy { MyNewPlayer.OldPlayer("Stefan") }
     val classicPlayer by lazy { MyNewPlayer.ClassicPlayer("Coach!") }
 
