@@ -36,6 +36,9 @@ typealias Oper = OperationValues
 // neat operator method to invoke anything and print in
 operator fun Any.invoke(): Any = println(this)
 
+// infix operator extension method on string values
+infix operator fun Any.invoke(block: () -> Any) = block
+
 fun main() {
 
     val numOfOperations = Oper(10)
@@ -68,10 +71,20 @@ fun main() {
     1()
     "You can also invoke methods with `.invoke()`".invoke()
 
+    // here I'm demoing how we can add infix operators with operator overloading and extension methods
+    val name = "Stefan"
+
+    // string produces a block() then also prints the result
+    name {
+        if(name.isBlank()) "blank name".invoke() else "name is ok".invoke()
+    }.invoke()
+
+
     /*
     Now we are going to print some methods to the console using the invoke operator method
     true
     1
     You can also invoke methods with `.invoke()`
+    name is ok
      */
 }
