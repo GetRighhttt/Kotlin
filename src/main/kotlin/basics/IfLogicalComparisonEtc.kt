@@ -38,4 +38,14 @@ fun main() {
 
     // not operator
     println(!(x == y || x < y)) // false because of not operator
+
+    /*
+    If statements in Kotlin are seen as expressions.
+     */
+    fun returnNumber(x: Int, y: Int): Int = if (x == y) 0 else 10
+
+    val number1 = returnNumber(10, 10)
+    println(number1)
+
+    // 0
 }

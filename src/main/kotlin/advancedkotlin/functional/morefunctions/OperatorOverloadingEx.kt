@@ -80,7 +80,6 @@ fun main() {
         if(name.isBlank()) "blank name".invoke() else "name is ok".invoke()
     }.invoke()
 
-
     /*
     Now we are going to print some methods to the console using the invoke operator method
     true
