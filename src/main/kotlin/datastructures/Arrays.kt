@@ -80,6 +80,7 @@ fun main() {
         .onEach(::println)
         .contains(99)
         .toString()
+    println(sortedAndFiltered) // true
 
     /*
     35
