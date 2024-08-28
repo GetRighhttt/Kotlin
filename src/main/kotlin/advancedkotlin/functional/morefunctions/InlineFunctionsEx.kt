@@ -1,5 +1,7 @@
 package advancedkotlin.functional.morefunctions
 
+import advancedkotlin.sealedenum.reverseAMessage
+
 /*
 Inline functions - provide a way to decrease performance overhead and memory allocation when using Function Types
 in Kotlin. In Kotlin, each function, because they are first-class and treated like variables, are executed as individual
@@ -21,6 +23,12 @@ inline functions also cannot be declared in fun main() {}. This isn't yet suppor
 
 Mainly used with lambdas.
  */
+
+class Example {
+    inline fun getExample( message: () -> Unit ) {
+        message()
+    }
+}
 inline fun runTime(
     message: () -> Unit,
     time: () -> Long
@@ -47,6 +55,12 @@ fun main() {
             }
         }
     )
+
+    val newExample = Example()
+    val lastExample = newExample.getExample {
+        println("Example")
+    }
+    lastExample.invoke()
 }
 
 /*
