@@ -57,4 +57,17 @@ fun main(args: Array<String>) {
     println("$newDoubleNumber type is: " + newDoubleNumber::class.simpleName)
     println("$newCharacter type is: " + newCharacter::class.simpleName)
     println("$newString type is: " + newString::class.simpleName)
+
+    /*
+    -----------------------------------------------------------------
+    Now we're going to print the primtive types and their data types:
+    22 type is: Byte
+    325 type is: Short
+    34 type is: Int
+    78 type is: Long
+    3.0 type is: Float
+    3.5 type is: Double
+    W type is: Char
+    This is a new string. type is: String
+     */
 }
