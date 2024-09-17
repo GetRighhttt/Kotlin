@@ -28,12 +28,13 @@ fun main(args: Array<String>) {
     println("$thisVariableIsChangeable $thisVariableIsNotChangeable $myAge")
     /*
     Output:
+
     Here are the strings and Age:
     Mutable Variable. Immutable Variable. 22
     */
 
     println("-----------------------------------------------------------------")
-    println("Now we're going to print the primtive types and their data types: ")
+    println("Now we're going to print the primitive types and their data types: ")
     /*
     This is how we can declare primitive types in Kotlin.
     Primitive types: Byte, Short, Int, Long, Float, Double, Boolean
@@ -59,6 +60,8 @@ fun main(args: Array<String>) {
     println("$newString type is: " + newString::class.simpleName)
 
     /*
+    Output:
+
     -----------------------------------------------------------------
     Now we're going to print the primtive types and their data types:
     22 type is: Byte
@@ -69,5 +72,22 @@ fun main(args: Array<String>) {
     3.5 type is: Double
     W type is: Char
     This is a new string. type is: String
+     */
+
+    println("-----------------------------------------------------------------")
+    println("Now we're going to print some unicode characters: ")
+
+    val newR = '\u00ae' // ®
+    val newLatinCapitalAE = '\u00c6'
+    println(newR)
+    println(newLatinCapitalAE)
+
+    /*
+    Output:
+
+    -----------------------------------------------------------------
+    Now we're going to print some unicode characters:
+    ®
+    Æ
      */
 }
