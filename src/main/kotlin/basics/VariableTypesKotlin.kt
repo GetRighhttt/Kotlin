@@ -63,7 +63,7 @@ fun main(args: Array<String>) {
     Output:
 
     -----------------------------------------------------------------
-    Now we're going to print the primtive types and their data types:
+    Now we're going to print the primitive types and their data types:
     22 type is: Byte
     325 type is: Short
     34 type is: Int
