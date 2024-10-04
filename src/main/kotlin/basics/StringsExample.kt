@@ -2,7 +2,7 @@ package basics
 
 import java.util.stream.Collectors
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     Strings are just a group of character values together.
 
@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
 
     println(
         "This is also how we can reverse a string with interpolation\n" +
-                "${thisIsAString.reversed()}"
+                thisIsAString.reversed()
     ) // This is also how we can reverse a string with interpolation.
       // SDOHTEM omed ot esu ot gniog era ew taht gnirts EHT SI SIHT
 
@@ -79,7 +79,7 @@ fun main(args: Array<String>) {
     println(splitStringExample) // [, H, e, r, e,  , i, s,  , the string that we are going to split with delimiters.]
 
     // splitting a string using lines() method
-    val lineSplitExample: String = "This is the line\nthat we are going to split\nusing the line method."
+    val lineSplitExample = "This is the line\nthat we are going to split\nusing the line method."
     val lines = lineSplitExample.lines()
     lines.forEach(::println)
     /*
@@ -89,7 +89,7 @@ fun main(args: Array<String>) {
      */
 
     // returning a sequence of chars of a string given the range or start and end indexes
-    val newString: String = "This is a test string"
+    val newString = "This is a test string"
     println(newString.subSequence(0, 12)) // This is a te
     println(newString.subSequence(0..5)) // This i
 

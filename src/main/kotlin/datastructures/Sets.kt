@@ -8,7 +8,7 @@ Sets don't provide indexes access, and also elements of a set can only exists on
 
 fun main() {
 
-    val basketballChamps = setOf<String>("Bucks", "Clippers", "Lakers", "Bulls")
+    val basketballChamps = setOf("Bucks", "Clippers", "Lakers", "Bulls")
 
     println(basketballChamps) // [Bucks, Clippers, Lakers, Bulls]
 
@@ -24,7 +24,7 @@ fun main() {
     /*
     Difference: Sequence not guaranteed.
      */
-    val hashSetExample = hashSetOf<Int>(3, 4, 6, 1, 10, 2, 6)
+    val hashSetExample = hashSetOf(3, 4, 6, 1, 10, 2, 6)
     for (element in hashSetExample) println(element) // prints out of sequence
 
 }

@@ -3,7 +3,7 @@ package basics
 import kotlin.math.absoluteValue
 import kotlin.math.pow
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     Here we will go over the basic arithmetic operations that we can
     do in Kotlin.

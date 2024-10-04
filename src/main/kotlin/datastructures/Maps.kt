@@ -65,8 +65,8 @@ fun main() {
     myMap[4] = "Quarto"
 
     // we can also add values to the hashmap using "put"
-    myMap.put(5, "Cinco")
-    myMap.put(6, "Seis")
+    myMap[5] = "Cinco"
+    myMap[6] = "Seis"
 
     myMap.replace(2, "Two")
     val mapClone = myMap.clone().toString()

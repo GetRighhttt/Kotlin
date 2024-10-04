@@ -34,7 +34,7 @@ open class Person {
         Thread.sleep(1000)
         println("This block is called right before the object is created in main...")
         Thread.sleep(1000)
-            .also { println("The name of the thread we are on is: ${Thread.currentThread().name.toString()}") }
+            .also { println("The name of the thread we are on is: ${Thread.currentThread().name}") }
     }
 
     fun notInTheCompanionObject() = println("Not apart of the companion object...")

@@ -16,7 +16,7 @@ fun main() {
     val y = 9
     val x = 13
 
-    if (!(x == y) && y >= 10) println(message = "This is true.") else if (x == 15 || y != x) {
+    if (x != y && y >= 10) println(message = "This is true.") else if (x == 15 || y != x) {
         println("This is not true.")
     }
 
@@ -30,7 +30,7 @@ fun main() {
     println(newAnswer)
     println(z)
 
-    // for loop - usually used with the range operator in Kotln.
+    // for loop - usually used with the range operator in Kotlin.
     var count = 0
     for (i in 0..3) println(count++) // inclusive of all numbers in range
 
@@ -72,7 +72,7 @@ fun main() {
     fun getNewNumber(x: Int) = when (x) {
         2 -> println("Dos")
         3 -> println("Tres")
-        4 -> println("Quatro")
+        4 -> println("Quarto")
         else -> println("Not in the range of 2-4...")
     }
     println(getNewNumber(5)) // prints Not in the range of 2-4...

@@ -6,7 +6,7 @@ function, or does both.
 Lambdas are anonymous functions are function literals used a ton in higher-order functions.
  */
 
-fun main(args: Array<String>) {
+fun main() {
 
     /*
     Ex: Higher-Order function examples below with function types, lambdas, anonymous functions, etc.

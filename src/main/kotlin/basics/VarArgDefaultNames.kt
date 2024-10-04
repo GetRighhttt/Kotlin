@@ -1,6 +1,6 @@
 package basics
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     Here we are going to examine functions again except this time we will take a
     look into vararg and default parameters and names.
@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 
 
     /*
-    We can also insert array values into varaible arguments.
+    We can also insert array values into variable arguments.
      */
     val newArray = intArrayOf(3, 4, 5)
     val newVarArg = getMinNumber(*newArray, 7, 8, 9, 110)

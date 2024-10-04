@@ -1,8 +1,5 @@
 package androidconcepts
 
-import java.util.concurrent.TimeUnit
-import kotlin.concurrent.thread
-
 /*
 A Backing Field is essentially just the "field" keyword we use when we want to customize
 our getters and setters for variables.

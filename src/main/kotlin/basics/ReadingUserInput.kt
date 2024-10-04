@@ -2,7 +2,7 @@ package basics
 
 import java.util.*
 
-fun main(args: Array<String>) {
+fun main() {
     /*
     We can read user input in the string in a few ways:
 
@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     Scanner class in java reads in any input
      */
     println("Enter some text you want reversed:")
-    val userInput = readLine()
+    val userInput = readlnOrNull()
     println(userInput?.reversed())
 
     val scanner = Scanner(System.`in`)
