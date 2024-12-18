@@ -9,15 +9,17 @@
 that you used in Java.
 
 3. Kotlin has Coroutines, which aren't available for Java.
-    a. Coroutines are lightweight threads that make it easy to delay or suspend your code,
-    and improve your application performance.
+    a. Coroutines is an instance of a suspendable computation. It is conceptually similar to a
+    thread, in the sense that it takes a block of code to run that works concurrently with
+    the rest of the code. However, a coroutine is not bound to any particular thread. It may suspend
+    its execution in one thread and resume in another one.
 
 4. Kotlin requires less code than Java.
 
 5. Kotlin has data and sealed classes whereas Java does not, which makes it easier for
 us to handle data.
 
-6. In Kotlin, usually when working with the start fo a program, we have to put our "main()", method
+6. In Kotlin, usually when working with the start of a program, we put our "main ()", method
 in a class, similar to how we have to do with Java. Kotlin however, has the concept of package-level functions:
 If your function doesn't need to access properties of a class, it doesn't need to be wrapped in a class.
 
@@ -25,7 +27,7 @@ If your function doesn't need to access properties of a class, it doesn't need t
 command line tools, however in Kotlin, those are optional.
 
 8. Kotlin doesn't have a need for static modifiers and methods in order to indicate that that property can
-be accessed outside of the class. However, in Kotlin, that isn't necessary.
+be accessed outside of the class.
 
 9. Kotlin has type inference and is type safe, meaning that the compiler will decide which type of value you
 are working with and it doesn't always have to be explicitly stated.
