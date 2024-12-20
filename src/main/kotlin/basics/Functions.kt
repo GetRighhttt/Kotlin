@@ -41,7 +41,7 @@ fun main() {
     fun getName(name: String) = "My name is: $name"
 
     // gets the name
-    println(getName("Stefan"))
+    println(::getName.invoke("Stefan"))
 
     // println() function and function reference
     println(::printThisLine)
@@ -51,8 +51,8 @@ fun main() {
     println(::doSomeCalculations.invoke(10, 20))
 
     // here is how we can call a function in main with a minus method on the end
-    println(addDigits(5, 8).minus(5)) // returns 5
-    println(addDigits(10, 4).plus(20)) // returns 24
-    println(addDigits(80, 200).compareTo(180)) // returns -1 for false
-    println(addDigits(30, 40)) // returns 60
+    println(::addDigits.invoke(5, 8).minus(5)) // returns 5
+    println(::addDigits.invoke(10, 4).plus(20)) // returns 24
+    println(::addDigits.invoke(80, 200).compareTo(180)) // returns -1 for false
+    println(::addDigits.invoke(30, 40)) // returns 60
 }
