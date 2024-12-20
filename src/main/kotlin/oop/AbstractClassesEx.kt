@@ -24,6 +24,9 @@ abstract class Home {
      }
 }
 
+// This class was used as a demo to show classes cannot extend numerous abstract classes
+abstract class Yard {}
+
 class MyHouse: Home() {
     override fun cleaHouse() {
         println("I have cleaned my house.")

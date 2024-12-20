@@ -56,12 +56,13 @@ open class Person {
    Their most common use cases:
 
    1. Property needed at class level and not a specific instance level(one variable shared across all objects or
-   methods of the class).
+   methods of the class - static).
    2. Factory pattern: perform extra work before an object can be used, or to create objects.
+   3. Static variables and methods can be accessed by directly calling the class name also.
     */
     companion object { // behaves like singleton object at a class level
 
-        const val TAG  = "PERSON" // this can be used for log statements
+        const val TAG = "PERSON" // this can be used for log statements
         private var newName = ""
         private var age = 0
     }
@@ -76,6 +77,13 @@ abstract class NewObjectExample {
     open fun getObject(name: String): String = name
 }
 
+// primary constructor
+abstract class OldObjectExample(val newName: String) {
+    open fun getObject(name: String): String = name
+
+    // secondary constructor & constructor overloading
+    constructor(newName: String, newAge: Int) : this(newName)
+}
 fun main() {
     /*
     SO in order for us to use these static methods and variables, instead of us instantiating a class,
