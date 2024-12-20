@@ -43,12 +43,12 @@ fun main() {
     // gets the name
     println(getName("Stefan"))
 
-    // println() function
-    println(printThisLine())
+    // println() function and function reference
+    println(::printThisLine)
 
 
-    // calculations function
-    println(doSomeCalculations(10, 20))
+    // calculations function with function reference
+    println(::doSomeCalculations.invoke(10, 20))
 
     // here is how we can call a function in main with a minus method on the end
     println(addDigits(5, 8).minus(5)) // returns 5
