@@ -12,7 +12,8 @@ fun main() {
 
     // we can perform more operations on a list due to its flexibility
     val myNewList = listOf(2, 3, 4, 5, 6, 1, 9, 3, 8, 7, 10)
-    println(myNewList.stream()
+    println(
+        myNewList.stream()
         .filter { a -> a >= 4 }
         .map { a -> a * 4 }
         .collect(Collectors.toList())) // [16, 20, 24, 36, 32, 28, 40]

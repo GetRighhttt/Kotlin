@@ -37,7 +37,8 @@ fun main() {
     // uppercase characters
     println(thisIsAString.uppercase()) // THIS IS THE STRING THAT WE ARE GOING TO USE TO DEMO METHODS.
 
-    println(thisIsAString.toList()
+    println(
+        thisIsAString.toList()
         .stream().filter
         { a -> a.isUpperCase() } // if the character is uppercase
         .collect(Collectors.toList()))
@@ -46,7 +47,7 @@ fun main() {
         "This is also how we can reverse a string with interpolation\n" +
                 thisIsAString.reversed()
     ) // This is also how we can reverse a string with interpolation.
-      // SDOHTEM omed ot esu ot gniog era ew taht gnirts EHT SI SIHT
+    // SDOHTEM omed ot esu ot gniog era ew taht gnirts EHT SI SIHT
 
     /**
      * In Kotlin, multiline strings are supported using string concatenation, or using
@@ -62,7 +63,8 @@ fun main() {
     )
 
     // splitting a string with delimiters and a limit
-    val splitStringExample = "Here is the string that we are going to split with delimiters.".split("", ignoreCase = false, limit = 10)
+    val splitStringExample =
+        "Here is the string that we are going to split with delimiters.".split("", ignoreCase = false, limit = 10)
     println(splitStringExample) // [, H, e, r, e,  , i, s,  , the string that we are going to split with delimiters.]
 
     // splitting a string using lines() method

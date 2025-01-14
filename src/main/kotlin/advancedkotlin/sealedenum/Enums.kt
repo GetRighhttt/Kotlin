@@ -106,7 +106,7 @@ fun main() {
      * when() statement with enums...
      */
     val myCreditCard: CreditCardType = CreditCardType.GOLD
-    when(myCreditCard.name) {
+    when (myCreditCard.name) {
         CreditCardType.SILVER.toString() -> {
             println("Silver has been chosen!")
         }

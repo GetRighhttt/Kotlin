@@ -79,10 +79,12 @@ fun String.isNice(): Boolean {
     this.length > 4
     return true
 }
+
 fun String.isNotHealthy(): Boolean {
     this.length < 4 && this.startsWith("s", false)
     return true
 }
+
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList()
 fun Double.convertToInt(): Int = this.toInt()

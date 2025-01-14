@@ -31,7 +31,7 @@ fun main() {
     val anotherMap = mapOf(
         Pair(1, 30),
         Pair(2, 40),
-        Pair(3,50)
+        Pair(3, 50)
     )
     println(anotherMap.values) // [30, 40, 50]
     anotherMap.entries.onEach {

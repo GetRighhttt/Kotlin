@@ -68,9 +68,14 @@ class MyNewPlayer(override val name: String, override var age: Int) : Student(na
 
     /**
     Nested classes are good for having a specific source about a class.
-    */
-    class OldPlayer(val name: String) { fun returnOldName() = name.uppercase() }
-    class ClassicPlayer(val name: String) { fun returnClassicName() = name.repeatName() }
+     */
+    class OldPlayer(val name: String) {
+        fun returnOldName() = name.uppercase()
+    }
+
+    class ClassicPlayer(val name: String) {
+        fun returnClassicName() = name.repeatName()
+    }
 
     var score: Int = 20
         set(value) {
@@ -174,8 +179,8 @@ fun main() {
     println(teacherIDList.toString())
     println(NewTeacher.getTeacherIds())
 
-    println("This is the old player name from the nested class ${ oldPlayer.returnOldName() }.")
-    println("This is the classic player name from the nested class ${ classicPlayer.returnClassicName() }.")
+    println("This is the old player name from the nested class ${oldPlayer.returnOldName()}.")
+    println("This is the classic player name from the nested class ${classicPlayer.returnClassicName()}.")
 }
 
 /**
