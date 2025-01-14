@@ -1,17 +1,17 @@
 package oop
 
-/*
-In Kotlin, we do not use the word "static" like we did in Java. So, in order for us
-to create singletons, and declare static variables, we use the keywords "object" and
-"companion object".
-
-Objects behave just like classes and can have properties, methods, and initializers,
-but they cannot be instantiated.
-
-When creating a singleton or creating our own object class, it is called OBJECT DECLARATION.
-
-Companion objects should also be at the bottom of the class according to Kotlin standard documentation.
-https://kotlinlang.org/docs/coding-conventions.html
+/**
+ * In Kotlin, we do not use the word "static" like we did in Java. So, in order for us
+ * to create singletons, and declare static variables, we use the keywords "object" and
+ * "companion object".
+ *
+ * Objects behave just like classes and can have properties, methods, and initializers,
+ * but they cannot be instantiated.
+ *
+ * When creating a singleton or creating our own object class, it is called OBJECT DECLARATION.
+ *
+ * Companion objects should also be at the bottom of the class according to Kotlin standard documentation.
+ * https://kotlinlang.org/docs/coding-conventions.html
  */
 object Customer {
     private var count: Int = 0 // behaves as static variable
@@ -50,7 +50,7 @@ open class Person {
     fun getName() = newName
     fun returnAge() = age
 
-    /*
+    /**
    Companion objects work just like objects except are held within classes.
 
    Their most common use cases:
@@ -69,10 +69,11 @@ open class Person {
 
 }
 
-/* Will be used for main object declaration with an abstract class.
-    abstract classes are meant for extension but cannot be instantiated. They're like interfaces
-    but with more capabilities.
-*/
+/**
+ * Will be used for main object declaration with an abstract class.
+ * abstract classes are meant for extension but cannot be instantiated. They're like interfaces
+ * but with more capabilities.
+ */
 abstract class NewObjectExample {
     open fun getObject(name: String): String = name
 }
@@ -85,7 +86,7 @@ abstract class OldObjectExample(val newName: String) {
     constructor(newName: String, newAge: Int) : this(newName)
 }
 fun main() {
-    /*
+    /**
     SO in order for us to use these static methods and variables, instead of us instantiating a class,
     we just use dot notation. Kotlin by default creates an instance for us.
      */
@@ -95,7 +96,7 @@ fun main() {
     println(Person().getName())
     println(Person().returnAge())
 
-    /*
+    /**
     Below we show what happens in regular classes when you don't use a companion object or declare an object
     by itself. Must create an instance and then call that instance method using dot notation.
      */
@@ -106,7 +107,7 @@ fun main() {
     val notCompanion by lazy { Person() }
     println(notCompanion.notInTheCompanionObject())
 
-    /*
+    /**
     Below we show how we can declare an object and override instances of that object in main using
     the object keyword.
 
@@ -130,7 +131,7 @@ fun main() {
         }
     }
 
-    /*
+    /**
     We can also use object expression using no classes.
 
     This basically creates an object in main that holds the same characteristics of an

@@ -1,24 +1,23 @@
 package basics
 
-    /*
-   Functions make it easier for us to create logic and code in cleaner ways.
-
-   Functions serve the purpose of acting as a container for logic that we can
-   call in our main function that executes that logic.
-
-   Typically, functions are created to do one thing. Having multiple use cases for
-   one function is not good practice.
-
-   Note* - these are just the basics, and we will discuss more of Kotlin's advanced functional methods in other sections.
+    /**
+     * Functions make it easier for us to create logic and code in cleaner ways.
+     *
+     * Functions serve the purpose of acting as a container for logic that we can
+     * call in our main function that executes that logic.
+     *
+     * Typically, functions are created to do one thing. Having multiple use cases for
+     * one function is not good practice.
+     *
+     * Note* - these are just the basics, and we will discuss more of Kotlin's advanced functional methods in other sections.
     */
 
 fun main() {
 
-    /*
-    In Kotlin, we can use functions without have to explicitly put them in a class like we do in
-    Java.
-
-    So these methods below you will see can be called in the main function.
+    /**
+     * In Kotlin, we can use functions without have to explicitly put them in a class like we do in
+     * Java.
+     * So these methods below you will see can be called in the main function.
     */
 
     // here we create our first function that returns an integer
@@ -40,12 +39,11 @@ fun main() {
     // if a function is short and doesn't have a return type, we can omit the curly brackets
     fun getName(name: String) = "My name is: $name"
 
-    // gets the name
-    println(::getName.invoke("Stefan"))
+    // gets the name and prints as a regular function
+    println(getName("Stefan"))
 
     // println() function and function reference
     println(::printThisLine)
-
 
     // calculations function with function reference
     println(::doSomeCalculations.invoke(10, 20))

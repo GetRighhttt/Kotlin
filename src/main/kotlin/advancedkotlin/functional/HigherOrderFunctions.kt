@@ -1,18 +1,18 @@
 package advancedkotlin.functional
 
-/*
-Higher-Order functions are functions that take in other functions as arguments or parameters, returns a
-function, or does both.
-Lambdas are anonymous functions are function literals used a ton in higher-order functions.
+/**
+ * Higher-Order functions are functions that take in other functions as arguments or parameters, returns a
+ * function, or does both.
+ * Lambdas are anonymous functions are function literals used a ton in higher-order functions.
  */
 
 fun main() {
 
-    /*
-    Ex: Higher-Order function examples below with function types, lambdas, anonymous functions, etc.
-
-    The below example takes in a function type, and two ints, as an argument.
-    It returns the function that combines the other two arguments.
+    /**
+     * Ex: Higher-Order function examples below with function types, lambdas, anonymous functions, etc.
+     *
+     * The below example takes in a function type, and two ints, as an argument.
+     * It returns the function that combines the other two arguments.
      */
     fun higherOrderOperation(
         a: Int, b: Int, c: (Int, Int) -> Int // function type
@@ -91,23 +91,15 @@ fun main() {
     newList = newList.dropLastWhile { it != 2 }
     println("Drop method for elements in list not equal to 2: ")
     println(newList)
-    /*
-    Here is the regular list:
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    Numbers divisible by 2:
-    [2, 4, 6, 8, 10]
-    Drop last method for list not equal to 2:
-    [2]
-     */
 
-    /*
-    Above, most of the functions we used all return a stream of elements, but that isn't the case for
-    all higher order functions that work on collections.
-
-    Terminator functions are functions that return a value, or return something else other than a new collection.
-    You can't chain their results together. They "terminate" the chain.
-
-    forEach is an example, as well as forEachIndexed which returns the index and value.
+    /**
+     * Above, most of the functions we used all return a stream of elements, but that isn't the case for
+     * all higher order functions that work on collections.
+     *
+     * Terminator functions are functions that return a value, or return something else other than a new collection.
+     * You can't chain their results together. They "terminate" the chain.
+     *
+     * forEach is an example, as well as forEachIndexed which returns the index and value.
      */
     val numbers = (1..6)
     numbers.map { it * it }.filter { it < 20 }.forEach { println(it) } // outputs 1 , 4 , 9 , 16 on different lines.
@@ -118,13 +110,6 @@ fun main() {
     val reduced = (1..100).reduce { a, i -> i + a }
     println(reduced) // 5050
 
-    /*
-    Flatmap is used to transform a collection into another collection.
-    "Returns a single sequence of all elements from results of transform function being
-    invoked on each element of original sequence."
-
-    Basically transforms a list of one type to another list of another type.
-     */
     val list by lazy { listOf("Stefan", "Bayne") }
     println(list.flatMap { it.toList() }) // [S, t, e, f, a, n, B, a, y, n, e]
 
@@ -153,11 +138,31 @@ inline fun generateNewName(
     return returnName()
 }
 
-/*
-49
-50
-51
-52
-53
-[53]
+/**
+ * 30
+ * 5
+ * 600
+ * Stefan
+ * Bayne
+ * 200
+ * 25.0
+ * 9000.0
+ * Here is the regular list:
+ * [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ * Numbers divisible by 2:
+ * [2, 4, 6, 8, 10]
+ * Drop method for elements in list not equal to 2:
+ * [2]
+ * 1
+ * 4
+ * 9
+ * 16
+ * 5050
+ * [S, t, e, f, a, n, B, a, y, n, e]
+ * 49
+ * 50
+ * 51
+ * 52
+ * 53
+ * [53]
  */

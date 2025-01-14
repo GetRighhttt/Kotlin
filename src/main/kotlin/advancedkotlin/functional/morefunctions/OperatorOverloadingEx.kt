@@ -1,20 +1,20 @@
  package advancedkotlin.functional.morefunctions
 
 
-/*
-Operator Overloading - capability to add custom functionality to operators in Kotlin.
-Not particularly used a ton in Android development, but it's very useful when just using Kotlin or developing
-libraries.
+/**
+ * Operator Overloading - capability to add custom functionality to operators in Kotlin.
+ * Not particularly used a ton in Android development, but it's very useful when just using Kotlin or developing
+ * libraries.
  */
 data class OperationValues(
     val totalNumberOfOperations: Int
 ) {
-    /*
-    Declaring operator methods -> plus , minus
-
-    We can also omit the data class extension declaration and just declare the operator also.
-
-    Operator overloading is very useful when calling "invoke" operator.
+    /**
+     * Declaring operator methods -> plus , minus
+     *
+     * We can also omit the data class extension declaration and just declare the operator also.
+     *
+     * Operator overloading is very useful when calling "invoke" operator.
      */
     operator fun plus(addOperation: Int): OperationValues {
         return OperationValues(this.totalNumberOfOperations + addOperation)
@@ -43,7 +43,7 @@ fun main() {
 
     val numOfOperations = Oper(10)
 
-    /*
+    /**
     Using infix methods with function types to add numbers to operations (just for practice)
      */
     val additionalOperations = 11
@@ -53,7 +53,7 @@ fun main() {
     val dividedNum = 12 setNewNumber  { 30 }
     println(dividedNum) // 30
 
-    /*
+    /**
     We can now just use the " plus " sign to add together the operations.
      */
     println(numOfOperations + addedNum) // OperationValues(totalNumberOfOperations=51)
@@ -80,7 +80,7 @@ fun main() {
         if(name.isBlank()) "blank name".invoke() else "name is ok".invoke()
     }.invoke()
 
-    /*
+    /**
     Now we are going to print some methods to the console using the invoke operator method
     true
     1
