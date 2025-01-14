@@ -8,6 +8,9 @@ package advancedkotlin.functional.morefunctions
  * the performance takes a hit when using local functions, and it takes more allocation of memory. There's also an increase
  * in dex files when building android releases. Code duplication is also an issue, and it increases tightly coupled
  * architectures.
+ *
+ * Another example of a local function is using runBlocking{} with Coroutines.
+ * ex: fun main() = runBlocking {}
  */
 
 // returns a triple of doubles
