@@ -63,7 +63,7 @@ fun main() {
  * standard library for the "let" scope function.
  */
 @OptIn(ExperimentalContracts::class)
-inline infix fun <T, R> T.allowFor(param: (T) -> R): R {
+inline infix fun <T,R> T.allowFor(param: (T) -> R): R {
     contract {
         callsInPlace(param, InvocationKind.EXACTLY_ONCE)
     }
@@ -71,11 +71,11 @@ inline infix fun <T, R> T.allowFor(param: (T) -> R): R {
 }
 
 @OptIn(ExperimentalContracts::class)
-inline infix fun <T : Comparable<T>, R> T.isComparableTo(other: (T) -> R): R {
+inline infix fun <T: Comparable<T>, R> T.isComparableTo(other: (T) -> R): R {
     contract {
         callsInPlace(other, InvocationKind.EXACTLY_ONCE)
     }
-    return other(this)
+   return other(this)
 }
 
 // displaying that infix functions must either be a member variable or extension method, and have one parameter
@@ -84,7 +84,6 @@ abstract class TextInfix(val text: String) {
     init {
         println("abstract class initialized")
     }
-
     abstract infix fun isRemoving(text: String)
     abstract infix fun isSetting(text: String)
 }
