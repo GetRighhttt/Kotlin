@@ -9,10 +9,11 @@
 that you used in Java.
 
 3. Kotlin has Coroutines, which aren't available for Java.
-    a. Coroutines is an instance of a suspendable computation. It is conceptually similar to a
-    thread, in the sense that it takes a block of code to run that works concurrently with
-    the rest of the code. However, a coroutine is not bound to any particular thread. It may suspend
-    its execution in one thread and resume in another one.
+    a. Coroutines is an instance of a suspendable computation; essentially the codeblock that gets
+    computed when starting a coroutine. It is conceptually similar to a thread, in the sense that
+    it takes a block of code to run that works concurrently with the rest of the code. However, a
+    coroutine is not bound to any particular thread. It may suspend its execution in one thread and
+    resume in another one.
 
 4. Kotlin requires less code than Java.
 
