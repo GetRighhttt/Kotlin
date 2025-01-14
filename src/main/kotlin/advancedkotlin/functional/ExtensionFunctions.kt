@@ -2,9 +2,9 @@ package advancedkotlin.functional
 
 import java.lang.NumberFormatException
 
-/*
-Extension function to swap numbers in a mutable list. This is what we are going to use to decipher what letters we are
-going to use.
+/**
+ * Extension function to swap numbers in a mutable list. This is what we are going to use to decipher what letters we are
+ * going to use.
  */
 fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
     val temp = this[index1]
@@ -13,12 +13,12 @@ fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
 }
 
 fun main() {
-    /*
-    In Kotlin, we have the capability to extend functions when we want to apply
-    a built-in function to a variable, or if we want to extend the functionality of a
-    class that is defined as Final.
-
-    This is a unique feature that Kotlin has allowed us to use.
+    /**
+     * In Kotlin, we have the capability to extend functions when we want to apply
+     * a built-in function to a variable, or if we want to extend the functionality of a
+     * class that is defined as Final.
+     *
+     * This is a unique feature that Kotlin has allowed us to use.
      */
 
     println("Please enter a number:")
@@ -59,10 +59,10 @@ fun main() {
     println(doubleToInt.convertToInt())
 }
 
-/*
-This is how we can use an extension function to check and see if a number is Prime.
-
-We do this by prefixing the function with the name of the class that we would like to extend.
+/**
+ * This is how we can use an extension function to check and see if a number is Prime.
+ *
+ * We do this by prefixing the function with the name of the class that we would like to extend.
  */
 fun Int.isPrime(): Boolean {
     for (i in 2 until this - 1) {
@@ -86,31 +86,31 @@ fun String.isNotHealthy(): Boolean {
 fun String.hideName() = "*".repeat(this.length)
 fun String.repeatName() = this.repeat(3).toList()
 fun Double.convertToInt(): Int = this.toInt()
-/*
-Please enter a number:
-40
-is a prime number
-Please enter a name:
-Stefan
-true
-******
-S
-t
-e
-f
-a
-n
-S
-t
-e
-f
-a
-n
-S
-t
-e
-f
-a
-n
-[6, 9, 12, 3]
+/**
+ * Please enter a number:
+ * 40
+ * is a prime number
+ * Please enter a name:
+ * Stefan
+ * true
+ * ******
+ * S
+ * t
+ * e
+ * f
+ * a
+ * n
+ * S
+ * t
+ * e
+ * f
+ * a
+ * n
+ * S
+ * t
+ * e
+ * f
+ * a
+ * n
+ * [6, 9, 12, 3]
  */

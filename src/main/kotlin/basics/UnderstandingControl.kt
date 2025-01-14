@@ -1,5 +1,7 @@
 package basics
 
+import advancedkotlin.functional.morefunctions.invoke
+
 fun main() {
 
     /**
@@ -20,14 +22,11 @@ fun main() {
         println("This is not true.")
     }
 
-    /*
-    We can also assign values to if statements as well
+    /**
+     * We can also assign values to if statements as well
      */
     val z = if (x <= y) 3 else 4
-
-    val newAnswer = if (y == 10) println(y) else println(y + 1) // short notation
-
-    println(newAnswer)
+    if (y == 10) println(y) else println(y + 1) // short notation
     println(z)
 
     // for loop - usually used with the range operator in Kotlin.
@@ -52,9 +51,9 @@ fun main() {
         println("This is a do while loop.")
     } while (y > x)
 
-    /*
-    When statements are like switch statements except they
-    come with more functionality than switch statements.
+    /**
+     * When statements are like switch statements except they
+     * come with more functionality than switch statements.
      */
     when (x) {
         in 1..10 -> println("In between 1 and 10")
@@ -62,12 +61,11 @@ fun main() {
         else -> println("Above 20.")
     }
 
-    /*
-    When statements are also very powerful and can be used with enums, functions, etc. to
-    return some values.
-
-    When trying to choose between if and when, you generally want to use when statements when you
-    are working with more than two values.
+    /**
+     * When statements are also very powerful and can be used with enums, functions, etc. to
+     * return some values.
+     * When trying to choose between if and when, you generally want to use when statements when you
+     * are working with more than two values.
      */
     fun getNewNumber(x: Int) = when (x) {
         2 -> println("Dos")
@@ -75,19 +73,53 @@ fun main() {
         4 -> println("Quarto")
         else -> println("Not in the range of 2-4...")
     }
-    println(getNewNumber(5)) // prints Not in the range of 2-4...
+    getNewNumber(5) // prints Not in the range of 2-4...
 
-    /*
-    In Kotlin, "if" is an expression, meaning it returns a value.
-    So in more complex cases and when working with more professional code bases, often
-    if we be used with short syntax.
-
-    We don't need to declare a specific variable or use much syntax to provide a value here.
-
-    Single-line functions and statements in Kotlin are cool, but we should use them with caution, as
-    it can become very confusing.
+    /**
+     * In Kotlin, "if" is an expression, meaning it returns a value.
+     * So in more complex cases and when working with more professional code bases, often
+     * if we be used with short syntax.
+     *
+     * We don't need to declare a specific variable or use much syntax to provide a value here.
+     *
+     * Single-line functions and statements in Kotlin are cool, but we should use them with caution, as
+     * it can become very confusing.
      */
 
     fun getName(a: Boolean): String = if (a) "Stefan" else "Bob"
     println(getName(true)) // prints Stefan
+
+    /**
+     * This is not true.
+     * 10
+     * 4
+     * 0
+     * 1
+     * 2
+     * 3
+     * 0
+     * 1
+     * 2
+     * 3
+     * 4
+     * S
+     * T
+     * E
+     * F
+     * A
+     * N
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a while loop.
+     * This is a do while loop.
+     * In between 10 and 20
+     * Not in the range of 2-4...
+     * Stefan
+     */
 }

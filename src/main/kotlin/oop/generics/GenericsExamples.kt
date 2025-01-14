@@ -1,7 +1,7 @@
 package oop.generics
 
-/*
-Let's go over a few Generic examples
+/**
+ * Let's go over a few Generic examples
  */
 
 // Invariant type which is just a basic generic

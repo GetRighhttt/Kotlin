@@ -1,17 +1,17 @@
 package advancedkotlin.valuecl
 
-/*
-In programming and development, we want to allocate memory as efficiently as possible.
-When working with classes, data classes, etc., often we are creating new objects when sometimes we don't need
-to, and in return we are taking up more space in memory than necessary.
-
-When we are working with single values, Kotlin has introduced a new concept called value classes,
-which allows us to create values as a class without having to create a new memory instance or object in the
-heap. This allows us to allocate resources more efficiently.
-
-Value classes essentially work the same as regular classes, except they do not create objects in memory.
-They also can only have one parameter in their constructor because they are literally only for
-one value.
+/**
+ * In programming and development, we want to allocate memory as efficiently as possible.
+ * When working with classes, data classes, etc., often we are creating new objects when sometimes we don't need
+ * to, and in return we are taking up more space in memory than necessary.
+ *
+ * When we are working with single values, Kotlin has introduced a new concept called value classes,
+ * which allows us to create values as a class without having to create a new memory instance or object in the
+ * heap. This allows us to allocate resources more efficiently.
+ *
+ * Value classes essentially work the same as regular classes, except they do not create objects in memory.
+ * They also can only have one parameter in their constructor because they are literally only for
+ * one value.
  */
 
 // annotation necessary for value classes
@@ -61,7 +61,7 @@ fun main() {
     println(Name().name.hashCode())
     println(Name().name.hashCode())
 
-    /*\
+    /*
     We can see in the output that all hashcodes align for the companion object meaning that
     we did not create a new object each time we called the companion object.
 

@@ -46,16 +46,10 @@ typealias bball = Basketball
 fun main() {
     println(getStefanName()) // Stefan
     println(getStefanCredentials())
-    /*
-    Stefan is 27 years old.
-    He weighs 169.3 lbs,
-    and is 5'10 tall!
-    Stefan works as a Software Engineer!
-     */
 
-    /*
-    Destructuring example of a data class in Kotlin. Destructuring allows us to remove the dot notation
-     and just return a value. Reduces the line of code via a component.
+    /**
+     * Destructuring example of a data class in Kotlin. Destructuring allows us to remove the dot notation
+     * and just return a value. Reduces the line of code via a component.
      */
     val person by lazy { Human("Sir", 22, "Stefan", "Engineer") }
     val (title, age, userName, career) = person
@@ -65,13 +59,6 @@ fun main() {
     println(userName) // instead of: person.userName
     println(career) // instead of: person.career
 
-    /*
-    Sir
-    22
-    Stefan
-    Engineer
-     */
-
     // creating a basketball object and destructing it using the username we created from our person object
     val myBasketball by lazy { bball(100.0, 30.0, 20.0) }
     val (circumference, radius, weight) = myBasketball // destruction example again
@@ -80,13 +67,6 @@ fun main() {
     """.trimMargin()
     )
 
-    /*
-    We can also copy a data class using the copy() method, and if we want, we can use named parameters
-    to change the values.
-
-    This is also an example of the Prototype design pattern: making copies of an object and adjusting the functionality
-    of that object.
-     */
     val personCopy by lazy { person.copy(title = "Ma'am", age = 30, userName = "Woman", career = "Nurse") }
     val (titleCopy, ageCopy, userNameCopy, careerCopy) = personCopy
     println("Printing the copy of the data class below...")

@@ -45,12 +45,12 @@ fun checkMathematics(mathematics: Mathematics) = when (mathematics) {
     is Mathematics.NotMathematics -> println("Not a mathematical operation...")
 }
 
-/*
-Below we will show typically how sealed classes are used for state changes.
-
-The class below could be used as a basic state representation for an API call.
-
-We also give default values parameters for the sake of the example.
+/**
+ * Below we will show typically how sealed classes are used for state changes.
+ *
+ * The class below could be used as a basic state representation for an API call.
+ *
+ * We also give default values parameters for the sake of the example.
  */
 sealed class Result {
     data class Success(val successMsg: String = "Success") : Result()
@@ -66,19 +66,19 @@ fun checkResult(result: Result) = when (result) {
     Result.Loading -> Unit
 }
 
-/*
-we can also use sealed interfaces when we need a simpler restricted set of objects, methods, etc.
-
-In this example, we are declaring a method in the interface, so we would have to override any object in the
-interface with this method.
+/**
+ * we can also use sealed interfaces when we need a simpler restricted set of objects, methods, etc.
+ *
+ * In this example, we are declaring a method in the interface, so we would have to override any object in the
+ * interface with this method.
  */
 sealed interface Error {
     fun returnErrorMsg(): String
 }
 
-/*
-Below is an example without a method and just shows a group of singleton objects that extend the
-sealed interface.
+/**
+ * Below is an example without a method and just shows a group of singleton objects that extend the
+ * sealed interface.
  */
 sealed interface HttpError {
     object Authorized : HttpError
@@ -118,12 +118,12 @@ fun showException(e: Error) = when (e) {
     is Exceptions.UnknownError -> println(e.returnErrorMsg())
 }
 
-/*
-We can also use extension functions with interfaces, classes, or objects that we create. This is one
-of the best language features that Kotlin has to offer. They extend the functionality of an object.
-
-Because we created an extension method below with type "Any", any object has the ability to use
-this method.
+/**
+ * We can also use extension functions with interfaces, classes, or objects that we create. This is one
+ * of the best language features that Kotlin has to offer. They extend the functionality of an object.
+ *
+ * Because we created an extension method below with type "Any", any object has the ability to use
+ * this method.
  */
 fun Any.reverseAMessage(message: String): String = message.reversed()
 fun HttpError.printErrorMessage(e: HttpError): String = "An HttpError: $e has occurred...."

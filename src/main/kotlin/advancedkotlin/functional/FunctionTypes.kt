@@ -1,9 +1,9 @@
 package advancedkotlin.functional
 
-/*
-Function type examples with lambdas.
-
-Closure -> scope of variables accessible in the body of a function.
+/**
+ * Function type examples with lambdas.
+ *
+ * Closure -> scope of variables accessible in the body of a function.
  */
 
 val integerMultiplyFunction: (Int, Int) -> Int =
@@ -51,13 +51,13 @@ fun main() {
 
     // with reading in values and extension function
     val multiplication by lazy { readlnOrNull()?.toDouble() }
-    println(multiplication?.let { multiplyNum.invoke(it) }) // takes in a number and multiplies it by 10
+    multiplication?.let { multiplyNum.invoke(it) } // takes in a number and multiplies it by 10
 }
 
-/*
-120
-411
-31
-kotlin.Unit
-10
+/**
+ * 120
+ * 411
+ * 31
+ * kotlin.Unit
+ * 10
  */

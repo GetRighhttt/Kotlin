@@ -9,7 +9,7 @@ class PersonExample(
 
     private val nickName: String
 
-    /*
+    /**
     Runs code when instances of the class are created.
 
     Used extensively in the real world.

@@ -18,7 +18,7 @@ fun main() {
     val thisExample = newExample("this is an example of another typealias").also(::println)
     println(thisExample.toString().uppercase())
 
-    /*
+    /**
     SuperLargeNameThatIWontWriteAgain(disaster=terrible disaster)
     ExampleTypeAlias(example=this is an example of another typealias)
     EXAMPLETYPEALIAS(EXAMPLE=THIS IS AN EXAMPLE OF ANOTHER TYPEALIAS)
