@@ -1,12 +1,12 @@
 package advancedkotlin.functional
 
-/*
-A tuple is a piece of data that cannot be changed after it is created.
-
-In kotlin, we call tuples "pairs", and this I have seen is used often in real world code.
-Pair contains two properties called first and second.
-Pairs are immutable, which is a core concept of functional programming.
-
+/**
+ * A tuple is a piece of data that cannot be changed after it is created.
+ *
+ * In kotlin, we call tuples "pairs", and this I have seen is used often in real world code.
+ * Pair contains two properties called first and second.
+ * Pairs are immutable, which is a core concept of functional programming.
+ *
  */
 fun main() {
 

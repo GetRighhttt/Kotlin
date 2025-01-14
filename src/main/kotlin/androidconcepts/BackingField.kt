@@ -1,12 +1,8 @@
 package androidconcepts
 
-/*
-A Backing Field is essentially just the "field" keyword we use when we want to customize
-our getters and setters for variables.
-
-field holds the value of the variable that we declare
-
-The backing field is not generated unless required.
+/**
+ * A Backing Field is essentially just the "field" keyword we use when we want to customize
+ * our getters and setters for variables.
  */
 class Human {
 
