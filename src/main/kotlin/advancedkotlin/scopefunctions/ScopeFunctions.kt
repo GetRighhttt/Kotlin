@@ -8,7 +8,8 @@ class Being {
 }
 
 // another example of the "also" scope function that adds functionality to methods and objects
-inline infix fun Int.addCounterTogether(counter: () -> Int): Int = (counter.invoke() + counter.invoke()).also { println(it) }
+inline infix fun Int.addCounterTogether(counter: () -> Int): Int =
+    (counter.invoke() + counter.invoke()).also { println(it) }
 
 
 fun main() {
@@ -83,7 +84,7 @@ fun main() {
 
     val newOriginalNumber = 3
     // using the method we created above main()
-    newOriginalNumber addCounterTogether{
+    newOriginalNumber addCounterTogether {
         3 + 3
     }
 

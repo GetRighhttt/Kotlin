@@ -1,4 +1,5 @@
 package advancedkotlin.functional.morefunctions
+
 /**
  * Local functions - a function defined within the body of another function.
  *

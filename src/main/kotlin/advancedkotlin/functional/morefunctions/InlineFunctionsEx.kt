@@ -23,10 +23,11 @@ import advancedkotlin.sealedenum.reverseAMessage
  */
 
 class Example {
-    inline fun getExample( message: () -> Unit ) {
+    inline fun getExample(message: () -> Unit) {
         message()
     }
 }
+
 inline fun runTime(
     message: () -> Unit,
     time: () -> Long
