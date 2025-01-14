@@ -8,7 +8,7 @@ class Being {
 }
 
 // another example of the "also" scope function that adds functionality to methods and objects
-fun addCounterTogether(counter: Int): Int = (counter + counter).also { println(it) }
+inline infix fun Int.addCounterTogether(counter: () -> Int): Int = (counter.invoke() + counter.invoke()).also { println(it) }
 
 
 fun main() {
@@ -81,8 +81,11 @@ fun main() {
         println(it.name)
     }
 
+    val newOriginalNumber = 3
     // using the method we created above main()
-    addCounterTogether(3)
+    newOriginalNumber addCounterTogether{
+        3 + 3
+    }
 
     /**
      * The let function has a lot of use cases, but we usually use it to avoid null pointers.
