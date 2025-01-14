@@ -2,10 +2,10 @@ package advancedkotlin.functional.morefunctions
 
 import kotlin.contracts.*
 
-/*
-Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
-of use.
-Infix functions must be defined inside a class or be an extension function to an existing class.
+/**
+ * Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
+ * of use.
+ * Infix functions must be defined inside a class or be an extension function to an existing class.
  */
 
 // declaring infix extension functions
@@ -58,9 +58,9 @@ fun main() {
     }
 }
 
-/*
-We can also have inline infix functions like the one below which is actually the same type of function in the
-standard library for the "let" scope function.
+/**
+ * We can also have inline infix functions like the one below which is actually the same type of function in the
+ * standard library for the "let" scope function.
  */
 @OptIn(ExperimentalContracts::class)
 inline infix fun <T,R> T.allowFor(param: (T) -> R): R {
@@ -109,9 +109,9 @@ class SampleText<T>() : tInfix(text = "Sample") {
     }
 }
 
-/*
-Stefan is my name and my age times three is 36.
-My middle name is John.
-If I multiply my age again by 3, it is 108.
-I have 3 kids.
+/**
+ * Stefan is my name and my age times three is 36.
+ * My middle name is John.
+ * If I multiply my age again by 3, it is 108.
+ * I have 3 kids.
  */

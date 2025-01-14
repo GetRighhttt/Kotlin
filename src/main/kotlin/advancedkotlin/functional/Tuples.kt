@@ -24,7 +24,7 @@ fun main() {
     println("The keys are: ${one.first} and ${two.first} ") // "one and two" - keys
     println("The values are: ${one.second} and ${two.second} ") // "1 and 2" - values
 
-    /*
+    /**
     There is also a triple tuple that we can work with in Kotlin and other languages that
     encompasses the concept of immutability.
      */
@@ -33,7 +33,7 @@ fun main() {
     println("The key-value pairs are: (${a.first}, ${a.second}) | (${b.first}, ${b.second}) | (${c.first}, ${c.second})")
 
 
-    /*
+    /**
     Another destructuring example with data classes which act as tuples as well if using values.
     Below we create a data class acting as a Triple.
      */
