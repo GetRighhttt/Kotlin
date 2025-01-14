@@ -3,9 +3,10 @@ package advancedkotlin.functional.morefunctions
 import kotlin.contracts.*
 
 /**
- * Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
+ * Inline - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
  * of use.
- * Infix functions must be defined inside a class or be an extension function to an existing class.
+ *
+ * Infix - functions must be defined inside a class or be an extension function to an existing class.
  */
 
 // declaring infix extension functions

@@ -41,7 +41,7 @@ data class Basketball(
     val radius: Double,
     val weight: Double
 )
-typealias bball = Basketball
+typealias BBall = Basketball
 
 fun main() {
     println(getStefanName()) // Stefan
@@ -60,7 +60,7 @@ fun main() {
     println(career) // instead of: person.career
 
     // creating a basketball object and destructing it using the username we created from our person object
-    val myBasketball by lazy { bball(100.0, 30.0, 20.0) }
+    val myBasketball by lazy { BBall(100.0, 30.0, 20.0) }
     val (circumference, radius, weight) = myBasketball // destruction example again
     println(
         """$userName has a basketball with a circumference of $circumference, with a radius of $radius, and a weight of $weight.
