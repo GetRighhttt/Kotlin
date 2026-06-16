@@ -3,9 +3,40 @@ package advancedkotlin.functional
 import java.lang.NumberFormatException
 
 /**
- * Extension function to swap numbers in a mutable list. This is what we are going to use to decipher what letters we are
- * going to use.
+ * In Kotlin, we have the capability to extend functions when we want to apply
+ * a built-in function to a variable, or if we want to extend the functionality of a
+ * class that is defined as Final.
+ *
+ * This is a unique feature that Kotlin has allowed us to use.
+ *
+ * With functions, we can call a function on an object -> string.uppercase().
+ * That object is called the receiver.
+ *
+ * Extension functions are just Calling the receiver, then naming the function:
+ * fun String.uppercase() = this.toUppercase()
  */
+fun Int.isPrime(): Boolean {
+    for (i in 2 until this - 1) {
+        if (this % i == 0)
+            return false
+    }
+    return true
+}
+
+fun String.isNice(): Boolean {
+    this.length > 4
+    return true
+}
+
+fun String.isNotHealthy(): Boolean {
+    this.length < 4 && this.startsWith("s", false)
+    return true
+}
+
+fun String.hideName() = "*".repeat(this.length)
+fun String.repeatName() = this.repeat(3).toList()
+fun Double.convertToInt(): Int = this.toInt()
+
 fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
     val temp = this[index1]
     this[index1] = this[index2]
@@ -13,13 +44,6 @@ fun MutableList<Int>.switchNumbers(index1: Int, index2: Int) {
 }
 
 fun main() {
-    /**
-     * In Kotlin, we have the capability to extend functions when we want to apply
-     * a built-in function to a variable, or if we want to extend the functionality of a
-     * class that is defined as Final.
-     *
-     * This is a unique feature that Kotlin has allowed us to use.
-     */
 
     println("Please enter a number:")
     // Exception handling
@@ -59,33 +83,6 @@ fun main() {
     println(doubleToInt.convertToInt())
 }
 
-/**
- * This is how we can use an extension function to check and see if a number is Prime.
- *
- * We do this by prefixing the function with the name of the class that we would like to extend.
- */
-fun Int.isPrime(): Boolean {
-    for (i in 2 until this - 1) {
-        if (this % i == 0)
-            return false
-    }
-    return true
-}
-
-/*
-Another example of an extension function that extends the String class.
- */
-fun String.isNice(): Boolean {
-    this.length > 4
-    return true
-}
-fun String.isNotHealthy(): Boolean {
-    this.length < 4 && this.startsWith("s", false)
-    return true
-}
-fun String.hideName() = "*".repeat(this.length)
-fun String.repeatName() = this.repeat(3).toList()
-fun Double.convertToInt(): Int = this.toInt()
 /**
  * Please enter a number:
  * 40
