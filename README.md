@@ -30,8 +30,8 @@ for a quick lookup by syntax.
 
 The written explanations and reference images are collected in [docs/](docs/README.md).
 The [learning history](docs/learning-history.md) points to earlier versions and
-explains how the repository grew. The basics and [collections](docs/data-structures.md) have been reviewed;
-the remaining topics and historical notes still need a review.
+explains how the repository grew. All examples and notes have been reviewed. Earlier experiments remain in Git history;
+the current examples are intended to compile and run as a reference.
 
 ## Run an example
 
@@ -54,9 +54,22 @@ kotlin -classpath build/examples.jar basics.HelloWorldKt
 
 Compile the full source directory: some examples reference declarations from other
 files. Change the final class name to run another example (for example,
-`datastructures.ArraysKt`). Input-reading examples need an interactive terminal.
-Some examples contain deliberate placeholders or experiments, so inspect the file
-before running it.
+`datastructures.ArraysKt`). Input-reading examples accept terminal input and exit when input ends.
 
 This project currently uses IntelliJ module configuration rather than a Gradle or
 Maven build. Generated output belongs in `out/` or `build/` and is ignored by Git.
+
+## Check the repository
+
+Run the examples and boundary checks with Python 3 and Kotlin tools on your PATH:
+
+```sh
+python3 scripts/check-examples.py
+```
+
+If your Kotlin tools are elsewhere, set `KOTLINC` and `KOTLIN` to their executable
+paths. The check compiles with warnings treated as errors, runs every example, and
+checks missing and invalid input. It writes generated files to `build/`.
+
+The source is checked with Kotlin 1.7.22 and 2.3.20 on the JVM. The shared IntelliJ
+configuration still uses language/API level 1.7 and JVM target 1.8.

@@ -1,33 +1,35 @@
-# Learning notes
+# Reference notes
 
-These explanations were written while learning Kotlin over several years. They are collected here, alongside the runnable examples in
-[`src/main/kotlin/`](../src/main/kotlin/). The basics and collections have been reviewed. Other notes still reflect what I
-understood at the time and may need corrections.
+These notes grew alongside the examples while I learned Kotlin over several years.
+They have now been reviewed for this cleanup. Earlier explanations and experiments
+remain in [Git history](learning-history.md).
 
-- [Basics reference](basics.md)
-- [Learning history](learning-history.md)
+## Start here
+
+- [Basics](basics.md)
+- [Arrays and collections](data-structures.md)
+- [Classes and objects](oop/classes.md)
+- [Generics](oop/generics.md)
+- [Function types](functional/function-types.md)
+- [Functional programming](functional/functional-programming.md)
+- [Scope functions](scope-functions.md)
 
 ## Language and tooling
 
-- [Why Kotlin](why-kotlin.md)
-- [Gradle and build systems](gradle-and-build-systems.md)
-- [Java and Kotlin interoperability](java-and-kotlin-interoperability.md)
+- [Why I chose Kotlin](why-kotlin.md)
 - [Coding conventions](coding-conventions.md)
 - [Idiomatic Kotlin](idiomatic-kotlin.md)
-- [Kotlin 2.0 reference](kotlin-2.0.md)
+- [Java interoperability](java-and-kotlin-interoperability.md)
+- [Gradle and build systems](gradle-and-build-systems.md)
 - [Design patterns](design-patterns.md)
+- [Kotlin 2.0 reference](kotlin-2.0.md)
 
-## Topics
+## Property accessors
 
-- [Data structures](data-structures.md)
-- [Classes](oop/classes.md)
-- [Generics](oop/generics.md)
-- [Functional programming](functional/functional-programming.md)
-- [Function types](functional/function-types.md)
-- [Scope functions](scope-functions.md)
+The [backing field example](../src/main/kotlin/androidconcepts/BackingField.kt)
+shows field inside a validating setter. The
+[backing property example](../src/main/kotlin/androidconcepts/BackingProperty.kt)
+shows private storage and a live read-only view. Both are plain Kotlin examples,
+although these patterns are also useful in Android.
 
-## Scope function reference images
-
-![Scope function reference 1](images/scope-functions-1.png)
-
-![Scope function reference 2](images/scope-functions-2.png)
+The earlier scope function screenshots remain linked from the scope function notes.

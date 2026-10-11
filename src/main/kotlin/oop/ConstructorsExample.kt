@@ -1,40 +1,24 @@
 package oop
 
 class PersonExample(
-    // private variables is a good practice and an OOP conceptual best practice
     private val name: String,
     private var age: Int,
-    private val isHappy: Boolean
+    isHappy: Boolean // Constructor parameter, not a stored property.
 ) {
-
     private val nickName: String
-
-    /**
-    Runs code when instances of the class are created.
-
-    Used extensively in the real world.
-     */
+    // init runs during construction, after these primary constructor values are available.
     init {
+        require(age >= 0) { "Age must not be negative." }
         val smiley = if (isHappy) ":)" else ":("
         nickName = "$name $smiley"
     }
-
-    fun description(): String {
-        return "Name: $nickName age: $age"
-    }
-
-    fun hadBirthday() {
-        age += 1
-    }
+    fun description(): String = "Name: $nickName age: $age"
+    fun hadBirthday() { age += 1 }
 }
 
 fun main() {
-    // using namedArgument for isHappy boolean to be specific and for readability
-    val brandon = PersonExample("Bob", 41, isHappy = true)
-
-    // get description and birthday
-    println(brandon.description())
-
-    brandon.hadBirthday()
-    println(brandon.description())
+    val bob = PersonExample("Bob", 41, isHappy = true)
+    println(bob.description()) // Name: Bob :) age: 41
+    bob.hadBirthday()
+    println(bob.description()) // Name: Bob :) age: 42
 }

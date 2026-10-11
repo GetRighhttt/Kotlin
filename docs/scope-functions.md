@@ -1,23 +1,26 @@
-A "scope" is the area of code where we can declare more code in.
-For example, when we open a blank file, the scope if the entire file.
-Then, say we declare a class. There is now two scopes - the file, and the class body.
-Now, say we add a function to that body? Now there's 3 places we can declare code in,
-thus making it 3 scopes.
-Add a constructor, more functions, and so on and so forth.
+# Scope functions
 
-Scope functions are all about how we work with the context object as a receiver.
-Scope functions main purpose are to make your code clear, concise, and more readable.
+I distinguish scope functions by how the block refers to its object and what
+comes back from the call.
 
-There are 5 types of scope functions:
-with, let, run, apply, and also.
+| Function | Access inside the block | Result |
+| --- | --- | --- |
+| let | it | Last expression |
+| run (extension) | this | Last expression |
+| with | this; object passed as an argument | Last expression |
+| apply | this | Original object |
+| also | it | Original object |
 
-There are only two ways to distinguish between the two:
-1. The way to refer to the context object - either "this" or "it".
-2. The return value is either - the context object, or the lambda result.
+Use apply to configure an object and also for an extra action such as logging.
+let and run are useful when producing a result from an object. with groups work
+on an object passed as an argument. The non-extension run form groups expressions
+without supplying a receiver.
 
-'with': this, lambda result
-'let': it - implicit receiver, returns lambda result
-'run': this - on context object, returns lambda result
-'apply': this - on context object, returns context object
-'also': it - implicit receiver, returns context object
+`value?.let { ... }` skips the block when value is null. let itself does not add a
+null check. Avoid nesting several scope functions when naming a variable would
+make the code easier to follow.
 
+- [Runnable examples](../src/main/kotlin/advancedkotlin/scopefunctions/ScopeFunctions.kt)
+- [Kotlin scope function documentation](https://kotlinlang.org/docs/scope-functions.html)
+- [Earlier reference image 1](images/scope-functions-1.png)
+- [Earlier reference image 2](images/scope-functions-2.png)

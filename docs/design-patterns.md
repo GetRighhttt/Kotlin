@@ -1,30 +1,20 @@
-Why Do we need Design Patterns and what are they?
+# Design patterns
 
-- Design Patterns, first made notable by the "Gang of Four", came about when some brilliant
-software developers recognized common problems when developing code. The idea is this: all software engineers at
-some point in their careers are going to face extremely similar, if not identical problems that all have similar,
-or identical solutions. The solutions are design patterns. Well, what are design patterns? Design patterns are
-proven solutions to reoccurring problems that developers face when designing software. These problems have been
-observed and noticed over time, and these solutions have been tested over and over again, which proves their validity
-in solving these reoccurring problems.
+A design pattern describes a reusable approach to a recurring software design
+problem. It gives us a vocabulary for discussing a design, together with tradeoffs.
 
-When you think of Design patterns, think of a proven solution to a common problem. This also doesn't just apply to
-tech. Think of a sport... let's say basketball. Men and women play. However, there's typically a discrepancy in hand
-sizes due to their genetic makeup. The normal basketball is sometimes too big for females players.
-What is the solution? Design a smaller ball. Have two separate sizes.  In fact, even create kid basketballs so that
-kids at younger ages can play comfortably as well. Walla. You just completed a design pattern.
-In this case, however, it was a creational design pattern. There's a lot more where that came from though!
+- Creational patterns concern constructing objects.
+- Structural patterns concern how objects and classes fit together.
+- Behavioral patterns concern responsibilities and interactions.
 
-Design Patterns have three main categories(in this context):
+My earlier basketball-size analogy was an attempt to remember the idea of a
+reusable solution. Changing the size of a ball is product design; by itself it
+is not an example of a software creational pattern.
 
-Creational - how and when you create objects;
-Structural - how to structure your objects to make them loosely coupled/easy to work with; and
-Behavioral - how to handle the behavior between objects, and how they interact with one another.
+This repo contains a [singleton](../src/main/kotlin/oop/ObjectExample.kt) and
+[interface delegation](../src/main/kotlin/oop/Delegation.kt). Use a pattern when
+it solves the problem at hand; extra abstraction can also make a small example
+harder to read.
 
-Each of these categories have numerous patterns that all solve varying problems.
-There are hundreds of Design Patterns by the way, and if you've been coding for awhile, I'm sure you've already used
-quite a few of them, and didn't even realize it!
-
-Visit this repo for examples on how to implement these patterns in Kotlin:
-https://github.com/dbacinski/Design-Patterns-In-Kotlin
-
+[Design patterns in Kotlin](https://github.com/dbacinski/Design-Patterns-In-Kotlin)
+contains examples to explore beyond this repository.

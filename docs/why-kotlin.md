@@ -1,36 +1,22 @@
-1. Kotlin has complete null safety:
-    a. Kotlin code won't compile if you want to access a method on a null object.
-    b. Java usually has a ton of null pointer exception errors;
-    c. Kotlin fixes this issue by allowing the ability for object to be declared
-    as nullable;
-    d. You prevent a ton of crashes by switching over to Kotlin.
+# Why I chose Kotlin
 
-2. Kotlin has the safe libraries as Java, so you can use the same methods in Kotlin
-that you used in Java.
+I made this repository to teach myself Kotlin and remember its syntax. I like how
+it lets me express common Android tasks with less boilerplate.
 
-3. Kotlin has Coroutines, which aren't available for Java.
-    a. Coroutines is an instance of a suspendable computation. It is conceptually similar to a
-    thread, in the sense that it takes a block of code to run that works concurrently with
-    the rest of the code. However, a coroutine is not bound to any particular thread. It may suspend
-    its execution in one thread and resume in another one.
+Features I wanted to practice include nullable types, top-level functions, type
+inference, data classes, sealed hierarchies, extensions, and function values.
+The examples show the syntax rather than trying to prove one language is better
+at every task.
 
-4. Kotlin requires less code than Java.
+Null safety helps catch unsafe access, but !! and Java interop can still cause
+null pointer exceptions. Coroutines can suspend without blocking a thread at a
+suspension point; they are not threads and do not make blocking code non-blocking.
+The coroutine examples now live separately from this repo.
 
-5. Kotlin has data and sealed classes whereas Java does not, which makes it easier for
-us to handle data.
+Some original notes compared Kotlin with Java features available at the time.
+The current notes focus on Kotlin itself; the older comparisons remain in Git.
 
-6. In Kotlin, usually when working with the start of a program, we put our "main ()", method
-in a class, similar to how we have to do with Java. Kotlin however, has the concept of package-level functions:
-If your function doesn't need to access properties of a class, it doesn't need to be wrapped in a class.
-
-7. In Java, we have to pass in String []args in our parameter for our main method in order to configure
-command line tools, however in Kotlin, those are optional.
-
-8. Kotlin doesn't have a need for static modifiers and methods in order to indicate that that property can
-be accessed outside of the class.
-
-9. Kotlin has type inference and is type safe, meaning that the compiler will decide which type of value you
-are working with and it doesn't always have to be explicitly stated.
-
-10. Lastly, Kotlin doesn't have a need for semicolon in order to finish code. It is a pragmatic language,
-which emphasizes making things easy to achieve. The compiler decides where semicolons are needed.
+- [Basics](basics.md)
+- [Language history](learning-history.md)
+- [Kotlin null safety](https://kotlinlang.org/docs/null-safety.html)
+- [Coroutine basics](https://kotlinlang.org/docs/coroutines-basics.html)

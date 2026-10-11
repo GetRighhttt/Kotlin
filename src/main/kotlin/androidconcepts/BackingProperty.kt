@@ -1,99 +1,56 @@
 package androidconcepts
 
-/**
- * The Backing Property in Android allows us to encapsulate variables that we do not want
- * to expose to the outside world, or other classes.
- * We typically see this used with LiveData in Android and Flows.
- */
-
+/** A private backing property stores data exposed through another property. */
 class Animal {
+    private var _animalName = "Lion" // A property with its own backing field.
+    var animalName: String
+        get() = _animalName
+        set(value) { _animalName = value }
 
-    /**
-     * Mutable(var) - setter required
-     */
-    private var _animalName: String = "Lion" // backing FIELD - holds the actual data
-    var animalName: String // backing property used in main or other classes
-        get() { // custom getter
-            return _animalName
-        }
-        set(value) { // custom setter
-            _animalName = value
-        }
+    private val _animalList = mutableListOf<String>()
+    val animalList: List<String>
+        get() = _animalList // A live read-only view, not an immutable snapshot.
 
-    fun printAnimalName() = println(_animalName) // prints animal name in class
-
-    /**
-     * Immutable(val) - no setter required here.
-     */
-    private val _animalList = mutableListOf<String>() // backing field
-    val animalList: List<String> // backing property
-        get() = _animalList // getter
-
-    fun addAnimal(animalName: String) = _animalList.add(animalName)
-
-    fun sortAnimalList(animalList: List<String>) = animalList.sorted()
-
+    fun printAnimalName() { println(_animalName) }
+    fun addAnimal(animalName: String): Boolean = _animalList.add(animalName)
+    fun sortAnimalList(animals: List<String>): List<String> = animals.sorted()
 }
 
 fun readInAnimals(list: MutableList<String>) {
-    var count = 5
-    while (count > 0) {
-        val nameOfAnimal = readlnOrNull()
-        if (nameOfAnimal == "q") break
-        if (nameOfAnimal != null) {
-            list.add(nameOfAnimal)
-            count--
+    var remaining = 5
+    while (remaining > 0) {
+        val input = readlnOrNull() ?: break // Closed input must end the loop.
+        val name = input.trim()
+        if (name == "q") break
+        if (name.isBlank()) {
+            println("Please enter a name, or q to quit.")
+            continue
         }
+        list.add(name)
+        remaining--
     }
 }
 
 fun main() {
-
-    val myAnimalInstance = Animal() // creating an instance or animal, or an animal object
-    myAnimalInstance.printAnimalName() // prints Lion
-
-    val newSquirrelAnimal = Animal()
-    newSquirrelAnimal.animalName = "Squirrel"
-
-    val newDogAnimal = Animal()
-    newDogAnimal.animalName = "Dog"
-
-    val newCatAnimal = Animal()
-    newCatAnimal.animalName = "Cat"
+    val myAnimalInstance = Animal()
+    myAnimalInstance.printAnimalName() // Lion
+    val newSquirrelAnimal = Animal().apply { animalName = "Squirrel" }
+    val newDogAnimal = Animal().apply { animalName = "Dog" }
+    val newCatAnimal = Animal().apply { animalName = "Cat" }
 
     val anotherAnimalList = mutableListOf<String>()
-
-    println("Enter in animals:")
+    println("Enter up to 5 animals (q to quit):")
     readInAnimals(anotherAnimalList)
     println(anotherAnimalList)
 
+    // Taking the view before adding animals shows that later updates are visible.
     val myAnimalList = myAnimalInstance.animalList
-    myAnimalInstance.addAnimal(newSquirrelAnimal.animalName) // adds the squirrel instance to list
-    myAnimalInstance.addAnimal(newDogAnimal.animalName) // adds the dog instance to list
-    myAnimalInstance.addAnimal(newCatAnimal.animalName) // adds the cat instance to list
-
-    // myAnimalList.add <- won't work because the list is immutable in the Animal class
-    println(myAnimalInstance.sortAnimalList(myAnimalList)) // [Bear, Cat, Cheetah, Dog, Fox, Giraffe, Jaguar, Squirrel]
-
-    val combinedList = mutableListOf<String>()
-    combinedList.addAll(myAnimalList)
-    combinedList.addAll(anotherAnimalList)
-
-    Thread.sleep(1000)
+    myAnimalInstance.addAnimal(newSquirrelAnimal.animalName)
+    myAnimalInstance.addAnimal(newDogAnimal.animalName)
+    myAnimalInstance.addAnimal(newCatAnimal.animalName)
+    // myAnimalList.add("Fox") does not compile through the List interface.
+    println(myAnimalInstance.sortAnimalList(myAnimalList)) // [Cat, Dog, Squirrel]
+    val combinedList = myAnimalList + anotherAnimalList
     println("Combined List:")
-    println("${combinedList.sorted()}")
-
-    /**
-     * Lion
-     * Enter in animals:
-     * lion
-     * tiger
-     * bear
-     * giraffe
-     * cow
-     * [lion, tiger, bear, giraffe, cow]
-     * [Cat, Dog, Squirrel]
-     * Combined List:
-     * [Cat, Dog, Squirrel, bear, cow, giraffe, lion, tiger]
-     */
+    println(combinedList.sorted())
 }

@@ -1,42 +1,24 @@
-Why Functional programming?
+# Functional programming notes
 
-Functional programming has really emerged significantly recently and that is due to the
-need for parallel code in our programs. We no longer can just increase CPU performance and speed,
-so instead we have optimized functional programming and Kotlin does a fantastic job of this. The
-functional programming paradigm is very good at parallelize code.
+Kotlin lets me pass behavior as a value. That is useful when the same operation
+needs different calculations, transformations, or callbacks.
 
-Functional programming is seen more in declarative programming rather than imperative, which could also
-contribute to the recent rise in usage from almost all the other languages in the world today.
+A higher-order function accepts a function, returns one, or both. A pure function
+returns the same result for the same input and has no observable side effects.
+Logging and changing shared state are side effects; a lambda can do either.
 
-Some key factors of functional programming to remember:
-    a. safer
-    b. easier to test
-    c. increases CPU performance with concurrency
-    d. easier to reason
+Collection operations can express a transformation clearly. A loop can be easier
+to read when the task needs several actions or early exits. Neither approach
+creates parallel execution automatically.
 
-Functions as Values
-    a. accept functions as values
-    b. return functions
-    c. store functions as values
-    d. put functions inside of collections
+In the examples, map transforms, filter keeps matching elements, flatMap combines
+nested results, and fold accumulates from an initial value. reduce needs a
+non-empty collection. forEach returns Unit; onEach returns its receiver.
 
-Commandments of Functional Programming:
+- [Higher-order functions](../../src/main/kotlin/advancedkotlin/functional/HigherOrderFunctions.kt)
+- [Extensions](../../src/main/kotlin/advancedkotlin/functional/ExtensionFunctions.kt)
+- [Kotlin function documentation](https://kotlinlang.org/docs/lambdas.html)
+- [Collection transformations](https://kotlinlang.org/docs/collection-transformations.html)
 
-1. Favor Immutability over Mutability
-2. Use Nullability safely
-3. Get the most out of classes and object:
-    a. Use Data classes for value classes, DTO, config classes, etc.
-    b. Use regular Classes for Services
-    c. Use sealed classes for exhaustive checks, etc.
-    d. Use available extensions
-4. Create your own extensions within reason
-5. Use WHEN when needed
-6. Use Expressions
-7. Favor functional collections over for loops
-8. Use Scope functions
-9. Use Coroutines
-10. Use all idioms
-
-
-
-
+Earlier performance claims and my longer list of “commandments” remain in Git
+history. These notes focus on what the syntax does.

@@ -1,26 +1,17 @@
 package oop
 
-// What is a typealias? A typealias is abbreviating a large name for a type into a smaller name.
-// TypeAliases can make the code more concise and more readable. Could save on time as well.
-
+// A typealias is another name for an existing type, not a new distinct type.
 data class SuperLargeNameThatIWontWriteAgain(val disaster: String)
 data class ExampleTypeAlias(val example: String)
-
-typealias longName = SuperLargeNameThatIWontWriteAgain
-typealias newExample = ExampleTypeAlias
+typealias LongName = SuperLargeNameThatIWontWriteAgain
+typealias NewExample = ExampleTypeAlias
 
 fun main() {
-
-    // allows us to create an object with the abbreviation
-    val theName = longName("terrible disaster")
-    println(theName)
-
-    val thisExample = newExample("this is an example of another typealias").also(::println)
+    val theName = LongName("terrible disaster")
+    println(theName) // SuperLargeNameThatIWontWriteAgain(disaster=terrible disaster)
+    val originalType: SuperLargeNameThatIWontWriteAgain = theName // Same type.
+    println(originalType == theName) // true
+    val thisExample = NewExample("this is an example of another typealias")
+    println(thisExample)
     println(thisExample.toString().uppercase())
-
-    /**
-    SuperLargeNameThatIWontWriteAgain(disaster=terrible disaster)
-    ExampleTypeAlias(example=this is an example of another typealias)
-    EXAMPLETYPEALIAS(EXAMPLE=THIS IS AN EXAMPLE OF ANOTHER TYPEALIAS)
-     */
 }

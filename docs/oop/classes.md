@@ -1,29 +1,37 @@
-1. CLASS - typically bundles together state and its operations by way of
- properties and operations. Classes are viewed as templates of objects.
+# Classes and objects
 
-2. LOCAL Classes - are classes defined inside of functions. Used if a function needs
-some specific information.
+A class groups properties and behavior. Constructor parameters become properties
+when declared with val or var. init blocks run during construction. Classes and
+members are final by default; open permits inheritance or overriding.
 
-3. NESTED Classes - creating a class is inside of another class. Works great if you need a helper
-class that acts uniquely to the outer class, however it cannot access the outer class member variables.
-Can be a good choice for serializable models.
+| Declaration | What I use it to remember |
+| --- | --- |
+| Local class | Visible inside its enclosing function |
+| Nested class | Does not hold an outer instance |
+| inner class | Has access to its outer instance |
+| data class | Generated value-based methods and destructuring |
+| value class | Distinct wrapper type; may be boxed on the JVM |
+| enum class | Fixed set of named instances |
+| sealed class/interface | Restricted direct subtypes and exhaustive when |
+| object | Singleton declaration |
+| companion object | Object associated with a class |
+| annotation class | Metadata interpreted by a compiler, tool, or library |
 
-4. INNER Classes - nested classes that have access to the outer class member variables. The only difference
-is you have to call the inner class from the object.
+Data-class copy() is shallow. A typealias is another name for an existing type;
+a value class creates a distinct type. A matching hash code does not prove object
+identity. Use == for equality and === for reference identity where supported.
 
-5. DATA Classes - classes meant to hold data that have generated built-in methods(copy(), hashcode(), toString()).
-Good for modeling json responses and DTO, and they can also be destructed.
+- [Inheritance, composition, nested and inner classes](../../src/main/kotlin/oop/OOPExamples.kt)
+- [Constructors](../../src/main/kotlin/oop/ConstructorsExample.kt)
+- [Abstract classes](../../src/main/kotlin/oop/AbstractClassesEx.kt)
+- [Objects and companions](../../src/main/kotlin/oop/ObjectExample.kt)
+- [Delegation](../../src/main/kotlin/oop/Delegation.kt)
+- [Type aliases](../../src/main/kotlin/oop/TypeAliasesEx.kt)
+- [Data classes](../../src/main/kotlin/advancedkotlin/datacl/DataClasses.kt)
+- [Value classes](../../src/main/kotlin/advancedkotlin/valuecl/ValueClasses.kt)
+- [Enums](../../src/main/kotlin/advancedkotlin/sealedenum/Enums.kt)
+- [Sealed classes](../../src/main/kotlin/advancedkotlin/sealedenum/SealedClasses.kt)
 
-6. VALUE Classes - good for when you want to create specific classes for a value without creating an object in
-memory for that value. So if we want to modify values specifically, value classes allow the JVM to compile them as regular
-values and not classes. It must be one property and it must be read-only (val).
-
-7. ENUM Classes - enumeration classes are used for limiting values that pertain to a type, holding state, or static
-names for a specific type.
-
-8. SEALED Classes - limit the subtypes of a class and also good for holding state. Very similar to enums except they
-typically house data classes, objects, etc. for state management. Sealed Classes are really good for when you need to
-determine the response type of a HTTP response.
-
-9. ANNOTATION Classes - annotations pretty much indicate what kind of elements, when a class can run, etc. These are
-mainly used for building out Frameworks.
+[Classes](https://kotlinlang.org/docs/classes.html),
+[data classes](https://kotlinlang.org/docs/data-classes.html), and
+[value classes](https://kotlinlang.org/docs/inline-classes.html) in the Kotlin docs.

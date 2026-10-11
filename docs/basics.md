@@ -2,7 +2,7 @@
 
 Start with the topic you need. Each file has a main() function and comments showing
 what to expect. The examples still use the names and sample data from my earlier
-practice; the explanations are being reviewed as I revisit them.
+practice; the explanations have been checked for this reference.
 
 - [Hello world](../src/main/kotlin/basics/HelloWorld.kt): entry points and printing.
 - [Variables and types](../src/main/kotlin/basics/VariableTypesKotlin.kt): val, var,

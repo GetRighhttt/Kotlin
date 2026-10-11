@@ -4,7 +4,7 @@ I started this repository in August 2022 to teach myself Kotlin and keep example
 of syntax I wanted to remember. I added to it over the years, often experimenting
 with a feature and coming back later to explain it.
 
-The commit history keeps that earlier work. The current examples are being cleaned
+The commit history keeps that earlier work. The current examples have been cleaned
 up so I can use them as a reference without carrying forward incorrect explanations.
 
 - **2022:** variables, arithmetic, strings, control flow, functions, and collections;
@@ -14,7 +14,7 @@ up so I can use them as a reference without carrying forward incorrect explanati
 - **2024–2025:** revisits, additional examples, and cleanup. Coroutines were removed
   from this repository in January 2025.
 - **2026:** expanded extension and scope function explanations, reference images,
-  and the reference cleanup beginning with the basics.
+  and the reference cleanup covering all examples and notes.
 
 A few commits to revisit:
 

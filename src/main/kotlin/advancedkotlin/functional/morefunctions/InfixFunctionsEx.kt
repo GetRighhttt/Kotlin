@@ -1,117 +1,62 @@
 package advancedkotlin.functional.morefunctions
 
-import kotlin.contracts.*
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
-/**
- * Infix - allows for functions to be called without brackets or periods; this aids in readability and allows for ease
- * of use.
- * Infix functions must be defined inside a class or be an extension function to an existing class.
- */
+// An infix function is a member or extension with one non-vararg parameter,
+// without a default. Its calls can omit the dot and parentheses.
+infix fun String.newName(name: String): String = name // Returns a new name; does not mutate String.
+infix fun Int.multipliedBy(factor: Int): Int = this * factor
+infix fun <T : Comparable<T>> T.isGreaterThan(other: T): Boolean = this > other
 
-// declaring infix extension functions
-infix fun String.newName(name: String): String = name
-inline infix fun Int.multipliedByThree(age: () -> Int): Int = age() // function type that returns an Int
-infix fun String.setMiddleName(name: String): String = newName(name)
-inline infix fun Int.setNumberOfChildren(children: () -> Int): Int = children()
+// Like let, this passes the receiver to the block and returns the block's result.
+@OptIn(ExperimentalContracts::class)
+inline infix fun <T, R> T.allowFor(block: (T) -> R): R {
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+    return block(this)
+}
+
+// A contract describes a promise to the compiler; it does not perform a runtime check.
+@OptIn(ExperimentalContracts::class)
+fun String?.hasText(): Boolean {
+    contract { returns(true) implies (this@hasText != null) }
+    return !isNullOrBlank()
+}
+
+abstract class TextInfix(var text: String) {
+    abstract infix fun isRemoving(part: String)
+    abstract infix fun isSetting(value: String)
+}
+
+class SampleText : TextInfix("Sample") {
+    override infix fun isRemoving(part: String) {
+        text = text.replace(part, "")
+    }
+    override infix fun isSetting(value: String) {
+        text = value
+    }
+    fun isStarting(prefix: String): Boolean = text.startsWith(prefix)
+}
 
 fun main() {
-    // created a variable with no initial name
-    val tempName = ""
-
-    // example of using infix function to assign name and age times three
-    val actualName = tempName newName "Stefan"
-
-    val theirAge = 12 multipliedByThree {
-        36
-    }
-
+    val actualName = "" newName "Stefan"
+    val theirAge = 12 multipliedBy 3
     println("$actualName is my name and my age times three is $theirAge.")
+    println("If I multiply my age again by 3, it is ${theirAge multipliedBy 3}.") // 108
+    println(theirAge isGreaterThan 30) // true
 
-    // using let with also scope functions to assign middle name
-    actualName.let {
-        it setMiddleName "John"
-    }.also {
-        println("My middle name is $it.")
-    }
+    val children = 1 allowFor { it + 2 }
+    println("I have $children kids.") // 3
+    children allowFor { println("This incremented value by 1 times 2 is: ${(it + 1) * 2}") } // 8
 
-    // using let scope function to multiply it once again by 3
-    theirAge.let {
-        it multipliedByThree {
-            it * 3
-        }
-    }.also {
-        println("If I multiply my age again by 3, it is $it.")
-    }
+    val sample = SampleText()
+    sample isSetting "Sample text"
+    sample isRemoving "Sample "
+    println(sample.text) // text
+    println(sample.isStarting("te")) // true
 
-    val childrenNum = 1
-    childrenNum.let {
-        it setNumberOfChildren {
-            it + 2
-        } isComparableTo { num ->
-            num + 10
-        }
-    }.also {
-        println("I have $it kids.")
-    } allowFor {
-        val increment = it.inc().times(2)
-        println("This incremented value by 1 times 2 is: $increment") // 8
-    }
+    val name: String? = listOf("Stefan").firstOrNull()
+    if (name.hasText()) println(name.length) // 6: contract enables the smart cast.
+    // The old SimpleEffect cast experiment is preserved in commit 7e6620d.
 }
-
-/**
- * We can also have inline infix functions like the one below which is actually the same type of function in the
- * standard library for the "let" scope function.
- */
-@OptIn(ExperimentalContracts::class)
-inline infix fun <T,R> T.allowFor(param: (T) -> R): R {
-    contract {
-        callsInPlace(param, InvocationKind.EXACTLY_ONCE)
-    }
-    return param(this)
-}
-
-@OptIn(ExperimentalContracts::class)
-inline infix fun <T: Comparable<T>, R> T.isComparableTo(other: (T) -> R): R {
-    contract {
-        callsInPlace(other, InvocationKind.EXACTLY_ONCE)
-    }
-   return other(this)
-}
-
-// displaying that infix functions must either be a member variable or extension method, and have one parameter
-abstract class TextInfix(val text: String) {
-
-    init {
-        println("abstract class initialized")
-    }
-    abstract infix fun isRemoving(text: String)
-    abstract infix fun isSetting(text: String)
-}
-
-typealias tInfix = TextInfix
-
-class SampleText<T>() : tInfix(text = "Sample") {
-    override fun isRemoving(text: String) {
-        TODO("Not yet implemented!")
-    }
-
-    override fun isSetting(text: String) {
-        TODO("Not yet setting!")
-    }
-
-    fun isStarting(text: String) {
-        TODO("Not yet implemented!")
-    }
-
-    @OptIn(ExperimentalContracts::class)
-    infix fun Boolean.returnEffect(action: () -> Boolean): SimpleEffect {
-        return (action ?: false) as SimpleEffect
-    }
-}
-
-/**
- * Stefan is my name and my age times three is 36.
- * My middle name is John.
- * If I multiply my age again by 3, it is 108.
- * I have 3 kids.
- */

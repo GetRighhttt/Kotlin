@@ -1,22 +1,21 @@
-What are Generics?
+# Generics and variance
 
-Generics - a feature that allow us to define classes, methods and properties which are accessible using different
-data types while keeping a check on the compile-time type safety. Generics allow developers the ability to create
-classes and methods that can be used by numerous data types, and also custom types. Generics aid in library and
-framework creation, and are quite literally one of the most useful features of almost every programming language in
-my personal opinion.
+A generic declaration uses a type parameter so the same logic can work with
+different types while keeping type checking.
 
-What is Variance?
+`Box<T>` is invariant. Box<String> and Box<Any> are not subtypes of one another,
+even though String is a subtype of Any. Otherwise, writing an Int through a
+Box<Any> reference could corrupt a box intended to hold Strings.
 
-Variance - a feature that allows for the specification of type parameters where they can be used in a very specific
-context; it explains which context the generic type should be used in and for.
+`Producer<out T>` is covariant: a Producer<String> can be used as Producer<Any>.
+It supplies T values.
 
-Producer -> only returns some values
-Consumer -> only consumes some values
+`Consumer<in T>` is contravariant: a Consumer<Any> can be used as Consumer<String>.
+It accepts T values. The restriction concerns where T appears; a consumer may
+still return values of other types.
 
-InVariant - can be consumed and produced
-CoVariant(out) - can only be produced; used as a return type
-ContraVariant(in) - can only be used as an input; used as a declaration only
+The [runnable example](../../src/main/kotlin/oop/generics/GenericsExamples.kt)
+shows both assignments. The commented Box assignment demonstrates the rejected
+invariant case.
 
-Covariant types mean that subtyping is preserved, meaning a child is a subtype of a parent, whereas Invariant means
-the Parent is a subtype of the Child. Invariant accepts both values and is just denoted usually by "T".
+[Kotlin generics documentation](https://kotlinlang.org/docs/generics.html).

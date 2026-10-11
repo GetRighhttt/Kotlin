@@ -1,63 +1,36 @@
 package advancedkotlin.functional
 
 /**
- * Function type examples with lambdas.
- *
- * Closure -> scope of variables accessible in the body of a function.
+ * (Int, Int) -> Int takes two Ints and returns an Int.
+ * A function value can be stored, passed to another function, or returned.
  */
-
-val integerMultiplyFunction: (Int, Int) -> Int =
-    { a, b -> a * b } // lambda : passing function as expression (short syntax)
-val beta: (Int) -> Unit = { } // returns nothing as noted by "Unit"
-val alpha: (Int) -> Int = { i: Int -> i + 1 }
-val delta: (Int, Int) -> Int = { x, y -> x / y }
-val multiplyNum: (Double) -> Double = { x -> x * 10 }
-
-// we can also use function types in higher order functions
-fun divideNumb(
-    a: Double,
-    v: Double,
-    c: (Double, Double) -> Double
-): Double {
-    return c(a, v)
+val integerMultiplyFunction: (Int, Int) -> Int = { a, b -> a * b }
+val beta: (Int) -> Unit = { number -> println("Received $number") }
+val alpha: (Int) -> Int = { it + 1 }
+val delta: (Int, Int) -> Int = { x, y ->
+    require(y != 0) { "Cannot divide by zero." }
+    x / y
 }
+val multiplyNum: (Double) -> Double = { it * 10 }
 
-val convertNumToDouble by lazy { readlnOrNull()?.toInt() }
+fun divideNumb(a: Double, b: Double, operation: (Double, Double) -> Double): Double {
+    return operation(a, b)
+}
 
 fun main() {
+    // invoke() and parentheses are two ways to call the same function value.
+    println(integerMultiplyFunction.invoke(10, 12)) // 120
+    println(alpha(10) + integerMultiplyFunction(20, 20)) // 411
+    println(alpha(30)) // 31
+    beta(100) // Received 100; call directly because its result is Unit.
+    println(delta(20, 2)) // 10
+    println(divideNumb(20.0, 4.0) { a, b -> a / b }) // 5.0
+    println(multiplyNum(4.0)) // 40.0
 
-    // we can either use invoke() to call the parameters of the function types
-    val addition = alpha.invoke(10) + integerMultiplyFunction.invoke(20, 20)
-
-    // showing how to read user input and convert to double also calling a function
-    val divider = readlnOrNull()?.toDouble()?.let { firstNumber ->
-        readlnOrNull()?.toDouble()?.let { secondNumber ->
-            divideNumb(
-                a = firstNumber, // read in first number
-                v = secondNumber, // read in second number
-                c = { a, v -> a / v } // taking in both values and dividing them
-            )
-        }
-    }
-
-    // or we can use parentheses
-    println(divider) // takes in two numbers and divides them
-    println(convertNumToDouble?.let { alpha.invoke(it) }) // 21
-    println(integerMultiplyFunction(10, 12))
-    println(addition)
-    println(alpha(30)) // output should be 31
-    println(beta.invoke(100)) // returns nothing
-    println(delta.invoke(20, 2)) // output should be 10
-
-    // with reading in values and extension function
-    val multiplication by lazy { readlnOrNull()?.toDouble() }
-    multiplication?.let { multiplyNum.invoke(it) } // takes in a number and multiplies it by 10
+    // A closure captures variables from the surrounding scope.
+    var increment = 2
+    val addIncrement: (Int) -> Int = { it + increment }
+    println(addIncrement(10)) // 12
+    increment = 5
+    println(addIncrement(10)) // 15: the captured variable has changed.
 }
-
-/**
- * 120
- * 411
- * 31
- * kotlin.Unit
- * 10
- */

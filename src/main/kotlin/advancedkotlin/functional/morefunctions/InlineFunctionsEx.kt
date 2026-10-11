@@ -1,67 +1,32 @@
 package advancedkotlin.functional.morefunctions
 
-import advancedkotlin.sealedenum.reverseAMessage
-
 /**
- * Inline functions - provide a way to decrease performance overhead and memory allocation when using Function Types
- * in Kotlin. In Kotlin, each function, because they are first-class and treated like variables, are executed as individual
- * objects in memory, thus increasing performance overhead and memory allocation during compilation.
- * "Inline" keyword is used as a means to reduce this.
- *
- * An INLINE FUNCTION will pass the action(s) as part of the execution call stack, therefore reducing overhead and memory.
- * All the code will act as single lines of code in the code block instead of an object.
- *
- * All lambdas will be passed as inline as well if declared within the closure of a function, however if you do not want this
- * to occur, you can mark them with the NOINLINE keyword.
- *
- * We are going to declare a method that takes in two function type arguments and call them in main.
- * There really isn't a syntactic difference apart from using the "inline" keyword in front of the function
- *
- * inline functions also cannot be declared in fun main() {}. This isn't yet supported by Kotlin - 10/04/2023
- *
- * Mainly used with lambdas.
+ * inline lets the compiler insert a function's body and eligible lambda bodies at
+ * the call site. It can avoid function-object overhead, but can also increase code size.
+ * Ordinary function declarations do not each require a function object.
  */
-
 class Example {
-    inline fun getExample( message: () -> Unit ) {
-        message()
-    }
+    inline fun getExample(message: () -> Unit) { message() }
 }
-inline fun runTime(
-    message: () -> Unit,
-    time: () -> Long
-) {
+inline fun runTime(message: () -> Unit, time: () -> Long) {
     message()
     println("They ran in ${time()} seconds.")
 }
+inline fun multiplyTime(time: () -> Long): Long = time() * 2
 
-inline fun multiplyTime(time: () -> Long) = time() * 2
-fun main() {
-
-    // calling inline method
-    runTime(
-        // first function type used as the function literal "lambda"
-        message = {
-            println("This is how fast he ran the lap")
-        },
-        // second function type used as the function literal "lambda", and multiples it
-        time = {
-            {
-                2000L
-            }.let {
-                multiplyTime(it)
-            }
-        }
-    )
-
-    val newExample = Example()
-    val lastExample = newExample.getExample {
-        println("Example")
-    }
-    lastExample.invoke()
+// noinline keeps a lambda as a value, so we can store or return it.
+inline fun runAndKeep(immediate: () -> Unit, noinline later: () -> Unit): () -> Unit {
+    immediate()
+    return later
 }
 
-/**
- * This is how fast he ran the lap
- * They ran in 4000 seconds.
- */
+fun main() {
+    runTime(
+        message = { println("This is how fast he ran the lap") },
+        time = { multiplyTime { 20L } }
+    ) // They ran in 40 seconds.
+
+    Example().getExample { println("Example") } // Returns Unit; do not invoke that result.
+    val later = runAndKeep({ println("Run now") }, { println("Run later") })
+    later()
+}
