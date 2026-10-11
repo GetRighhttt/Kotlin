@@ -1,17 +1,48 @@
-Kotlin DataStructures
+# Arrays and collections
 
-By default, all of the data structures in Kotlin are immutable, meaning they cannot be changed or modified.
-In order for use to be able to modify an existing data structure, we have to declare a data structure as
-"mutable". Example:
+These examples began in 2022 and grew as I practiced collection operations.
+Earlier versions are in Git history; this page is the current reference.
 
-val newData = mutableListOf()
+| Type | What to remember | Example |
+| --- | --- | --- |
+| Array | Fixed size; elements can change | [Arrays.kt](../src/main/kotlin/datastructures/Arrays.kt) |
+| List | Ordered, indexed, allows duplicates | [List.kt](../src/main/kotlin/datastructures/List.kt) |
+| Set | Unique elements | [Sets.kt](../src/main/kotlin/datastructures/Sets.kt) |
+| Map | Unique keys associated with values | [Maps.kt](../src/main/kotlin/datastructures/Maps.kt) |
 
-There are also alternative datastructures built in to the Kotlin language that are able to be explored, however
-we do not discuss them here. Just the most basic ones that we commonly see.
+## Read-only and mutable
 
-The exception to this mutability rule are arrays, which we can change and modify at runtime as we please.
+List, Set, and Map expose read-only operations. Their mutable counterparts add write
+operations. A read-only reference can point to a mutable collection and observe its
+changes. A val prevents reassignment of the reference; it does not freeze an object.
+List.kt demonstrates this with a view and a shallow copy.
 
-Also, Kotlin is backwards compatible so it provides Sequences which were first introduced in Java 8.
-The difference between Sequences and Collections is that Sequences are lazy, meaning they only initialize when
-called. Collections typically perform operations on each collection regardless of the result, whereas Sequences
-will only perform operations given the condition.
+## Ordering and output
+
+HashMap and HashSet leave iteration order unspecified. Sort their contents when
+showing output that needs a predictable order. Arrays use contentToString() to
+print their elements and contentEquals() to compare them.
+
+## Collections, sequences, and Java streams
+
+Kotlin sequences and Java streams are separate APIs. A List filter/map chain
+creates intermediate lists. With asSequence(), those transformations run as a
+terminal operation such as toList() consumes elements. A sequence can avoid
+intermediate lists, but that does not make it faster in every case.
+
+## Run an example
+
+```sh
+mkdir -p build
+kotlinc src/main/kotlin -d build/examples.jar
+kotlin -classpath build/examples.jar datastructures.ArraysKt
+```
+
+ListKt reads up to five valid integers. Invalid text is retried; closed input ends
+the loop and prints the numbers collected so far.
+
+## Kotlin documentation
+
+- [Collections](https://kotlinlang.org/docs/collections-overview.html)
+- [Arrays](https://kotlinlang.org/docs/arrays.html)
+- [Sequences](https://kotlinlang.org/docs/sequences.html)

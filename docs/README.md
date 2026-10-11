@@ -1,9 +1,8 @@
 # Learning notes
 
-These explanations were written while learning Kotlin over several years. Their
-original contents are preserved here, alongside the runnable examples in
-[`src/main/kotlin/`](../src/main/kotlin/). Some statements reflect what I understood
-at the time and may need a future review.
+These explanations were written while learning Kotlin over several years. They are collected here, alongside the runnable examples in
+[`src/main/kotlin/`](../src/main/kotlin/). The basics and collections have been reviewed. Other notes still reflect what I
+understood at the time and may need corrections.
 
 - [Basics reference](basics.md)
 - [Learning history](learning-history.md)

@@ -1,93 +1,51 @@
 package datastructures
 
-import java.util.Arrays
-
+/**
+ * Arrays have a fixed size. We can replace an element, but growing the array
+ * requires a new array. Indices start at zero.
+ */
 fun main() {
-    /**
-     * Arrays are a data structure that serves as a container for elements that
-     * have the same type.
-
-     * Fixed size, random access, direct memory allocation,
-     * In Kotlin, we can declare arrays a number of ways:
-     */
-    val thisArray = intArrayOf(2, 3, 4, 5)
+    val thisArray = intArrayOf(2, 3, 4, 5) // IntArray stores primitive Int values.
     val newArray = booleanArrayOf(true, false, true, false, false)
-    val myArray = arrayOf(3.4, 4.8, 1.3, 6.9)
+    val myArray = arrayOf(3.4, 4.8, 1.3, 6.9) // Array<Double> on the JVM uses boxed values.
 
-    /**
-     * We can access elements in the array with the index operator as follows:
-     */
-    thisArray[0]
     println(thisArray[0]) // 2
     println(newArray[0]) // true
     println(myArray[0]) // 3.4
 
-    /**
-     * So when we try to print arrays, it will not print the elements
-     * It prints their memory locations
-     *
-     * The println method doesn't allow us to print array elements without iterating
-     * through the elements, typically in a for loop, so we use the contentToString() method
-     */
-    println(thisArray.contentToString())
-    println(newArray.contentToString())
-    println(myArray.contentToString())
+    // contentToString() displays the elements. The default array toString() on
+    // the JVM shows a type and identity hash, not a reliable memory address.
+    println(thisArray.contentToString()) // [2, 3, 4, 5]
+    println(newArray.contentToString()) // [true, false, true, false, false]
+    println(myArray.contentToString()) // [3.4, 4.8, 1.3, 6.9]
 
-    /**
-     * Here we are going to loop through the array to find the largest number
-     */
+    // A manual maximum search. This array is known to be non-empty.
     var max = thisArray[0]
-    for (i in thisArray) {
-        if (i > max) {
-            max = i
+    for (number in thisArray) {
+        if (number > max) {
+            max = number
         }
     }
-    println(max.toFloat()) // converted to a float number = 5.0
+    println(max.toFloat()) // 5.0
 
-    /**
-     * Difference between array and arraylist.
-     * ArrayList can grow in size. That's the only difference.
-     */
+    // maxOrNull() also handles an empty array.
+    println(intArrayOf().maxOrNull()) // null
 
-    println("Let's print values from an array and filter out a sorted array:")
-    val newArrayList = arrayListOf<Int>()
-    newArrayList.add(1)
-    newArrayList.add(83)
-    newArrayList.add(51)
-    newArrayList.add(47)
-    newArrayList.add(99)
-    newArrayList.add(221)
-    newArrayList.add(23)
-    newArrayList.add(25)
-    newArrayList.add(35)
-    newArrayList.add(65)
-    newArrayList.add(25)
-    newArrayList.add(25)
-    val sortedAndFiltered = newArrayList
-        .filter { it > 25 }
-        .sorted()
-        .onEach(::println)
-        .contains(99)
-        .toString()
-    println(sortedAndFiltered) // true
+    // val prevents reassignment of thisArray, but its elements can still change.
+    thisArray[0] = 10
+    println(thisArray.contentToString()) // [10, 3, 4, 5]
 
-    /**
-     * 2
-     * true
-     * 3.4
-     * [2, 3, 4, 5]
-     * [true, false, true, false, false]
-     * [3.4, 4.8, 1.3, 6.9]
-     * 5.0
-     * Let's print values from an array and filter out a sorted array:
-     * 35
-     * 47
-     * 51
-     * 65
-     * 83
-     * 99
-     * 221
-     * true
-     *
-     */
+    val copiedArray = thisArray.copyOf()
+    // Arrays use reference equality for ==; === makes that intent explicit.
+    println(thisArray === copiedArray) // false: different array instances
+    println(thisArray.contentEquals(copiedArray)) // true: matching elements
+
+    // An ArrayList can grow. It also supports indexed access.
+    val newArrayList = arrayListOf(1, 83, 51, 47, 99, 221, 23, 25, 35, 65, 25)
+    newArrayList.add(25)
+
+    // filter and sorted return new lists. They leave newArrayList unchanged.
+    val sortedAndFiltered = newArrayList.filter { it > 25 }.sorted()
+    println(sortedAndFiltered) // [35, 47, 51, 65, 83, 99, 221]
+    println(99 in sortedAndFiltered) // true
 }

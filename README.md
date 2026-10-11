@@ -30,7 +30,7 @@ for a quick lookup by syntax.
 
 The written explanations and reference images are collected in [docs/](docs/README.md).
 The [learning history](docs/learning-history.md) points to earlier versions and
-explains how the repository grew. The basics have been reviewed in this cleanup;
+explains how the repository grew. The basics and [collections](docs/data-structures.md) have been reviewed;
 the remaining topics and historical notes still need a review.
 
 ## Run an example

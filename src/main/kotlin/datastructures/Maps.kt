@@ -1,14 +1,10 @@
 package datastructures
 
 /**
- * Maps is a collection of key-value pairs in which keys are unique, and is used
- * quite often in real-world applications.
- * The keyword "to" is used to create a pair of two elements. This keyword is actually a special function
- * in the Kotlin language that is built in.
+ * A Map associates unique keys with values. Different keys can share a value.
+ * Map offers read-only access; MutableMap also offers write operations.
  */
-
 fun main() {
-
     val basketballGOATPyramid = mapOf(
         1 to "Michael Jordan",
         2 to "Kobe",
@@ -17,70 +13,45 @@ fun main() {
         5 to "Magic Johnson"
     )
 
-    println(basketballGOATPyramid.values) // prints the values to a list
-    println(basketballGOATPyramid.keys) // prints the ids or keys to a list
-    println(basketballGOATPyramid) // in a map
+    // keys is a Set; values is a Collection. Neither property is necessarily a List.
+    println(basketballGOATPyramid.values)
+    println(basketballGOATPyramid.keys) // [1, 2, 3, 4, 5]
+    println(basketballGOATPyramid)
 
-    // here is how we access values in a map
-    println("Looks like the GOAT of basketball is: ${basketballGOATPyramid[1]}.") // prints MJ
-    println(6 in basketballGOATPyramid) // prints false
+    // [] looks up a key. A missing key returns null.
+    println("Looks like the GOAT of basketball is: ${basketballGOATPyramid[1]}.")
+    println(basketballGOATPyramid[6]) // null
+    println(6 in basketballGOATPyramid) // false: in checks keys
+    println("Kobe" in basketballGOATPyramid.values) // true
 
-    /**
-     * Another way to access values in a map is by using Pairs
-     */
-    val anotherMap = mapOf(
-        Pair(1, 30),
-        Pair(2, 40),
-        Pair(3,50)
-    )
+    // to is an infix function that creates a Pair. Pair(...) is the explicit form.
+    val anotherMap = mapOf(Pair(1, 30), Pair(2, 40), Pair(3, 50))
     println(anotherMap.values) // [30, 40, 50]
-    anotherMap.entries.onEach {
-        println("$it ")
+    for ((key, value) in anotherMap) {
+        println("$key=$value")
     }
 
-
-    /**
-     * HashMaps are a class built in to Java and the difference is the functionality - read and write,
-     * and has more functions that can be applied to it.
-     */
+    // HashMap is one mutable implementation. Its iteration order is unspecified.
     val myMap = HashMap<Int, String>()
     myMap[2] = "Deuce"
     myMap[3] = "Tres"
     myMap[4] = "Quarto"
-
-    // we can also add values to the hashmap using "put"
-    myMap[5] = "Cinco"
+    myMap.put(5, "Cinco") // put() is another way to assign a key/value pair.
     myMap[6] = "Seis"
 
-    myMap.replace(2, "Two")
-    val mapClone = myMap.clone().toString()
-    val mapCount = myMap.count()
-    val isMapEmpty = myMap.isEmpty()
+    myMap.replace(2, "Two") // Replaces the existing value without adding another key.
+    println(myMap.size) // 5
+    println(myMap.isEmpty()) // false
 
-    for (key in myMap.keys) {
-        println("Element at Key: $key = ${myMap[key]}")
+    // toMap() makes a shallow copy, rather than a live read-only view of myMap.
+    val mapCopy = myMap.toMap()
+    myMap[2] = "Deux"
+    println(mapCopy[2]) // Two
+    println(myMap[2]) // Deux
+
+    // Sort explicitly when we want predictable output from a HashMap.
+    for ((key, value) in myMap.toSortedMap()) {
+        println("Element at Key: $key = $value")
     }
-    println(mapCount) // 3
-    println(mapClone) // clones map
-    println(isMapEmpty) // false
-
-    /**
-     * [Michael Jordan, Kobe, Hakeem Olajuwon, Kareem Abdul-Jabbar, Magic Johnson]
-     * [1, 2, 3, 4, 5]
-     * {1=Michael Jordan, 2=Kobe, 3=Hakeem Olajuwon, 4=Kareem Abdul-Jabbar, 5=Magic Johnson}
-     * Looks like the GOAT of basketball is: Michael Jordan.
-     * false
-     * [30, 40, 50]
-     * 1=30
-     * 2=40
-     * 3=50
-     * Element at Key: 2 = Two
-     * Element at Key: 3 = Tres
-     * Element at Key: 4 = Quarto
-     * Element at Key: 5 = Cinco
-     * Element at Key: 6 = Seis
-     * 5
-     * {2=Two, 3=Tres, 4=Quarto, 5=Cinco, 6=Seis}
-     * false
-     */
+    println(mapCopy.toSortedMap()) // {2=Two, 3=Tres, 4=Quarto, 5=Cinco, 6=Seis}
 }
