@@ -1,0 +1,16 @@
+# Compiled output and build caches
+/out/
+/build/
+/.gradle/
+/.kotlin/
+*.class
+
+# Local IntelliJ state (shared project configuration remains tracked)
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/caches/
+.idea/httpRequests/
+
+# macOS metadata
+.DS_Store
