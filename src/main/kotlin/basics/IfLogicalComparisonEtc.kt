@@ -2,9 +2,8 @@ package basics
 
 fun main() {
     /**
-     * So comparison and logical operators are essentially how we work
-     * with loops in kotlin and are the foundational building blocks of
-     * programming in general.
+     * Comparison operators produce Boolean values.
+     * Logical operators combine those values into conditions for if and loops.
     */
 
     val x = 8
@@ -13,7 +12,7 @@ fun main() {
     // checking to see if x is equal to y below
     println(x == y) // false
 
-    // checking to se if x is less than y
+    // checking to see if x is less than y
     println(x < y) // true
 
     // checking if x is greater than or equal to y
@@ -26,8 +25,8 @@ fun main() {
      * || = or
      * && = and
      *
-     * Also, the and operator is stronger than the or operator with
-     * order of operations
+     * && has higher precedence than ||. Parentheses make the grouping explicit.
+     * Both short-circuit: the right side is evaluated only if it is needed.
      */
     println(x == y || x < y) // true
 
@@ -40,7 +39,5 @@ fun main() {
     fun returnNumber(x: Int, y: Int): Int = if (x == y) 0 else 10
 
     val number1 = returnNumber(10, 10)
-    println(number1)
-
-    // 0
+    println(number1) // 0
 }

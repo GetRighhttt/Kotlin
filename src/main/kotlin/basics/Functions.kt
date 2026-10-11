@@ -1,56 +1,45 @@
 package basics
 
-    /**
-     * Functions make it easier for us to create logic and code in cleaner ways.
-     *
-     * Functions serve the purpose of acting as a container for logic that we can
-     * call in our main function that executes that logic.
-     *
-     * Typically, functions are created to do one thing. Having multiple use cases for
-     * one function is not good practice.
-     *
-     * Note* - these are just the basics, and we will discuss more of Kotlin's advanced functional methods in other sections.
-    */
-
+/**
+ * Functions give a name to a piece of logic so we can call it again.
+ * Keep each function focused on one task so its name tells us what to expect.
+ *
+ * These examples are local functions: they can only be used inside main().
+ * Kotlin also supports top-level functions, as shown in VarArgDefaultNames.kt.
+ */
 fun main() {
+    // A block body uses return to send a result back to the caller.
+    fun addDigits(x: Int, y: Int): Int {
+        return x + y
+    }
 
-    /**
-     * In Kotlin, we can use functions without have to explicitly put them in a class like we do in
-     * Java.
-     * So these methods below you will see can be called in the main function.
-    */
-
-    // here we create our first function that returns an integer
-    fun addDigits(x: Int, y: Int): Int = if (x > y) y else x * 2
-
-
-    // this is a function without any parameters or return type
+    // A function that only prints has return type Unit. We can omit : Unit.
     fun printThisLine() {
-        println("This is the most basic function syntactically however " +
-                "it's probably the best approach when working with other devs.")
+        println("This function prints a line.")
     }
 
-    // this is a function that takes in two parameters for calculations
-    fun doSomeCalculations(y: Int, x: Int) {
-        val addition = x + y
-        println(addition)
+    fun doSomeCalculations(x: Int, y: Int) {
+        println(x + y)
     }
 
-    // if a function is short and doesn't have a return type, we can omit the curly brackets
+    // An expression body uses =. The compiler infers String as the return type.
     fun getName(name: String) = "My name is: $name"
+    println(getName("Stefan")) // My name is: Stefan
 
-    // gets the name and prints as a regular function
-    println(getName("Stefan"))
+    // :: creates a function reference. Storing it does not call the function.
+    val printLine = ::printThisLine
+    printLine() // This function prints a line.
 
-    // println() function and function reference
-    println(::printThisLine)
+    // Parentheses and invoke() both call a function reference.
+    val calculate = ::doSomeCalculations
+    calculate.invoke(10, 20) // 30
 
-    // calculations function with function reference
-    println(::doSomeCalculations.invoke(10, 20))
+    val add = ::addDigits
+    println(add(5, 8)) // 13
+    println(add.invoke(10, 4)) // 14
 
-    // here is how we can call a function in main with a minus method on the end
-    println(::addDigits.invoke(5, 8).minus(5)) // returns 5
-    println(::addDigits.invoke(10, 4).plus(20)) // returns 24
-    println(::addDigits.invoke(80, 200).compareTo(180)) // returns -1 for false
-    println(::addDigits.invoke(30, 40)) // returns 60
+    // Once we have the returned Int, we can call other Int methods on it.
+    println(add(5, 8).minus(5)) // 8
+    println(add(10, 4).plus(20)) // 34
+    println(add(80, 200).compareTo(180)) // 1: 280 is greater than 180
 }

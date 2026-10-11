@@ -10,13 +10,13 @@ fun main() {
     val newNumber = getMinNumber(10, 20, 30, 50, 2, 4, 5, 6, 7, 1)
     println(newNumber) // prints 1
 
-    // inserting array values into variable arguments
+    // The spread operator (*) passes the IntArray elements as individual arguments.
     val newArray = intArrayOf(3, 4, 5)
     val newVarArg = getMinNumber(*newArray, 7, 8, 9, 110)
     println(newVarArg) // prints 3
 
-
-    println(searchForString("My name is Stefan"))
+    // A named argument makes it clear which parameter we are supplying.
+    println(searchForString(search = "My name is Stefan"))
     println(searchForString())
 }
 
@@ -24,9 +24,11 @@ fun main() {
  * VarArg is used when we want to pass a variable number of arguments as a
  * function parameter.
  *
- * We can treat the numbers we input just like we would treat a LIST.
+ * Inside the function, an Int vararg is an IntArray.
+ * This example requires at least one number to have a minimum.
  */
 fun getMinNumber(vararg numbers: Int): Int {
+    require(numbers.isNotEmpty()) { "Supply at least one number." }
     var min = numbers[0]
     for (number in numbers) {
         if (number < min) min = number

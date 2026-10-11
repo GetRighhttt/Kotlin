@@ -20,19 +20,19 @@ fun main() {
     val multiplication = a * b
     println(multiplication)
 
-    // division: 30/70 = 0
+    // Integer division drops the fractional part: 30 / 70 = 0.
     val division = a / b
     println(division)
 
-    // modulus(remainder): 70/30 = 68 remainder 2; so 2
-    val modulus = b / a
+    // Remainder: 70 = 2 * 30 + 10. Use % for the remainder.
+    val modulus = b % a
     println(modulus)
 
     println("The addition equation is : $a + $b")
     println("The addition result is: ${a + b}")
 
     val age = 30f // float
-    val newAge = 40.0 // double values are more accurate than float
+    val newAge = 40.0 // Double has more precision than Float; both have rounding limits.
     println(age)
 
     // pow used to raise a number to a value
@@ -41,14 +41,14 @@ fun main() {
     // convert to Integer, and there's more conversions like this
     println(age.toInt())
 
-    // compare the numbers, and returns 0 if equal to, more negative than,
-    // or greater than
+    // compareTo returns a negative number, zero, or a positive number
+    // for less than, equal to, or greater than, respectively.
     println(age.compareTo(newAge))
 
-    // decrements the value by one
+    // dec() returns a value one smaller; this call does not change age.
     println(age.dec())
 
-    // returns the positive value of a number
+    // Absolute value is the distance from zero (zero remains zero).
     println(age.absoluteValue)
 
     // adds age to the newAge
@@ -63,7 +63,7 @@ fun main() {
      * -40
      * 2100
      * 0
-     * 2
+     * 10
      * The addition equation is : 30 + 70
      * The addition result is: 100
      * 30.0

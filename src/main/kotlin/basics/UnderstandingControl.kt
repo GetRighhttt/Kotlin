@@ -1,7 +1,5 @@
 package basics
 
-import advancedkotlin.functional.morefunctions.invoke
-
 fun main() {
 
     /**
@@ -18,7 +16,9 @@ fun main() {
     val y = 9
     val x = 13
 
-    if (x != y && y >= 10) println(message = "This is true.") else if (x == 15 || y != x) {
+    if (x != y && y >= 10) {
+        println("This is true.")
+    } else if (x == 15 || y != x) {
         println("This is not true.")
     }
 
@@ -30,15 +30,13 @@ fun main() {
     println(z)
 
     // for loop - usually used with the range operator in Kotlin.
-    var count = 0
-    for (i in 0..3) println(count++) // inclusive of all numbers in range
-
+    for (i in 0..3) println(i) // includes both 0 and 3
+    var count = 4 // Continue the while example from where the range ended.
 
     for (i in 0 until 5) println(i) // excludes last number
 
     // for-each loop - usually used when you want to loop through each element
     for (letter in "Stefan") println(letter.toString().uppercase())
-
 
     // while loop
     while (count < x) {
@@ -57,15 +55,13 @@ fun main() {
      */
     when (x) {
         in 1..10 -> println("In between 1 and 10")
-        in 10..20 -> println("In between 10 and 20")
-        else -> println("Above 20.")
+        in 11..20 -> println("In between 11 and 20")
+        else -> println("Outside 1 through 20.")
     }
 
     /**
-     * When statements are also very powerful and can be used with enums, functions, etc. to
-     * return some values.
-     * When trying to choose between if and when, you generally want to use when statements when you
-     * are working with more than two values.
+     * when can match values, ranges, and types.
+     * Each matching branch here prints a message, so getNewNumber returns Unit.
      */
     fun getNewNumber(x: Int) = when (x) {
         2 -> println("Dos")
@@ -76,14 +72,8 @@ fun main() {
     getNewNumber(5) // prints Not in the range of 2-4...
 
     /**
-     * In Kotlin, "if" is an expression, meaning it returns a value.
-     * So in more complex cases and when working with more professional code bases, often
-     * if we be used with short syntax.
-     *
-     * We don't need to declare a specific variable or use much syntax to provide a value here.
-     *
-     * Single-line functions and statements in Kotlin are cool, but we should use them with caution, as
-     * it can become very confusing.
+     * if is an expression: the chosen branch supplies its result.
+     * A short expression body works well when both branches are easy to read.
      */
 
     fun getName(a: Boolean): String = if (a) "Stefan" else "Bob"
@@ -118,7 +108,7 @@ fun main() {
      * This is a while loop.
      * This is a while loop.
      * This is a do while loop.
-     * In between 10 and 20
+     * In between 11 and 20
      * Not in the range of 2-4...
      * Stefan
      */

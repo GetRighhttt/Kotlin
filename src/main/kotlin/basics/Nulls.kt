@@ -1,61 +1,42 @@
 package basics
 
 /**
- * What is null? What is a null pointer exception?
+ * null means there is no value. It is different from zero or an empty string.
+ * A nullable type ends in ?, such as String?.
  *
- * Null - the absence of a value; not equal to 0, but can hold 0 as a value, and is not an empty string.
- *
- * One of the most key reasons as to why we should use Kotlin for Android dev over Java, is the fact Kotlin handles
- * nulls safely. In Kotlin, null values are checked by the compiler at compile time, meaning if there is a NPE,
- * null pointer exception, the program won't run at all, and that will have to be resolved.
+ * Kotlin checks nullable access at compile time. We can still cause a null pointer
+ * exception with !! or through Java interop, so how we handle null matters.
  */
-
 fun main() {
-
-    /**
-     * Kotlin handles null safety in a few ways:
-     *
-     * 1. Safe operator
-     * 2. Elvis operator
-     * 3. Nullable types
-     * 4. Not-Null Assertion operator
-     * 5. Nullable receiver
-     * 6. Let scope function
-     * 7. Safe casts
-     *
-     * Safe casts aren't generally used often but are an approach that we can use.
-     */
-
-    // Nullable types & null receiver - variables have the option to be nullable
     val name: String? = null
+
+    // This equals extension accepts a nullable receiver.
     println(name.equals("Stefan")) // false
 
-    // safe operator - check if null or not
+    // A safe call (?.) skips the property access when the receiver is null.
     println(name?.length) // null
 
-    // elvis operator - if/then conditional check
-    val newLength = name?.length ?: 0
-    println(newLength) // 0
+    // Elvis (?:) supplies a fallback when the expression on the left is null.
+    val length = name?.length ?: 0
+    println(length) // 0; length has non-null type Int
 
-    // not null - ensures the value is not null
-    println(newLength!!) // 0
+    // An ordinary null check lets the compiler smart-cast a local val.
+    val friend: String? = listOf("Stefan").firstOrNull()
+    if (friend != null) {
+        println(friend.length) // 6
+    }
 
-    // let - scope function that allows us to manipulate null values
-    println(newLength.let {
-        it == it.plus(10) // false
-    })
+    // ?.let runs the block only when a value is present.
+    name?.let { println("This will not print: $it") }
+    friend?.let { println(it.uppercase()) } // STEFAN
 
-    // safe casts
-    val myCastNumber = 3
-    val newCasts: String? = myCastNumber as? String
-    println(newCasts) // null
+    // !! asserts that a nullable value is present. It throws if the value is null.
+    println(friend!!.length) // 6
+    // println(name!!.length) // Uncomment to see a NullPointerException.
 
-    /**
-     * false
-     * null
-     * 0
-     * 0
-     * false
-     * null
-     */
+    // A safe cast (as?) returns null when the value is not the requested type.
+    val value: Any = 3
+    val text = value as? String
+    println(text) // null
+    println(value as? Int) // 3
 }

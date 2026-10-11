@@ -1,9 +1,9 @@
 package basics
 
 /**
- * Each Kotlin file must have a main function just like in Java.
- * The string arguments here are for the command line, and are completely optional. Kotlin
- * has string arguments built in so that we don't need to specify them.
+ * main() is the entry point for this runnable example.
+ * Other Kotlin files can contain declarations without a main function.
+ * Use fun main(args: Array<String>) when you want to read command-line arguments.
  */
 fun main() {
 
@@ -11,5 +11,5 @@ fun main() {
     println("Hello world!")
     println("Welcome to the Basic Kotlin Demo!")
     println("--------------------------------")
-    println("Here we will go over everything you need in order to learn Kotlin!")
+    println("Here we will go over the basics of Kotlin!")
 }

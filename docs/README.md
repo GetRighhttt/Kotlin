@@ -5,6 +5,9 @@ original contents are preserved here, alongside the runnable examples in
 [`src/main/kotlin/`](../src/main/kotlin/). Some statements reflect what I understood
 at the time and may need a future review.
 
+- [Basics reference](basics.md)
+- [Learning history](learning-history.md)
+
 ## Language and tooling
 
 - [Why Kotlin](why-kotlin.md)

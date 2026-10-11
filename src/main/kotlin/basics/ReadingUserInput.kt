@@ -1,30 +1,44 @@
 package basics
 
-import java.util.*
-
+/**
+ * readlnOrNull() reads a line as String?, returning null when input has ended.
+ * toIntOrNull() returns null when the text is not a valid Int.
+ *
+ * Java's Scanner is another option. This example uses one reader for both lines
+ * so separate readers do not compete for buffered input from System.in.
+ */
 fun main() {
-    /**
-     * We can read user input in the string in a few ways:
-     *
-     * readLine() always returns a string, and we must make sure
-     * it's not null with a ?.
-     *
-     * Scanner class in java reads in any input
-     */
     println("Enter some text you want reversed:")
     val userInput = readlnOrNull()
-    println(userInput?.reversed())
+    if (userInput == null) {
+        println("Input ended.")
+        return
+    }
+    println(userInput.reversed())
 
-    val scanner = Scanner(System.`in`)
-    println("Enter a number: ")
-    val num = scanner.nextInt()
-    println("This is the number minus 10: ${num - 10}")
+    println("Enter a number:")
+    val numberInput = readlnOrNull()
+    if (numberInput == null) {
+        println("Input ended.")
+        return
+    }
 
-    /**
-     * this is a string
-     * gnirts a si siht
-     * Enter a number:
-     * 32
-     * This is the number minus 10: 22
-     */
+    val number = numberInput.toIntOrNull()
+    if (number == null) {
+        println("Please enter a whole number within the Int range.")
+        return
+    }
+
+    // Convert to Long before subtraction to keep Int.MIN_VALUE from overflowing.
+    println("This is the number minus 10: ${number.toLong() - 10}")
 }
+
+/*
+Sample session (the input lines are typed by the user):
+Enter some text you want reversed:
+this is a string
+gnirts a si siht
+Enter a number:
+32
+This is the number minus 10: 22
+*/

@@ -1,4 +1,4 @@
-# Kotlin learning archive
+# Kotlin reference and learning notes
 
 A collection of Kotlin examples and notes I built over years while teaching myself
 the language. The comments, experiments, and explanations are part of the learning
@@ -11,7 +11,8 @@ I know.
 ## Explore the examples
 
 Each topic lives under `src/main/kotlin/`. Many files have their own `main()` function
-so you can run an example individually.
+so you can run an example individually. Start with the [basics guide](docs/basics.md)
+for a quick lookup by syntax.
 
 | Topic | Examples |
 | --- | --- |
@@ -28,8 +29,9 @@ so you can run an example individually.
 | Android-related concepts | [Backing fields and properties](src/main/kotlin/androidconcepts/) |
 
 The written explanations and reference images are collected in [docs/](docs/README.md).
-These are historical learning notes; they have not all been reviewed for accuracy
-against current Kotlin versions.
+The [learning history](docs/learning-history.md) points to earlier versions and
+explains how the repository grew. The basics have been reviewed in this cleanup;
+the remaining topics and historical notes still need a review.
 
 ## Run an example
 
@@ -45,6 +47,7 @@ against current Kotlin versions.
 With a JDK and the Kotlin command-line tools installed, run from the repository root:
 
 ```sh
+mkdir -p build
 kotlinc src/main/kotlin -d build/examples.jar
 kotlin -classpath build/examples.jar basics.HelloWorldKt
 ```
