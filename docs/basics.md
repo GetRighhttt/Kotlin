@@ -30,7 +30,7 @@ From the repository root, with the Kotlin command-line tools and a JDK installed
 
 ```sh
 mkdir -p build
-kotlinc src/main/kotlin -d build/examples.jar
+kotlinc src/main/kotlin -language-version 2.4 -api-version 2.4 -jvm-target 1.8 -d build/examples.jar
 kotlin -classpath build/examples.jar basics.FunctionsKt
 ```
 

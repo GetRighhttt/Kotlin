@@ -16,8 +16,8 @@ enum class Sports(val displayName: String) : YourSport {
 }
 
 fun main() {
-    CreditCardType.values().forEach(::println) // SILVER, GOLD, PLATINUM
-    Sports.values().forEach(::println)
+    CreditCardType.entries.forEach(::println) // SILVER, GOLD, PLATINUM
+    Sports.entries.forEach(::println)
     println(CreditCardType.returnType(CreditCardType.SILVER)) // SILVER
     println("${CreditCardType.SILVER.ordinal}, ${CreditCardType.SILVER.name}") // 0, SILVER
     // ordinal is the declaration position; do not treat it as a stable stored ID.
@@ -32,6 +32,6 @@ fun main() {
     }
     println(message)
     Sports.BASKETBALL.yourSport() // Your sport is Basketball.
-    // values() keeps this example compatible with the project's Kotlin 1.7 language/API settings.
-    // With Kotlin 1.9+ API settings, entries provides the enum entries without creating an array each call.
+    // entries exposes the enum values without creating a new array on each access.
+    // values() is still available when an array is needed.
 }

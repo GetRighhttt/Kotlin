@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,15 +26,47 @@ def run(command, input_text=None, timeout=15):
     return result.stdout
 
 
+def compiler_settings():
+    settings = ET.parse(ROOT / ".idea/kotlinc.xml").getroot()
+
+    def option(component, name):
+        return settings.find(f"component[@name='{component}']/option[@name='{name}']").get("value")
+
+    required_version = option("KotlinJpsPluginSettings", "version")
+    flags = [
+        "-language-version", option("KotlinCommonCompilerArguments", "languageVersion"),
+        "-api-version", option("KotlinCommonCompilerArguments", "apiVersion"),
+        "-jvm-target", option("Kotlin2JvmCompilerArguments", "jvmTarget"),
+    ]
+    return required_version, flags
+
+
+def tool_version(executable):
+    result = subprocess.run([executable, "-version"], text=True, capture_output=True, timeout=15)
+    output = (result.stdout + result.stderr).strip()
+    match = re.search(r"(?:kotlinc-jvm|Kotlin version) (\d+\.\d+\.\d+)", output)
+    if result.returncode or not match:
+        raise RuntimeError(f"Cannot determine Kotlin version for {executable}: {output}")
+    return match.group(1), output
+
+
 def main():
     compiler, runtime = tool("kotlinc"), tool("kotlin")
-    version = subprocess.run([compiler, "-version"], text=True, capture_output=True, check=True)
-    print((version.stdout + version.stderr).strip())
+    required_version, flags = compiler_settings()
+    version, description = tool_version(compiler)
+    print(description)
+    if tuple(map(int, version.split("."))) < tuple(map(int, required_version.split("."))):
+        raise RuntimeError(f"This project requires Kotlin {required_version} or newer; selected {version}. "
+                           "Update PATH or set KOTLINC and KOTLIN to matching tools.")
+    runtime_version, _ = tool_version(runtime)
+    if runtime_version != version:
+        raise RuntimeError(f"Compiler {version} and runtime {runtime_version} differ. "
+                           "Set KOTLINC and KOTLIN to the same Kotlin distribution.")
     build = ROOT / "build"
     build.mkdir(exist_ok=True)
     jar = build / "reference-checks.jar"
     run([compiler, str(ROOT / "src/main/kotlin"), str(ROOT / "src/test/kotlin"),
-         "-Werror", "-d", str(jar)], timeout=120)
+         *flags, "-Werror", "-d", str(jar)], timeout=120)
     print(run([runtime, "-classpath", str(jar), "ReferenceChecksKt"]), end="")
 
     inputs = {

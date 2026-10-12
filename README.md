@@ -39,16 +39,19 @@ the current examples are intended to compile and run as a reference.
 
 1. Open this repository in IntelliJ IDEA with Kotlin support enabled.
 2. Configure an installed JDK as the Project SDK. The checked-in module is `KotlinBasics`.
-3. Open an example such as `src/main/kotlin/basics/HelloWorld.kt`.
-4. Run its `main()` function using the gutter run button.
+3. Use an IntelliJ version with Kotlin 2.4 support. The project selects compiler 2.4.21;
+   allow IntelliJ to download the compiler and resolve the Kotlin standard library.
+4. Open an example such as `src/main/kotlin/basics/HelloWorld.kt`.
+5. Run its `main()` function using the gutter run button.
 
 ### Command line
 
-With a JDK and the Kotlin command-line tools installed, run from the repository root:
+With a JDK and [Kotlin 2.4.21 command-line tools](https://github.com/JetBrains/kotlin/releases/tag/v2.4.21)
+installed, run from the repository root:
 
 ```sh
 mkdir -p build
-kotlinc src/main/kotlin -d build/examples.jar
+kotlinc src/main/kotlin -language-version 2.4 -api-version 2.4 -jvm-target 1.8 -d build/examples.jar
 kotlin -classpath build/examples.jar basics.HelloWorldKt
 ```
 
@@ -71,5 +74,7 @@ If your Kotlin tools are elsewhere, set `KOTLINC` and `KOTLIN` to their executab
 paths. The check compiles with warnings treated as errors, runs every example, and
 checks missing and invalid input. It writes generated files to `build/`.
 
-The source is checked with Kotlin 1.7.22 and 2.3.20 on the JVM. The shared IntelliJ
-configuration still uses language/API level 1.7 and JVM target 1.8.
+The project uses Kotlin **2.4.21**, language/API level **2.4**, and JVM target **1.8**.
+The check script reads these settings from `.idea/kotlinc.xml`, requires compiler
+2.4.21 or newer, and checks that the compiler and runtime versions match. The earlier
+1.7 settings remain in Git history.

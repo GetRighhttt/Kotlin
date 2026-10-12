@@ -14,7 +14,7 @@ up so I can use them as a reference without carrying forward incorrect explanati
 - **2024–2025:** revisits, additional examples, and cleanup. Coroutines were removed
   from this repository in January 2025.
 - **2026:** expanded extension and scope function explanations, reference images,
-  and the reference cleanup covering all examples and notes.
+  the reference cleanup covering all examples and notes, and an upgrade to Kotlin 2.4.21.
 
 A few commits to revisit:
 
