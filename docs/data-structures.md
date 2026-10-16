@@ -33,10 +33,11 @@ intermediate lists, but that does not make it faster in every case.
 ## Run an example
 
 ```sh
-mkdir -p build
-kotlinc src/main/kotlin -language-version 2.4 -api-version 2.4 -jvm-target 1.8 -d build/examples.jar
-kotlin -classpath build/examples.jar datastructures.ArraysKt
+./gradlew run -Pexample=datastructures.ArraysKt
 ```
+
+Use JDK 21 and the wrapper; on Windows, use `.\gradlew.bat` instead of `./gradlew`.
+See the [setup instructions](../README.md) for a first run.
 
 ListKt reads up to five valid integers. Invalid text is retried; closed input ends
 the loop and prints the numbers collected so far.

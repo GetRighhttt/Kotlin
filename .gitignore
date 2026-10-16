@@ -5,7 +5,7 @@
 /.kotlin/
 *.class
 
-# Local IntelliJ state (shared project configuration remains tracked)
+# Local IntelliJ state and Gradle-generated project models
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/shelf/
@@ -14,3 +14,12 @@
 
 # macOS metadata
 .DS_Store
+
+# Gradle owns the modules, compiler settings, and dependencies.
+*.iml
+.idea/modules.xml
+.idea/kotlinc.xml
+.idea/libraries/
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/misc.xml

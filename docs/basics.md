@@ -26,17 +26,16 @@ practice; the explanations have been checked for this reference.
 
 ## Running a file
 
-From the repository root, with the Kotlin command-line tools and a JDK installed:
+From the repository root, with a JDK 21 installed:
 
 ```sh
-mkdir -p build
-kotlinc src/main/kotlin -language-version 2.4 -api-version 2.4 -jvm-target 1.8 -d build/examples.jar
-kotlin -classpath build/examples.jar basics.FunctionsKt
+./gradlew run -Pexample=basics.FunctionsKt
 ```
 
-Use the package name plus the filename without .kt, followed by Kt. For example,
-ReadingUserInput.kt runs as basics.ReadingUserInputKt. In IntelliJ, use the run
-button beside main().
+Use `./gradlew -q examples` to list the entry points. On Windows, replace
+`./gradlew` with `.\gradlew.bat`. For example, ReadingUserInput.kt runs as
+basics.ReadingUserInputKt. In IntelliJ, sync the Gradle project and use the run
+button beside main(). See the [setup instructions](../README.md) for a first run.
 
 ## Details I want to remember
 

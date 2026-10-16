@@ -1,18 +1,83 @@
 # Kotlin reference and learning notes
 
 A collection of Kotlin examples and notes I built over years while teaching myself
-the language. The comments, experiments, and explanations are part of the learning
-material. This repository explores Kotlin syntax and features that can help simplify
-Android development.
+and returning to the language. I made this repo to remember syntax; the
+[learning history](docs/learning-history.md) shows how my understanding developed.
 
-I enjoy learning and discussing Kotlin. Teach me what you know, and I’ll share what
-I know.
+Kotlin is a programming language used for Android apps and other software. These
+are small console examples: they print results in a terminal, and some ask for
+input. You can run them before learning the syntax.
+
+## Run your first example
+
+### IntelliJ IDEA
+
+1. Open the repository folder in IntelliJ IDEA with Kotlin support enabled.
+2. Load the Gradle project when prompted. If you already had the project open,
+   open `build.gradle.kts` and choose **Load Gradle Project**, then sync Gradle.
+3. In **Settings → Build, Execution, Deployment → Build Tools → Gradle**, use the
+   **Gradle wrapper** and select **JDK 21** for the Gradle JVM. IntelliJ can download
+   a JDK from the JVM selector if you do not have one.
+4. Open `src/main/kotlin/basics/HelloWorld.kt` and click the run button beside
+   `main()`. Its output appears in the Run window.
+
+The first sync needs internet access to download Gradle, Kotlin, and dependencies.
+You do not need to install Gradle or Kotlin separately. There is no Android SDK or
+emulator to configure for these console examples.
+
+### Terminal
+
+Install a JDK 21 and check that `java -version` reports version 21. From the
+repository folder, run:
+
+```sh
+./gradlew run
+```
+
+This downloads the required tools, compiles the examples, and prints `Hello world!`.
+On Windows PowerShell, use `.\gradlew.bat run` instead. The other commands below
+use the same Windows replacement for `./gradlew`.
+
+## Choose another example
+
+List the available entry points, then pass one to `run`:
+
+```sh
+./gradlew -q examples
+./gradlew run -Pexample=basics.StringsExampleKt
+./gradlew run -Pexample=basics.ReadingUserInputKt --console=plain
+```
+
+An entry point is the function where an example starts. Here, its name combines
+the package, filename, and `Kt`. The `examples` task lists the exact names, so you
+can copy one. Examples that ask for input accept text typed into the terminal;
+`--console=plain` makes their prompts easier to follow.
+
+## Build and check
+
+```sh
+./gradlew build
+```
+
+This compiles the project, creates a JAR in `build/libs/`, and runs the tests.
+The tests exercise every example with sample input, check missing and invalid
+input, and verify the corrected boundary cases. Compiler warnings fail the build.
+The JAR contains multiple examples; use `run` to choose which one to execute.
+
+Useful commands:
+
+| Command | Purpose |
+| --- | --- |
+| `./gradlew run` | Run Hello World |
+| `./gradlew -q examples` | List examples |
+| `./gradlew test` | Run the checks and write a report to `build/reports/tests/test/index.html` |
+| `./gradlew clean build` | Delete generated output, rebuild, and check |
+| `./gradlew tasks` | List Gradle tasks |
 
 ## Explore the examples
 
-Each topic lives under `src/main/kotlin/`. Many files have their own `main()` function
-so you can run an example individually. Start with the [basics guide](docs/basics.md)
-for a quick lookup by syntax.
+Start with the [basics guide](docs/basics.md) for a lookup by syntax. Each example
+has comments describing its behavior and expected results.
 
 | Topic | Examples |
 | --- | --- |
@@ -28,53 +93,22 @@ for a quick lookup by syntax.
 | Value classes | [Value class examples](src/main/kotlin/advancedkotlin/valuecl/) |
 | Android-related concepts | [Backing fields and properties](src/main/kotlin/androidconcepts/) |
 
-The written explanations and reference images are collected in [docs/](docs/README.md).
-The [learning history](docs/learning-history.md) points to earlier versions and
-explains how the repository grew. All examples and notes have been reviewed. Earlier experiments remain in Git history;
-the current examples are intended to compile and run as a reference.
 
-## Run an example
+The [reference notes](docs/README.md) explain the topics in more detail.
+My earlier experiments and explanations remain in Git history.
 
-### IntelliJ IDEA
+## Build configuration
 
-1. Open this repository in IntelliJ IDEA with Kotlin support enabled.
-2. Configure an installed JDK as the Project SDK. The checked-in module is `KotlinBasics`.
-3. Use an IntelliJ version with Kotlin 2.4 support. The project selects compiler 2.4.21;
-   allow IntelliJ to download the compiler and resolve the Kotlin standard library.
-4. Open an example such as `src/main/kotlin/basics/HelloWorld.kt`.
-5. Run its `main()` function using the gutter run button.
+The project uses **Kotlin 2.4.21**, **Gradle 9.7.0**, and a **JDK 21 toolchain**.
+Kotlin language/API level is **2.4**. JVM target **1.8** describes the generated
+example bytecode; use JDK 21 to run this build and its tests.
 
-### Command line
+`build.gradle.kts` owns compiler settings, dependencies, tests, and run tasks.
+The wrapper pins the Gradle version and verifies its distribution checksum.
+Generated files belong in `build/` and are ignored by Git.
 
-With a JDK and [Kotlin 2.4.21 command-line tools](https://github.com/JetBrains/kotlin/releases/tag/v2.4.21)
-installed, run from the repository root:
+See [how the Gradle build works](docs/gradle-and-build-systems.md) for the migration
+steps, file responsibilities, and version update instructions.
 
-```sh
-mkdir -p build
-kotlinc src/main/kotlin -language-version 2.4 -api-version 2.4 -jvm-target 1.8 -d build/examples.jar
-kotlin -classpath build/examples.jar basics.HelloWorldKt
-```
-
-Compile the full source directory: some examples reference declarations from other
-files. Change the final class name to run another example (for example,
-`datastructures.ArraysKt`). Input-reading examples accept terminal input and exit when input ends.
-
-This project currently uses IntelliJ module configuration rather than a Gradle or
-Maven build. Generated output belongs in `out/` or `build/` and is ignored by Git.
-
-## Check the repository
-
-Run the examples and boundary checks with Python 3 and Kotlin tools on your PATH:
-
-```sh
-python3 scripts/check-examples.py
-```
-
-If your Kotlin tools are elsewhere, set `KOTLINC` and `KOTLIN` to their executable
-paths. The check compiles with warnings treated as errors, runs every example, and
-checks missing and invalid input. It writes generated files to `build/`.
-
-The project uses Kotlin **2.4.21**, language/API level **2.4**, and JVM target **1.8**.
-The check script reads these settings from `.idea/kotlinc.xml`, requires compiler
-2.4.21 or newer, and checks that the compiler and runtime versions match. The earlier
-1.7 settings remain in Git history.
+If setup fails, check `java -version` and IntelliJ's **Gradle JVM** first. If a
+first-time download fails, restore internet access and run the command again.

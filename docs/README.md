@@ -22,7 +22,7 @@ remain in [Git history](learning-history.md).
 - [Java interoperability](java-and-kotlin-interoperability.md)
 - [Gradle and build systems](gradle-and-build-systems.md)
 - [Design patterns](design-patterns.md)
-- [Kotlin 2.0 reference](kotlin-2.0.md)
+- [Kotlin version and compiler](kotlin-version.md)
 
 ## Property accessors
 
